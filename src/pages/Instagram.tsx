@@ -74,7 +74,8 @@ export default function Instagram() {
               </div>
               
               <a
-                href="https://instagram.com/anchor_yash"
+                href="https://instagram.com/anchor_yash_official
+"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -110,7 +111,8 @@ export default function Instagram() {
             {instagramPosts.map((post, index) => (
               <motion.a
                 key={post.id}
-                href="https://instagram.com/anchor_yash"
+                href="https://instagram.com/anchor_yash_official
+"
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -148,7 +150,8 @@ export default function Instagram() {
             className="text-center mt-10"
           >
             <a
-              href="https://instagram.com/anchor_yash"
+              href="https://instagram.com/anchor_yash_official
+"
               target="_blank"
               rel="noopener noreferrer"
             >

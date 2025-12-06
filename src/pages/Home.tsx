@@ -158,7 +158,8 @@ export default function Home() {
                 </Button>
               </Link>
               <a
-                href="https://instagram.com/anchor_yash"
+                href="https://instagram.com/anchor_yash_official
+"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -411,7 +412,7 @@ export default function Home() {
                     <ChevronRight className="w-5 h-5" />
                   </Button>
                 </Link>
-                <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/917737877978" target="_blank" rel="noopener noreferrer">
                   <Button variant="whatsapp" size="xl">
                     WhatsApp Me
                   </Button>

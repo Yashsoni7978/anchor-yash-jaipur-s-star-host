@@ -73,7 +73,8 @@ export const Navbar = () => {
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-3">
             <a
-              href="https://instagram.com/anchor_yash"
+              href="https://instagram.com/anchor_yash_official
+"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-full border border-border hover:border-primary hover:text-primary transition-all duration-300"
@@ -124,7 +125,8 @@ export const Navbar = () => {
             ))}
             <div className="flex gap-3 mt-6">
               <a
-                href="https://instagram.com/anchor_yash"
+                href="https://instagram.com/anchor_yash_official
+"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1"

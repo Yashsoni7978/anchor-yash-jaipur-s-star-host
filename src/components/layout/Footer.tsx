@@ -37,7 +37,8 @@ export const Footer = () => {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://instagram.com/anchor_yash"
+                href="https://instagram.com/anchor_yash_official
+"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-all duration-300"
@@ -98,7 +99,7 @@ export const Footer = () => {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="tel:+919876543210"
+                  href="tel:+917737877978"
                   className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors duration-300"
                 >
                   <Phone className="w-5 h-5 text-primary" />
@@ -107,11 +108,11 @@ export const Footer = () => {
               </li>
               <li>
                 <a
-                  href="mailto:book@anchoryash.com"
+                  href="mailto:yashsoni7978@gmail.com"
                   className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors duration-300"
                 >
                   <Mail className="w-5 h-5 text-primary" />
-                  book@anchoryash.com
+                  yashsoni7978@gmail.com
                 </a>
               </li>
               <li>

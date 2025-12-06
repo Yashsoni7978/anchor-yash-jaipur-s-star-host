@@ -100,7 +100,7 @@ export default function Contact() {
                 <h2 className="text-2xl font-display font-bold mb-6">Contact Information</h2>
                 <div className="space-y-6">
                   <a
-                    href="tel:+919876543210"
+                    href="tel:+917737877978"
                     className="flex items-start gap-4 group"
                   >
                     <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -113,7 +113,7 @@ export default function Contact() {
                   </a>
 
                   <a
-                    href="mailto:book@anchoryash.com"
+                    href="mailto:yashsoni7978@gmail.com"
                     className="flex items-start gap-4 group"
                   >
                     <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -121,7 +121,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Email</p>
-                      <p className="font-semibold group-hover:text-primary transition-colors">book@anchoryash.com</p>
+                      <p className="font-semibold group-hover:text-primary transition-colors">yashsoni7978@gmail.com</p>
                     </div>
                   </a>
 
@@ -152,7 +152,7 @@ export default function Contact() {
                 <h3 className="font-display font-semibold">Quick Contact</h3>
                 <div className="flex flex-wrap gap-3">
                   <a
-                    href="https://wa.me/919876543210"
+                    href="https://wa.me/917737877978"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -161,7 +161,7 @@ export default function Contact() {
                       WhatsApp
                     </Button>
                   </a>
-                  <a href="tel:+919876543210">
+                  <a href="tel:+917737877978">
                     <Button variant="outline" className="gap-2">
                       <Phone className="w-5 h-5" />
                       Call Now
@@ -175,7 +175,8 @@ export default function Contact() {
                 <h3 className="font-display font-semibold">Follow Me</h3>
                 <div className="flex gap-4">
                   <a
-                    href="https://instagram.com/anchor_yash"
+                    href="https://instagram.com/anchor_yash_official
+"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-xl border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-all duration-300"

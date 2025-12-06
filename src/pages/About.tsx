@@ -104,7 +104,8 @@ export default function About() {
 
               <div className="flex gap-4 mt-8">
                 <a
-                  href="https://instagram.com/anchor_yash"
+                  href="https://instagram.com/anchor_yash_official
+"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
