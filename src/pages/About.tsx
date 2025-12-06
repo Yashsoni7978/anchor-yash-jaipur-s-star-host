@@ -98,7 +98,7 @@ export default function About() {
                 </div>
                 <div className="flex items-center gap-2 text-muted-foreground">
                   <Calendar className="w-5 h-5 text-primary" />
-                  <span>5+ Years Experience</span>
+                  <span>05+ Years Experience</span>
                 </div>
               </div>
 

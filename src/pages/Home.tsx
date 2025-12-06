@@ -10,7 +10,7 @@ import fashionImage from "@/assets/fashion-show.jpg";
 
 const stats = [
   { number: "1100+", label: "Events Hosted", icon: Mic },
-  { number: "5+", label: "Years Experience", icon: Award },
+  { number: "05+", label: "Years Experience", icon: Award },
   { number: "500+", label: "Happy Clients", icon: Users },
   { number: "70+", label: "Corporate Clients", icon: Star },
 ];
@@ -77,7 +77,7 @@ const whyChooseUs = [
     description: "Fluent in both Hindi and English for seamless multilingual events",
   },
   {
-    title: "5+ Years Experience",
+    title: "05+ Years Experience",
     description: "Seasoned professional with expertise across diverse event types",
   },
 ];
