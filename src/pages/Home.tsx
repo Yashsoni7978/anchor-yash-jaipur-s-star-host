@@ -12,7 +12,7 @@ const stats = [
   { number: "1100+", label: "Events Hosted", icon: Mic },
   { number: "5+", label: "Years Experience", icon: Award },
   { number: "500+", label: "Happy Clients", icon: Users },
-  { number: "50+", label: "Corporate Clients", icon: Star },
+  { number: "70+", label: "Corporate Clients", icon: Star },
 ];
 
 const trustBadges = [
