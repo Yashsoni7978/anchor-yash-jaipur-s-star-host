@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Play, Instagram, Star, Users, Award, Mic, ChevronRight, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
-import heroImage from "@/assets/hero-anchor.jpg";
+import heroImage from "@/assets/hero-anchor.jpg.HEIC";
 import weddingImage from "@/assets/wedding-event.jpg";
 import corporateImage from "@/assets/corporate-event.jpg";
 import fashionImage from "@/assets/fashion-show.jpg";

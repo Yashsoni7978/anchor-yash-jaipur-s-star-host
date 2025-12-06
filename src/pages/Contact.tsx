@@ -184,7 +184,7 @@ export default function Contact() {
                     <Instagram className="w-5 h-5" />
                   </a>
                   <a
-                    href="https://youtube.com/@anchoryash"
+                    href="www.youtube.com/@Anchor_Yash"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-xl border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-all duration-300"

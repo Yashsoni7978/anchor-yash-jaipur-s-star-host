@@ -9,7 +9,7 @@ import fashionImage from "@/assets/fashion-show.jpg";
 import sangeetImage from "@/assets/sangeet-event.jpg";
 import poolPartyImage from "@/assets/pool-party.jpg";
 import kidsImage from "@/assets/kids-fashion.jpg";
-import heroImage from "@/assets/hero-anchor.jpg";
+import heroImage from "@/assets/hero-anchor.jpg.HEIC";
 import portraitImage from "@/assets/anchor-portrait.jpg";
 
 const categories = ["All", "Weddings", "Corporate", "Fashion", "Social", "Stage"];

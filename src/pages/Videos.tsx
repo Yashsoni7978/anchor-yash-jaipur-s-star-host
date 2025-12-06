@@ -170,7 +170,7 @@ export default function Videos() {
               Stay updated with the latest event highlights, behind-the-scenes content, and anchoring tips on my YouTube channel.
             </p>
             <a
-              href="https://youtube.com/@anchoryash"
+              href="www.youtube.com/@Anchor_Yash"
               target="_blank"
               rel="noopener noreferrer"
             >
