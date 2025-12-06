@@ -108,7 +108,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Phone</p>
-                      <p className="font-semibold group-hover:text-primary transition-colors">+91 98765 43210</p>
+                      <p className="font-semibold group-hover:text-primary transition-colors">+91 77378 77978</p>
                     </div>
                   </a>
 
@@ -249,7 +249,7 @@ export default function Contact() {
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:border-primary transition-colors"
-                        placeholder="+91 98765 43210"
+                        placeholder="+91 77378 77978"
                       />
                     </div>
                   </div>
