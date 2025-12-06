@@ -145,18 +145,21 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="flex flex-wrap gap-4"
             >
-              <Link to="/contact">
-                <Button variant="hero" size="xl">
-                  Book Me Now
-                  <ChevronRight className="w-5 h-5" />
-                </Button>
-              </Link>
+              
               <Link to="/videos">
                 <Button variant="heroOutline" size="xl">
                   <Play className="w-5 h-5" />
                   Watch Videos
                 </Button>
               </Link>
+
+              <Link to="/contact">
+                <Button variant="hero" size="xl">
+                  Book Me Now
+                  <ChevronRight className="w-5 h-5" />
+                </Button>
+              </Link>
+              
               <a
                 href="https://instagram.com/anchor_yash_official
 "
