@@ -12,7 +12,7 @@ import kidsImage from "@/assets/kids-fashion.jpg";
 import heroImage from "@/assets/hero-anchor.jpg";
 import portraitImage from "@/assets/anchor-portrait.jpg";
 
-const categories = ["All", "Weddings", "Corporate", "Fashion", "Social", "Stage"];
+const categories = ["All", "Weddings", "Corporate", "Fashion", "Social", "Stage", "Sports", "Cultural"];
 
 const galleryItems = [
   { id: 1, src: heroImage, category: "Stage", title: "Grand Stage Performance" },
@@ -72,7 +72,7 @@ export default function Gallery() {
               Captured <span className="text-gradient-gold">Moments</span>
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              A visual journey through 700+ events — weddings, corporate gatherings, fashion shows, and more.
+              A visual journey through 1100+ events — weddings, corporate gatherings, fashion shows, and more.
             </p>
           </motion.div>
         </div>

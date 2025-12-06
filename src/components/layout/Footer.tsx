@@ -32,7 +32,7 @@ export const Footer = () => {
               </span>
             </Link>
             <p className="text-muted-foreground leading-relaxed">
-              Jaipur's most energetic and trusted event host with 700+ successful events. 
+              Jaipur's most energetic and trusted event host with 1100+ successful events. 
               Making every moment memorable.
             </p>
             <div className="flex gap-4">

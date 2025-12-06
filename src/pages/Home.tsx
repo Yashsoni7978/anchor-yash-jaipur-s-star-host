@@ -9,7 +9,7 @@ import corporateImage from "@/assets/corporate-event.jpg";
 import fashionImage from "@/assets/fashion-show.jpg";
 
 const stats = [
-  { number: "700+", label: "Events Hosted", icon: Mic },
+  { number: "1100+", label: "Events Hosted", icon: Mic },
   { number: "5+", label: "Years Experience", icon: Award },
   { number: "500+", label: "Happy Clients", icon: Users },
   { number: "50+", label: "Corporate Clients", icon: Star },
@@ -136,7 +136,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-lg text-primary font-medium mb-8"
             >
-              700+ Events Hosted • Weddings • Corporate • Fashion Shows • Cultural Events
+              1100+ Events Hosted • Weddings • Corporate • Fashion Shows • Cultural Events
             </motion.p>
 
             <motion.div
@@ -230,7 +230,7 @@ export default function Home() {
               What Sets Me <span className="text-gradient-gold">Apart</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              With over 700 events and 5 years of experience, I bring unmatched energy and professionalism to every stage
+              With over 1100 events and 5 years of experience, I bring unmatched energy and professionalism to every stage
             </p>
           </motion.div>
 

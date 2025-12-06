@@ -98,7 +98,7 @@ export default function Videos() {
                   <Play className="w-10 h-10 text-primary fill-primary" />
                 </div>
                 <h3 className="text-2xl font-display font-bold mb-2">Anchor Yash Highlight Reel 2024</h3>
-                <p className="text-muted-foreground">Watch the best moments from 700+ events</p>
+                <p className="text-muted-foreground">Watch the best moments from 1100+ events</p>
               </div>
             </div>
             <div className="absolute inset-0 border border-border rounded-2xl group-hover:border-primary/50 transition-colors" />

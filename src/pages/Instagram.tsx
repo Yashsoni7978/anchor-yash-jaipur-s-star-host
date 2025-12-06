@@ -54,7 +54,7 @@ export default function Instagram() {
               
               <h1 className="text-3xl font-display font-bold mb-2">@anchor_yash</h1>
               <p className="text-muted-foreground mb-4">
-                Jaipur's Most Energetic Event Host | 700+ Events | Weddings • Corporate • Fashion
+                Jaipur's Most Energetic Event Host | 1100+ Events | Weddings • Corporate • Fashion
               </p>
               
               {/* Stats */}
