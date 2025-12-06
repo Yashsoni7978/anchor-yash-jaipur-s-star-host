@@ -8,12 +8,11 @@ import weddingImage from "@/assets/wedding-event.jpg";
 import corporateImage from "@/assets/corporate-event.jpg";
 
 const achievements = [
-  { year: "2019", title: "Started Professional Anchoring", description: "Began journey as a professional event anchor in Jaipur" },
+  { year: "2019", title: "Started Professional Anchoring", description: "Began journey as a professional event anchor in PAN India" },
   { year: "2020", title: "100+ Events Milestone", description: "Crossed 100 successful events across Rajasthan" },
-  { year: "2021", title: "India Kids Fashion Week", description: "Official anchor for prestigious national kids fashion event" },
   { year: "2022", title: "500+ Events Completed", description: "Established as one of the most sought-after anchors in the region" },
-  { year: "2023", title: "Corporate Giants Partnership", description: "Started hosting events for Fortune 500 companies" },
-  { year: "2024", title: "1100+ Events & Counting", description: "Continuing to set new standards in event hosting excellence" },
+  { year: "2023", title: "Corporate Giants Partnership", description: "Started hosting events for Reknowned companies" },
+  { year: "2025", title: "1100+ Events & Counting", description: "Continuing to set new standards in event hosting excellence" },
 ];
 
 const eventCategories = [
@@ -81,7 +80,7 @@ export default function About() {
               
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Hello! I'm <strong className="text-foreground">Anchor Yash</strong>, a professional event anchor based in the beautiful Pink City, Jaipur, Rajasthan. With over 5 years of experience and 1100+ successful events under my belt, I've had the privilege of hosting everything from intimate family gatherings to grand corporate celebrations.
+                  Hello! I'm <strong className="text-foreground">Anchor Yash</strong>, a professional event anchor based in the beautiful Pink City, Jaipur, Rajasthan. With over 05 years of experience and 1100+ successful events under my belt, I've had the privilege of hosting everything from intimate family gatherings to grand corporate celebrations.
                 </p>
                 <p>
                   My journey in the world of anchoring began with a simple passion — connecting with people and creating memorable experiences. Today, that passion drives me to bring unmatched energy, professionalism, and warmth to every event I host.

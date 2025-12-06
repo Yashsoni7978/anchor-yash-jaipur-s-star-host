@@ -163,7 +163,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button variant="outline" size="xl" className="border-border hover:border-primary">
+                <Button variant="heroOutline" size="xl" className="border-border hover:border-primary">
                   <Instagram className="w-5 h-5" />
                   Instagram
                 </Button>
@@ -230,7 +230,7 @@ export default function Home() {
               What Sets Me <span className="text-gradient-gold">Apart</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              With over 1100 events and 5 years of experience, I bring unmatched energy and professionalism to every stage
+              With over 1100 events and 05 years of experience, I bring unmatched energy and professionalism to every stage
             </p>
           </motion.div>
 
