@@ -163,7 +163,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button variant="heroOutline" size="xl" className="border-border hover:border-primary">
+                <Button variant="heroOutline" size="xl">
                   <Instagram className="w-5 h-5" />
                   Instagram
                 </Button>
