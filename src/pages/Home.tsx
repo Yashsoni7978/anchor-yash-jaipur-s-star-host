@@ -107,7 +107,7 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <span className="inline-block px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-primary text-sm font-medium mb-6">
-                Jaipur's Premier Event Host
+                Jaipur's Most Premium Event Host
               </span>
             </motion.div>
 
@@ -159,7 +159,7 @@ export default function Home() {
                   <ChevronRight className="w-5 h-5" />
                 </Button>
               </Link>
-              
+
               <a
                 href="https://instagram.com/anchor_yash_official
 "
