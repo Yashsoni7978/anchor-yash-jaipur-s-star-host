@@ -5,16 +5,42 @@ import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { useToast } from "@/hooks/use-toast";
 
-const eventTypes = [
-  "Wedding",
-  "Sangeet/Haldi",
-  "Corporate Event",
-  "Fashion Show",
-  "Birthday Party",
-  "College Fest",
-  "Award Ceremony",
-  "Other",
+const serviceCategories = [
+  {
+    group: "Anchoring Services",
+    options: [
+      "Wedding Anchor",
+      "Corporate Event Anchor",
+      "Fashion Show Host",
+      "Sangeet & Haldi Hosting",
+      "Kids Event Hosting",
+      "Pool Party / Social Event",
+    ],
+  },
+  {
+    group: "Event Management",
+    options: [
+      "Full Event Planning",
+      "Event Designing & Decor",
+      "Wedding Planning",
+      "Sangeet Choreography",
+      "Destination Wedding",
+      "Corporate Event Production",
+    ],
+  },
+  {
+    group: "Combined Services",
+    options: [
+      "Anchoring + Event Management",
+      "Complete Wedding Package",
+      "Corporate Event Package",
+    ],
+  },
 ];
+
+const allServices = serviceCategories.flatMap(cat => 
+  cat.options.map(opt => ({ group: cat.group, value: opt }))
+);
 
 export default function Contact() {
   const { toast } = useToast();
@@ -22,7 +48,7 @@ export default function Contact() {
     name: "",
     email: "",
     phone: "",
-    eventType: "",
+    service: "",
     eventDate: "",
     location: "",
     budget: "",
@@ -38,24 +64,52 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      // Formspree submission
+      const response = await fetch("https://formspree.io/f/xyzgkqvw", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          eventDate: formData.eventDate,
+          location: formData.location,
+          budget: formData.budget,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Inquiry Sent Successfully!",
+          description: "Thank you for reaching out. We'll get back to you within 24 hours.",
+        });
+        
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          service: "",
+          eventDate: "",
+          location: "",
+          budget: "",
+          message: "",
+        });
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (error) {
+      toast({
+        title: "Submission Failed",
+        description: "Please try again or contact us directly via WhatsApp.",
+        variant: "destructive",
+      });
+    }
     
-    toast({
-      title: "Message Sent Successfully!",
-      description: "Thank you for your inquiry. I'll get back to you within 24 hours.",
-    });
-    
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      eventType: "",
-      eventDate: "",
-      location: "",
-      budget: "",
-      message: "",
-    });
     setIsSubmitting(false);
   };
 
@@ -75,10 +129,10 @@ export default function Contact() {
               Get In Touch
             </span>
             <h1 className="text-4xl md:text-6xl font-display font-bold mt-4 mb-6">
-              Book <span className="text-gradient-gold">Anchor Yash</span>
+              Book <span className="text-gradient-gold">Your Event</span>
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Ready to make your event unforgettable? Fill out the form below and I'll get back to you within 24 hours.
+              Ready to create an unforgettable event? Fill out the form below and we'll get back to you within 24 hours.
             </p>
           </motion.div>
         </div>
@@ -172,11 +226,10 @@ export default function Contact() {
 
               {/* Social Links */}
               <div className="space-y-4">
-                <h3 className="font-display font-semibold">Follow Me</h3>
+                <h3 className="font-display font-semibold">Follow Us</h3>
                 <div className="flex gap-4">
                   <a
-                    href="https://instagram.com/anchor_yash_official
-"
+                    href="https://instagram.com/anchor_yash_official"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-xl border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-all duration-300"
@@ -184,7 +237,7 @@ export default function Contact() {
                     <Instagram className="w-5 h-5" />
                   </a>
                   <a
-                    href="www.youtube.com/@Anchor_Yash"
+                    href="https://www.youtube.com/@Anchor_Yash"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-xl border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-all duration-300"
@@ -249,7 +302,7 @@ export default function Contact() {
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:border-primary transition-colors"
-                        placeholder="+91 77378 77978"
+                        placeholder="+91 98765 43210"
                       />
                     </div>
                   </div>
@@ -270,25 +323,32 @@ export default function Contact() {
                     />
                   </div>
 
+                  <div>
+                    <label htmlFor="service" className="block text-sm font-medium mb-2">
+                      Service Required *
+                    </label>
+                    <select
+                      id="service"
+                      name="service"
+                      value={formData.service}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:border-primary transition-colors"
+                    >
+                      <option value="">Select a service</option>
+                      {serviceCategories.map((category) => (
+                        <optgroup key={category.group} label={category.group}>
+                          {category.options.map((option) => (
+                            <option key={option} value={option}>
+                              {option}
+                            </option>
+                          ))}
+                        </optgroup>
+                      ))}
+                    </select>
+                  </div>
+
                   <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="eventType" className="block text-sm font-medium mb-2">
-                        Event Type *
-                      </label>
-                      <select
-                        id="eventType"
-                        name="eventType"
-                        value={formData.eventType}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:border-primary transition-colors"
-                      >
-                        <option value="">Select event type</option>
-                        {eventTypes.map((type) => (
-                          <option key={type} value={type}>{type}</option>
-                        ))}
-                      </select>
-                    </div>
                     <div>
                       <label htmlFor="eventDate" className="block text-sm font-medium mb-2">
                         Event Date *
@@ -303,9 +363,6 @@ export default function Contact() {
                         className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:border-primary transition-colors"
                       />
                     </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="location" className="block text-sm font-medium mb-2">
                         Event Location *
@@ -321,29 +378,37 @@ export default function Contact() {
                         placeholder="Venue or City"
                       />
                     </div>
-                    <div>
-                      <label htmlFor="budget" className="block text-sm font-medium mb-2">
-                        Budget Range
-                      </label>
-                      <select
-                        id="budget"
-                        name="budget"
-                        value={formData.budget}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:border-primary transition-colors"
-                      >
-                        <option value="">Select budget range</option>
+                  </div>
+
+                  <div>
+                    <label htmlFor="budget" className="block text-sm font-medium mb-2">
+                      Budget Range
+                    </label>
+                    <select
+                      id="budget"
+                      name="budget"
+                      value={formData.budget}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:border-primary transition-colors"
+                    >
+                      <option value="">Select budget range</option>
+                      <optgroup label="Anchoring">
                         <option value="15k-25k">₹15,000 - ₹25,000</option>
                         <option value="25k-50k">₹25,000 - ₹50,000</option>
                         <option value="50k-1L">₹50,000 - ₹1,00,000</option>
-                        <option value="1L+">₹1,00,000+</option>
-                      </select>
-                    </div>
+                      </optgroup>
+                      <optgroup label="Event Management">
+                        <option value="1L-3L">₹1,00,000 - ₹3,00,000</option>
+                        <option value="3L-5L">₹3,00,000 - ₹5,00,000</option>
+                        <option value="5L-10L">₹5,00,000 - ₹10,00,000</option>
+                        <option value="10L+">₹10,00,000+</option>
+                      </optgroup>
+                    </select>
                   </div>
 
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium mb-2">
-                      Tell Me About Your Event
+                      Tell Us About Your Event
                     </label>
                     <textarea
                       id="message"

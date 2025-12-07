@@ -1,24 +1,31 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Instagram } from "lucide-react";
+import { Menu, X, Instagram, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
-  { name: "Services", path: "/services" },
-  { name: "Event Management", path: "/event-management" },
+  { 
+    name: "Services", 
+    path: "#",
+    submenu: [
+      { name: "Anchoring", path: "/anchoring" },
+      { name: "Event Management", path: "/event-management" },
+      { name: "Event Designing", path: "/event-designing" },
+    ]
+  },
+  { name: "Portfolio", path: "/portfolio" },
   { name: "Gallery", path: "/gallery" },
-  { name: "Videos", path: "/videos" },
   { name: "Blog", path: "/blog" },
-  { name: "Instagram", path: "/instagram" },
   { name: "Contact", path: "/contact" },
 ];
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -31,7 +38,17 @@ export const Navbar = () => {
 
   useEffect(() => {
     setIsOpen(false);
+    setOpenSubmenu(null);
   }, [location]);
+
+  const isActive = (path: string) => {
+    if (path === "#") return false;
+    return location.pathname === path;
+  };
+
+  const isSubmenuActive = (submenu: { name: string; path: string }[]) => {
+    return submenu.some(item => location.pathname === item.path);
+  };
 
   return (
     <nav
@@ -55,26 +72,62 @@ export const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={cn(
-                  "px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg",
-                  location.pathname === link.path
-                    ? "text-primary bg-primary/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+              <div key={link.path + link.name} className="relative group">
+                {link.submenu ? (
+                  <button
+                    className={cn(
+                      "px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg flex items-center gap-1",
+                      isSubmenuActive(link.submenu)
+                        ? "text-primary bg-primary/10"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    )}
+                  >
+                    {link.name}
+                    <ChevronDown className="w-4 h-4" />
+                  </button>
+                ) : (
+                  <Link
+                    to={link.path}
+                    className={cn(
+                      "px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg block",
+                      isActive(link.path)
+                        ? "text-primary bg-primary/10"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    )}
+                  >
+                    {link.name}
+                  </Link>
                 )}
-              >
-                {link.name}
-              </Link>
+                
+                {/* Dropdown */}
+                {link.submenu && (
+                  <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+                    <div className="bg-card border border-border rounded-xl shadow-xl py-2 min-w-[200px]">
+                      {link.submenu.map((subItem) => (
+                        <Link
+                          key={subItem.path}
+                          to={subItem.path}
+                          className={cn(
+                            "block px-4 py-2 text-sm transition-colors",
+                            isActive(subItem.path)
+                              ? "text-primary bg-primary/10"
+                              : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                          )}
+                        >
+                          {subItem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
             ))}
           </div>
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-3">
             <a
-              href="https://instagram.com/anchor_yash_official
-"
+              href="https://instagram.com/anchor_yash_official"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-full border border-border hover:border-primary hover:text-primary transition-all duration-300"
@@ -109,24 +162,62 @@ export const Navbar = () => {
         <div className="container-custom py-8">
           <div className="flex flex-col gap-2">
             {navLinks.map((link, index) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={cn(
-                  "px-4 py-4 text-lg font-medium transition-all duration-300 rounded-lg border-b border-border/50",
-                  location.pathname === link.path
-                    ? "text-primary bg-primary/10"
-                    : "text-foreground hover:bg-muted"
+              <div key={link.path + link.name}>
+                {link.submenu ? (
+                  <>
+                    <button
+                      onClick={() => setOpenSubmenu(openSubmenu === link.name ? null : link.name)}
+                      className={cn(
+                        "w-full px-4 py-4 text-lg font-medium transition-all duration-300 rounded-lg border-b border-border/50 flex items-center justify-between",
+                        isSubmenuActive(link.submenu)
+                          ? "text-primary bg-primary/10"
+                          : "text-foreground hover:bg-muted"
+                      )}
+                    >
+                      {link.name}
+                      <ChevronDown className={cn(
+                        "w-5 h-5 transition-transform",
+                        openSubmenu === link.name && "rotate-180"
+                      )} />
+                    </button>
+                    {openSubmenu === link.name && (
+                      <div className="pl-4 py-2 space-y-1">
+                        {link.submenu.map((subItem) => (
+                          <Link
+                            key={subItem.path}
+                            to={subItem.path}
+                            className={cn(
+                              "block px-4 py-3 text-base transition-colors rounded-lg",
+                              isActive(subItem.path)
+                                ? "text-primary bg-primary/10"
+                                : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                            )}
+                          >
+                            {subItem.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <Link
+                    to={link.path}
+                    className={cn(
+                      "px-4 py-4 text-lg font-medium transition-all duration-300 rounded-lg border-b border-border/50 block",
+                      isActive(link.path)
+                        ? "text-primary bg-primary/10"
+                        : "text-foreground hover:bg-muted"
+                    )}
+                    style={{ animationDelay: `${index * 50}ms` }}
+                  >
+                    {link.name}
+                  </Link>
                 )}
-                style={{ animationDelay: `${index * 50}ms` }}
-              >
-                {link.name}
-              </Link>
+              </div>
             ))}
             <div className="flex gap-3 mt-6">
               <a
-                href="https://instagram.com/anchor_yash_official
-"
+                href="https://instagram.com/anchor_yash_official"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1"
