@@ -152,7 +152,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-xl md:text-2xl text-muted-foreground mb-4"
             >
-              Event Hosting & Complete Event Management Solutions
+              Premium Wedding & Corporate Event Anchor
             </motion.p>
 
             <motion.p
@@ -161,7 +161,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-lg text-primary font-medium mb-8"
             >
-              1100+ Events • Weddings • Corporate • Fashion Shows • Event Planning & Designing
+              1100+ Events • Weddings • Corporate • Sports • Fashion Shows • Event Planning & Designing
             </motion.p>
 
             <motion.div
