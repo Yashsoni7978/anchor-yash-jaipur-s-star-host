@@ -52,7 +52,7 @@ const services = [
 const packages = [
   {
     name: "Essential",
-    price: "₹15,000",
+    price: "₹***",
     duration: "Up to 3 hours",
     description: "Perfect for intimate gatherings and small events",
     features: [
@@ -66,7 +66,7 @@ const packages = [
   },
   {
     name: "Premium",
-    price: "₹35,000",
+    price: "₹****",
     duration: "Up to 6 hours",
     description: "Ideal for weddings and corporate events",
     features: [
@@ -81,7 +81,7 @@ const packages = [
   },
   {
     name: "Luxury",
-    price: "₹60,000+",
+    price: "₹*****",
     duration: "Full day / Multi-day",
     description: "Complete solution for grand celebrations",
     features: [

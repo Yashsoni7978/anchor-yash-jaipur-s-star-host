@@ -20,10 +20,10 @@ const trustBadges = [
   "Celebrity Weddings",
   "Corporate R&R Events",
   "Big Fat Indian Weddings",
-  "National-Level Sports Events",
   "Award Ceremonies",
   "Live Productions",
   "Award shows",
+   "National-Level Sports Events",
 ];
 const anchoringServices = [
   {
