@@ -305,73 +305,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Event Management Section */}
-      <section className="section-padding bg-card border-y border-border">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <span className="text-primary text-sm font-medium uppercase tracking-wider">
-              Event Management
-            </span>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
-              Complete Event <span className="text-gradient-gold">Solutions</span>
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Beyond anchoring - we plan, design, and execute unforgettable events from start to finish
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {eventManagementServices.map((service, index) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Link
-                  to={service.link}
-                  className="group block p-8 bg-background border border-border rounded-2xl hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_30px_hsl(43_74%_49%_/_0.1)] h-full"
-                >
-                  <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                    <service.icon className="w-7 h-7 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-display font-semibold mb-3">{service.title}</h3>
-                  <p className="text-muted-foreground text-sm">{service.description}</p>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="text-center mt-12 flex flex-wrap justify-center gap-4"
-          >
-            <Link to="/event-management">
-              <Button variant="goldOutline" size="lg">
-                Event Management
-                <ChevronRight className="w-5 h-5" />
-              </Button>
-            </Link>
-            <Link to="/event-designing">
-              <Button variant="gold" size="lg">
-                Event Designing & Wedding Planning
-                <ChevronRight className="w-5 h-5" />
-              </Button>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Why Choose Me Section */}
       <section className="section-padding">
         <div className="container-custom">
@@ -479,6 +412,73 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+      
+ {/* Event Management Section */}
+      <section className="section-padding bg-card border-y border-border">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <span className="text-primary text-sm font-medium uppercase tracking-wider">
+              Event Management
+            </span>
+            <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
+              Complete Event <span className="text-gradient-gold">Solutions</span>
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Beyond anchoring - we plan, design, and execute unforgettable events from start to finish
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {eventManagementServices.map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Link
+                  to={service.link}
+                  className="group block p-8 bg-background border border-border rounded-2xl hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_30px_hsl(43_74%_49%_/_0.1)] h-full"
+                >
+                  <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                    <service.icon className="w-7 h-7 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-display font-semibold mb-3">{service.title}</h3>
+                  <p className="text-muted-foreground text-sm">{service.description}</p>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="text-center mt-12 flex flex-wrap justify-center gap-4"
+          >
+            <Link to="/event-management">
+              <Button variant="goldOutline" size="lg">
+                Event Management
+                <ChevronRight className="w-5 h-5" />
+              </Button>
+            </Link>
+            <Link to="/event-designing">
+              <Button variant="gold" size="lg">
+                Event Designing & Wedding Planning
+                <ChevronRight className="w-5 h-5" />
+              </Button>
+            </Link>
+          </motion.div>
         </div>
       </section>
 
