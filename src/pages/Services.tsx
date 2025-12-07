@@ -18,7 +18,7 @@ const services = [
     features: ["Complete wedding ceremony hosting", "Multi-day event coordination", "Bilingual announcements", "Seamless transition management"],
   },
   {
-    title: "Sangeet & Mehendi Hosting",
+    title: "Sangeet & Haldi Hosting",
     description: "Add fun, energy, and entertainment to your pre-wedding celebrations with interactive games, dance coordination, and crowd engagement.",
     image: sangeetImage,
     features: ["Dance performance introductions", "Interactive games & activities", "Family engagement sessions", "Musical coordination"],

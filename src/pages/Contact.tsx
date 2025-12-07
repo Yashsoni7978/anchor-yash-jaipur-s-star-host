@@ -7,7 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 
 const eventTypes = [
   "Wedding",
-  "Sangeet/Mehendi",
+  "Sangeet/Haldi",
   "Corporate Event",
   "Fashion Show",
   "Birthday Party",

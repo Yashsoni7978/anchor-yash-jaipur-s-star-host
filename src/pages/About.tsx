@@ -17,7 +17,7 @@ const achievements = [
 
 const eventCategories = [
   "Weddings & Receptions",
-  "Sangeet & Mehendi Ceremonies",
+  "Sangeet & Haldi Ceremonies",
   "Corporate Annual Meets",
   "Product Launches",
   "Fashion Shows",
