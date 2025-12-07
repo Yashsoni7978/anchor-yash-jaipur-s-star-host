@@ -17,14 +17,14 @@ const stats = [
 ];
 
 const trustBadges = [
-  "India Kids Fashion Week",
+  "Celebrity Weddings",
   "Corporate R&R Events",
   "Big Fat Indian Weddings",
-  "Destination Weddings",
+  "National-Level Sports Events",
   "Award Ceremonies",
-  "Fashion Shows",
+  "Live Productions",
+  "Award shows",
 ];
-
 const anchoringServices = [
   {
     title: "Wedding Anchor",
@@ -90,12 +90,12 @@ const testimonials = [
 
 const whyChooseUs = [
   {
-    title: "Unmatched Energy",
-    description: "Bringing electric energy to every event that keeps your guests engaged and entertained",
+    title: "High-Energy Stage Presence",
+    description: "Dynamic, engaging hosting that keeps audiences active, entertained, and emotionally connected throughout the event.",
   },
   {
-    title: "End-to-End Solutions",
-    description: "From anchoring to complete event management - we handle everything under one roof",
+    title: "150+ Celebrity & High-Profile Wedding Events",
+    description: "Experienced in hosting luxury weddings with celebrity presence and elite audiences.",
   },
   {
     title: "Bilingual Fluency",
@@ -103,7 +103,7 @@ const whyChooseUs = [
   },
   {
     title: "05+ Years Experience",
-    description: "Seasoned professional with expertise across diverse event types",
+    description: "Extensive experience across weddings, corporate shows, award nights, and large-scale live events.",
   },
 ];
 
@@ -316,10 +316,10 @@ export default function Home() {
             className="text-center mb-16"
           >
             <span className="text-primary text-sm font-medium uppercase tracking-wider">
-              Why Choose Us
+              Why Choose Me
             </span>
             <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
-              What Sets Us <span className="text-gradient-gold">Apart</span>
+              What Sets My Hosting Style <span className="text-gradient-gold">Apart</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               With over 1100 events and 05 years of experience, we bring unmatched energy and professionalism to every project
@@ -414,7 +414,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
  {/* Event Management Section */}
       <section className="section-padding bg-card border-y border-border">
         <div className="container-custom">
