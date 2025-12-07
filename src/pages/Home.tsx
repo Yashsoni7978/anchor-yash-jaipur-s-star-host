@@ -107,7 +107,7 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <span className="inline-block px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-primary text-sm font-medium mb-6">
-                Jaipur's Most Premium Event Host
+                Jaipur’s Top Leading Event Anchor
               </span>
             </motion.div>
 
@@ -127,7 +127,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-xl md:text-2xl text-muted-foreground mb-4"
             >
-              Jaipur's Most Energetic & Trusted Event Host
+              High-Energy Wedding & Corporate Anchor from Jaipur
             </motion.p>
 
             <motion.p
