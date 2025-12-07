@@ -124,7 +124,7 @@ export default function Portfolio() {
             >
               {playingVideo === featuredVideo.id ? (
                 <iframe
-                  src={`https://www.youtube.com/embed/${featuredVideo.youtubeId}?autoplay=1`}
+                  src={`https://youtu.be/EXcsessKpR4?si=-ZhDznLCqXoyC3pw`}
                   title={featuredVideo.title}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
