@@ -132,7 +132,7 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <span className="inline-block px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-primary text-sm font-medium mb-6">
-                Jaipur's Premium Event Ecosystem
+                Jaipur’s Leading Event Anchor
               </span>
             </motion.div>
 
