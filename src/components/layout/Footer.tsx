@@ -4,17 +4,22 @@ import { Instagram, Youtube, Phone, Mail, MapPin } from "lucide-react";
 const quickLinks = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
-  { name: "Services", path: "/services" },
+  { name: "Portfolio", path: "/portfolio" },
   { name: "Gallery", path: "/gallery" },
+  { name: "Blog", path: "/blog" },
   { name: "Contact", path: "/contact" },
 ];
 
-const services = [
-  "Wedding Anchoring",
-  "Corporate Events",
-  "Fashion Shows",
-  "Award Ceremonies",
-  "Event Management",
+const anchoringServices = [
+  { name: "Wedding Anchor", path: "/anchoring" },
+  { name: "Corporate Event Anchor", path: "/anchoring" },
+  { name: "Fashion Show Host", path: "/anchoring" },
+];
+
+const eventServices = [
+  { name: "Event Management", path: "/event-management" },
+  { name: "Event Designing", path: "/event-designing" },
+  { name: "Wedding Planning", path: "/event-designing" },
 ];
 
 export const Footer = () => {
@@ -22,9 +27,9 @@ export const Footer = () => {
     <footer className="bg-card border-t border-border">
       {/* Main Footer */}
       <div className="container-custom section-padding">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand Column */}
-          <div className="space-y-6">
+          <div className="lg:col-span-2 space-y-6">
             <Link to="/" className="inline-block">
               <span className="text-3xl font-display font-bold">
                 <span className="text-gradient-gold">Anchor</span>
@@ -32,13 +37,12 @@ export const Footer = () => {
               </span>
             </Link>
             <p className="text-muted-foreground leading-relaxed">
-              Jaipur's most energetic and trusted event host with 1100+ successful events. 
-              Making every moment memorable.
+              Jaipur's premium event ecosystem offering professional anchoring and complete event management solutions. 
+              1100+ successful events and counting.
             </p>
             <div className="flex gap-4">
               <a
-                href="https://instagram.com/anchor_yash_official
-"
+                href="https://instagram.com/anchor_yash_official"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-all duration-300"
@@ -47,7 +51,7 @@ export const Footer = () => {
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="www.youtube.com/@Anchor_Yash"
+                href="https://www.youtube.com/@Anchor_Yash"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-all duration-300"
@@ -65,7 +69,7 @@ export const Footer = () => {
             </h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
-                <li key={link.path}>
+                <li key={link.path + link.name}>
                   <Link
                     to={link.path}
                     className="text-muted-foreground hover:text-primary transition-colors duration-300"
@@ -80,12 +84,33 @@ export const Footer = () => {
           {/* Services */}
           <div>
             <h4 className="text-lg font-display font-semibold mb-6 text-foreground">
-              Services
+              Anchoring
             </h4>
             <ul className="space-y-3">
-              {services.map((service) => (
-                <li key={service}>
-                  <span className="text-muted-foreground">{service}</span>
+              {anchoringServices.map((service) => (
+                <li key={service.name}>
+                  <Link
+                    to={service.path}
+                    className="text-muted-foreground hover:text-primary transition-colors duration-300"
+                  >
+                    {service.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            
+            <h4 className="text-lg font-display font-semibold mb-4 mt-8 text-foreground">
+              Event Services
+            </h4>
+            <ul className="space-y-3">
+              {eventServices.map((service) => (
+                <li key={service.name}>
+                  <Link
+                    to={service.path}
+                    className="text-muted-foreground hover:text-primary transition-colors duration-300"
+                  >
+                    {service.name}
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Play, Instagram, Star, Users, Award, Mic, ChevronRight, Quote } from "lucide-react";
+import { Play, Instagram, Star, Users, Award, Mic, ChevronRight, Quote, Calendar, Palette, PartyPopper } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import heroImage from "@/assets/hero-anchor.jpg";
 import weddingImage from "@/assets/wedding-event.jpg";
 import corporateImage from "@/assets/corporate-event.jpg";
 import fashionImage from "@/assets/fashion-show.jpg";
+import sangeetImage from "@/assets/sangeet-event.jpg";
 
 const stats = [
   { number: "1100+", label: "Events Hosted", icon: Mic },
@@ -24,21 +25,45 @@ const trustBadges = [
   "Fashion Shows",
 ];
 
-const services = [
+const anchoringServices = [
   {
-    title: "Wedding Anchoring",
-    description: "Making your special day unforgettable with professional hosting",
+    title: "Wedding Anchor",
+    description: "Professional hosting for your special day with seamless ceremony management",
     image: weddingImage,
+    link: "/anchoring",
   },
   {
-    title: "Corporate Events",
-    description: "Engaging corporate gatherings with polished professionalism",
+    title: "Corporate Anchor",
+    description: "Polished and engaging hosting for business events and conferences",
     image: corporateImage,
+    link: "/anchoring",
   },
   {
-    title: "Fashion Shows",
-    description: "Bringing glamour and energy to the runway",
+    title: "Fashion Show Host",
+    description: "Bringing glamour and energy to runway events and fashion weeks",
     image: fashionImage,
+    link: "/anchoring",
+  },
+];
+
+const eventManagementServices = [
+  {
+    icon: Calendar,
+    title: "Event Planning",
+    description: "End-to-end event planning from concept to flawless execution",
+    link: "/event-management",
+  },
+  {
+    icon: Palette,
+    title: "Event Designing",
+    description: "Stunning decor, themes, and visual experiences for memorable events",
+    link: "/event-designing",
+  },
+  {
+    icon: PartyPopper,
+    title: "Wedding Planning",
+    description: "Complete wedding management including choreography and entertainment",
+    link: "/event-designing",
   },
 ];
 
@@ -57,8 +82,8 @@ const testimonials = [
   },
   {
     name: "Sunita Mehra",
-    event: "Fashion Week Jaipur",
-    text: "Yash brings a unique combination of elegance and energy to fashion events. He understands the industry and delivers beyond expectations every single time.",
+    event: "Full Wedding Management",
+    text: "From planning to execution, the team delivered beyond our expectations. Every detail was perfect, and Yash's anchoring added that extra magic to our celebrations.",
     rating: 5,
   },
 ];
@@ -69,8 +94,8 @@ const whyChooseUs = [
     description: "Bringing electric energy to every event that keeps your guests engaged and entertained",
   },
   {
-    title: "Crowd Control Mastery",
-    description: "Expert at managing audiences of any size with confidence and charisma",
+    title: "End-to-End Solutions",
+    description: "From anchoring to complete event management - we handle everything under one roof",
   },
   {
     title: "Bilingual Fluency",
@@ -91,7 +116,7 @@ export default function Home() {
         <div className="absolute inset-0">
           <img
             src={heroImage}
-            alt="Anchor Yash on stage"
+            alt="Anchor Yash - Premium Event Host and Event Management in Jaipur"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40" />
@@ -107,7 +132,7 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <span className="inline-block px-4 py-2 bg-primary/10 border border-primary/30 rounded-full text-primary text-sm font-medium mb-6">
-                Jaipur’s Top Leading Event Anchor
+                Jaipur's Premium Event Ecosystem
               </span>
             </motion.div>
 
@@ -127,7 +152,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-xl md:text-2xl text-muted-foreground mb-4"
             >
-              High-Energy Wedding & Corporate Anchor from Jaipur
+              Event Hosting & Complete Event Management Solutions
             </motion.p>
 
             <motion.p
@@ -136,7 +161,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-lg text-primary font-medium mb-8"
             >
-              1100+ Events Hosted • Weddings • Corporate • Fashion Shows • Cultural Events
+              1100+ Events • Weddings • Corporate • Fashion Shows • Event Planning & Designing
             </motion.p>
 
             <motion.div
@@ -145,24 +170,22 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="flex flex-wrap gap-4"
             >
-              
-              <Link to="/videos">
-                <Button variant="heroOutline" size="xl">
-                  <Play className="w-5 h-5" />
-                  Watch Videos
-                </Button>
-              </Link>
-
               <Link to="/contact">
                 <Button variant="hero" size="xl">
-                  Book Me Now
+                  Book Now
                   <ChevronRight className="w-5 h-5" />
+                </Button>
+              </Link>
+              
+              <Link to="/portfolio">
+                <Button variant="heroOutline" size="xl">
+                  <Play className="w-5 h-5" />
+                  View Portfolio
                 </Button>
               </Link>
 
               <a
-                href="https://instagram.com/anchor_yash_official
-"
+                href="https://instagram.com/anchor_yash_official"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -216,6 +239,139 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Anchoring Services Section */}
+      <section className="section-padding">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <span className="text-primary text-sm font-medium uppercase tracking-wider">
+              Anchoring Services
+            </span>
+            <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
+              Professional Event <span className="text-gradient-gold">Hosting</span>
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              From weddings to corporate events, experience high-energy hosting that captivates your audience
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {anchoringServices.map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="group relative overflow-hidden rounded-2xl"
+              >
+                <Link to={service.link}>
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 className="text-2xl font-display font-bold mb-2">{service.title}</h3>
+                    <p className="text-muted-foreground text-sm">{service.description}</p>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="text-center mt-12"
+          >
+            <Link to="/anchoring">
+              <Button variant="gold" size="lg">
+                View All Anchoring Services
+                <ChevronRight className="w-5 h-5" />
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Event Management Section */}
+      <section className="section-padding bg-card border-y border-border">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <span className="text-primary text-sm font-medium uppercase tracking-wider">
+              Event Management
+            </span>
+            <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
+              Complete Event <span className="text-gradient-gold">Solutions</span>
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Beyond anchoring - we plan, design, and execute unforgettable events from start to finish
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {eventManagementServices.map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Link
+                  to={service.link}
+                  className="group block p-8 bg-background border border-border rounded-2xl hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_30px_hsl(43_74%_49%_/_0.1)] h-full"
+                >
+                  <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                    <service.icon className="w-7 h-7 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-display font-semibold mb-3">{service.title}</h3>
+                  <p className="text-muted-foreground text-sm">{service.description}</p>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="text-center mt-12 flex flex-wrap justify-center gap-4"
+          >
+            <Link to="/event-management">
+              <Button variant="goldOutline" size="lg">
+                Event Management
+                <ChevronRight className="w-5 h-5" />
+              </Button>
+            </Link>
+            <Link to="/event-designing">
+              <Button variant="gold" size="lg">
+                Event Designing & Wedding Planning
+                <ChevronRight className="w-5 h-5" />
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Why Choose Me Section */}
       <section className="section-padding">
         <div className="container-custom">
@@ -227,13 +383,13 @@ export default function Home() {
             className="text-center mb-16"
           >
             <span className="text-primary text-sm font-medium uppercase tracking-wider">
-              Why Choose Me
+              Why Choose Us
             </span>
             <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
-              What Sets Me <span className="text-gradient-gold">Apart</span>
+              What Sets Us <span className="text-gradient-gold">Apart</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              With over 1100 events and 05 years of experience, I bring unmatched energy and professionalism to every stage
+              With over 1100 events and 05 years of experience, we bring unmatched energy and professionalism to every project
             </p>
           </motion.div>
 
@@ -279,69 +435,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Preview */}
-      <section className="section-padding">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <span className="text-primary text-sm font-medium uppercase tracking-wider">
-              My Services
-            </span>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
-              Events I <span className="text-gradient-gold">Excel</span> At
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group relative overflow-hidden rounded-2xl"
-              >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-2xl font-display font-bold mb-2">{service.title}</h3>
-                  <p className="text-muted-foreground text-sm">{service.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="text-center mt-12"
-          >
-            <Link to="/services">
-              <Button variant="gold" size="lg">
-                View All Services
-                <ChevronRight className="w-5 h-5" />
-              </Button>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Testimonials */}
-      <section className="section-padding bg-card border-y border-border">
+      <section className="section-padding">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -354,7 +449,7 @@ export default function Home() {
               Testimonials
             </span>
             <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
-              What My <span className="text-gradient-gold">Clients</span> Say
+              What Our <span className="text-gradient-gold">Clients</span> Say
             </h2>
           </motion.div>
 
@@ -366,7 +461,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="p-8 bg-background border border-border rounded-2xl hover:border-primary/30 transition-all duration-500"
+                className="p-8 bg-card border border-border rounded-2xl hover:border-primary/30 transition-all duration-500"
               >
                 <Quote className="w-10 h-10 text-primary/30 mb-6" />
                 <p className="text-muted-foreground mb-6 leading-relaxed">
@@ -388,36 +483,36 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding">
+      <section className="section-padding bg-card border-t border-border">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary/20 via-card to-primary/10 border border-primary/20 p-12 md:p-20 text-center"
+            className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary/20 via-background to-primary/10 border border-primary/20 p-12 md:p-20 text-center"
           >
             <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
             
             <div className="relative">
               <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-                Ready to Make Your Event{" "}
-                <span className="text-gradient-gold">Unforgettable?</span>
+                Ready to Create Something{" "}
+                <span className="text-gradient-gold">Extraordinary?</span>
               </h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-10">
-                Let's create magic together. Book Anchor Yash for your next event and experience the difference a professional host makes.
+                Whether you need a professional anchor or complete event management, let's bring your vision to life.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link to="/contact">
                   <Button variant="hero" size="xl">
-                    Book Now
+                    Get Started
                     <ChevronRight className="w-5 h-5" />
                   </Button>
                 </Link>
                 <a href="https://wa.me/917737877978" target="_blank" rel="noopener noreferrer">
                   <Button variant="whatsapp" size="xl">
-                    WhatsApp Me
+                    WhatsApp Us
                   </Button>
                 </a>
               </div>

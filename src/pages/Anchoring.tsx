@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Check, ChevronRight, Sparkles, Crown, Star } from "lucide-react";
+import { Check, ChevronRight, Sparkles, Crown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import weddingImage from "@/assets/wedding-event.jpg";
@@ -12,7 +12,7 @@ import kidsImage from "@/assets/kids-fashion.jpg";
 
 const services = [
   {
-    title: "Wedding Anchoring",
+    title: "Wedding Anchor",
     description: "Make your special day unforgettable with professional wedding hosting that captures every emotion and keeps your guests engaged throughout the celebration.",
     image: weddingImage,
     features: ["Complete wedding ceremony hosting", "Multi-day event coordination", "Bilingual announcements", "Seamless transition management"],
@@ -24,13 +24,13 @@ const services = [
     features: ["Dance performance introductions", "Interactive games & activities", "Family engagement sessions", "Musical coordination"],
   },
   {
-    title: "Corporate Events",
+    title: "Corporate Event Anchor",
     description: "Professional hosting for corporate gatherings, annual meets, product launches, and team-building events with polished delivery and business etiquette.",
     image: corporateImage,
     features: ["Annual general meetings", "Product launches", "Award ceremonies", "Team building events"],
   },
   {
-    title: "Fashion Shows",
+    title: "Fashion Show Host",
     description: "Bring glamour and sophistication to the runway with professional fashion show anchoring that elevates designer presentations.",
     image: fashionImage,
     features: ["Designer introductions", "Model walk coordination", "Collection announcements", "VIP acknowledgments"],
@@ -97,7 +97,7 @@ const packages = [
   },
 ];
 
-export default function Services() {
+export default function Anchoring() {
   return (
     <Layout>
       {/* Hero Section */}
@@ -117,7 +117,7 @@ export default function Services() {
               Professional Event <span className="text-gradient-gold">Hosting</span>
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              From intimate gatherings to grand celebrations, I bring energy, professionalism, and unforgettable moments to every event.
+              From intimate gatherings to grand celebrations, Anchor Yash brings energy, professionalism, and unforgettable moments to every event.
             </p>
           </motion.div>
         </div>
@@ -139,7 +139,7 @@ export default function Services() {
                 <div className="aspect-video overflow-hidden">
                   <img
                     src={service.image}
-                    alt={service.title}
+                    alt={`${service.title} - Best Anchor in Jaipur`}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 </div>
