@@ -10,6 +10,7 @@ import EventManagement from "./pages/EventManagement";
 import EventDesigning from "./pages/EventDesigning";
 import Portfolio from "./pages/Portfolio";
 import Blog from "./pages/Blog";
+import WeddingAnchorJaipur from "@/pages/WeddingAnchorJaipur";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -32,6 +33,8 @@ const App = () => (
           <Route path="/videos" element={<Portfolio />} /> {/* Redirect old URL */}
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/wedding-anchor-jaipur"element={<WeddingAnchorJaipur />}/>
+
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
