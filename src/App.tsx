@@ -8,7 +8,6 @@ import About from "./pages/About";
 import Anchoring from "./pages/Anchoring";
 import EventManagement from "./pages/EventManagement";
 import EventDesigning from "./pages/EventDesigning";
-import Gallery from "./pages/Gallery";
 import Portfolio from "./pages/Portfolio";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
@@ -29,7 +28,6 @@ const App = () => (
           <Route path="/services" element={<Anchoring />} /> {/* Redirect old URL */}
           <Route path="/event-management" element={<EventManagement />} />
           <Route path="/event-designing" element={<EventDesigning />} />
-          <Route path="/gallery" element={<Gallery />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/videos" element={<Portfolio />} /> {/* Redirect old URL */}
           <Route path="/blog" element={<Blog />} />
