@@ -12,6 +12,7 @@ import EventDesigning from "./pages/EventDesigning";
 import Portfolio from "./pages/Portfolio";
 import Blog from "./pages/Blog";
 import WeddingAnchorJaipur from "@/pages/WeddingAnchorJaipur";
+import EventManagementJaipur from "./pages/EventManagementJaipur";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -36,6 +37,7 @@ const App = () => (
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/wedding-anchor-jaipur" element={<WeddingAnchorJaipur />} />
+            <Route path="/event-management-jaipur" element={<EventManagementJaipur />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
