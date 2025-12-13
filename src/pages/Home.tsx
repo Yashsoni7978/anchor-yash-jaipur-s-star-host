@@ -319,7 +319,7 @@ export default function Home() {
             {whyChooseUs.map((item) => (
               <StaggerItem key={item.title}>
                 <motion.div
-                  className="group p-5 sm:p-6 bg-card border border-border rounded-xl card-hover"
+                  className="group h-full flex flex-col p-5 sm:p-6 bg-card border border-border rounded-xl card-hover"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -327,7 +327,7 @@ export default function Home() {
                     <Star className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                   </div>
                   <h3 className="text-lg sm:text-xl font-display font-semibold mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground text-xs sm:text-sm">{item.description}</p>
+                  <p className="text-muted-foreground text-xs sm:text-sm flex-grow">{item.description}</p>
                 </motion.div>
               </StaggerItem>
             ))}
@@ -374,22 +374,24 @@ export default function Home() {
             {testimonials.map((testimonial) => (
               <StaggerItem key={testimonial.name}>
                 <motion.div
-                  className="p-6 sm:p-8 bg-card border border-border rounded-xl sm:rounded-2xl card-hover"
+                  className="h-full flex flex-col p-6 sm:p-8 bg-card border border-border rounded-xl sm:rounded-2xl card-hover"
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 >
                   <Quote className="w-8 h-8 sm:w-10 sm:h-10 text-primary/30 mb-4 sm:mb-6" />
-                  <p className="text-muted-foreground text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed">
+                  <p className="text-muted-foreground text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed flex-grow">
                     "{testimonial.text}"
                   </p>
-                  <div className="flex items-center gap-1 mb-3 sm:mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <div>
-                    <p className="font-semibold text-sm sm:text-base">{testimonial.name}</p>
-                    <p className="text-xs sm:text-sm text-muted-foreground">{testimonial.event}</p>
+                  <div className="mt-auto">
+                    <div className="flex items-center gap-1 mb-3 sm:mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-primary text-primary" />
+                      ))}
+                    </div>
+                    <div>
+                      <p className="font-semibold text-sm sm:text-base">{testimonial.name}</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground">{testimonial.event}</p>
+                    </div>
                   </div>
                 </motion.div>
               </StaggerItem>
@@ -418,9 +420,9 @@ export default function Home() {
           <StaggerContainer className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             {eventManagementServices.map((service) => (
               <StaggerItem key={service.title}>
-                <Link to={service.link}>
+                <Link to={service.link} className="h-full block">
                   <motion.div
-                    className="group p-6 sm:p-8 bg-background border border-border rounded-xl sm:rounded-2xl card-hover"
+                    className="group h-full flex flex-col p-6 sm:p-8 bg-background border border-border rounded-xl sm:rounded-2xl card-hover"
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -428,7 +430,7 @@ export default function Home() {
                       <service.icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
                     </div>
                     <h3 className="text-lg sm:text-xl font-display font-semibold mb-2 sm:mb-3">{service.title}</h3>
-                    <p className="text-muted-foreground text-xs sm:text-sm">{service.description}</p>
+                    <p className="text-muted-foreground text-xs sm:text-sm flex-grow">{service.description}</p>
                   </motion.div>
                 </Link>
               </StaggerItem>
