@@ -119,14 +119,14 @@ export default function EventManagement() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group p-8 bg-background border border-border rounded-2xl hover:border-primary/50 transition-all duration-500"
+                className="group h-full flex flex-col p-8 bg-background border border-border rounded-2xl hover:border-primary/50 transition-all duration-500"
               >
                 <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                   <service.icon className="w-7 h-7 text-primary" />
                 </div>
                 <h3 className="text-xl font-display font-semibold mb-3">{service.title}</h3>
-                <p className="text-muted-foreground text-sm mb-6">{service.description}</p>
-                <ul className="space-y-2">
+                <p className="text-muted-foreground text-sm mb-6 flex-grow">{service.description}</p>
+                <ul className="space-y-2 mt-auto">
                   {service.features.map((feature) => (
                     <li key={feature} className="flex items-center gap-2 text-sm">
                       <Check className="w-4 h-4 text-primary flex-shrink-0" />
