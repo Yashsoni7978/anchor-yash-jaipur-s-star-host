@@ -15,6 +15,8 @@ import Blog from "./pages/Blog";
 import WeddingAnchorJaipur from "@/pages/WeddingAnchorJaipur";
 import EventManagementJaipur from "./pages/EventManagementJaipur";
 import EventPlanningJaipur from "./pages/EventPlanningJaipur";
+import SangeetAnchorJaipur from "./pages/SangeetAnchorJaipur";
+import CorporateEventAnchorJaipur from "./pages/CorporateEventAnchorJaipur";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -42,6 +44,8 @@ const App = () => (
             <Route path="/wedding-anchor-jaipur" element={<WeddingAnchorJaipur />} />
             <Route path="/event-management-jaipur" element={<EventManagementJaipur />} />
             <Route path="/event-planning-jaipur" element={<EventPlanningJaipur />} />
+            <Route path="/sangeet-anchor-jaipur" element={<SangeetAnchorJaipur />} />
+            <Route path="/corporate-event-anchor-jaipur" element={<CorporateEventAnchorJaipur />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
