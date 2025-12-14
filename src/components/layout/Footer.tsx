@@ -10,15 +10,18 @@ const quickLinks = [
 ];
 
 const anchoringServices = [
-  { name: "Wedding Anchor", path: "/anchoring" },
-  { name: "Corporate Event Anchor", path: "/anchoring" },
-  { name: "Fashion Show Host", path: "/anchoring" },
+  { name: "Wedding Anchor Jaipur", path: "/wedding-anchor-jaipur" },
+  { name: "Sangeet Anchor Jaipur", path: "/sangeet-anchor-jaipur" },
+  { name: "Corporate Event Anchor", path: "/corporate-event-anchor-jaipur" },
+  { name: "Destination Wedding Anchor", path: "/destination-wedding-anchor-rajasthan" },
+  { name: "All Anchoring Services", path: "/anchoring" },
 ];
 
 const eventServices = [
-  { name: "Event Management", path: "/event-management" },
+  { name: "Event Management Jaipur", path: "/event-management-jaipur" },
+  { name: "Event Planning Jaipur", path: "/event-planning-jaipur" },
   { name: "Event Designing", path: "/event-designing" },
-  { name: "Wedding Planning", path: "/event-designing" },
+  { name: "All Event Services", path: "/event-management" },
 ];
 
 export const Footer = () => {
