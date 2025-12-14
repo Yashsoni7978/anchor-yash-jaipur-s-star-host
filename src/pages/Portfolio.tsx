@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, Youtube, ExternalLink, X } from "lucide-react";
+import { Play, Youtube, ExternalLink, X, FolderLock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
@@ -14,17 +15,7 @@ interface Video {
   featured?: boolean;
 }
 
-// Helper function to get YouTube thumbnail
-const getYouTubeThumbnail = (youtubeId: string, quality: "default" | "mq" | "hq" | "maxres" = "hq") => {
-  const qualityMap = {
-    default: "default",
-    mq: "mqdefault",
-    hq: "hqdefault",
-    maxres: "maxresdefault",
-  };
-  return `https://img.youtube.com/vi/${youtubeId}/${qualityMap[quality]}.jpg`;
-};
-
+// Replace these YouTube IDs with your actual private/unlisted video IDs
 const videos: Video[] = [
   {
     id: "1",
@@ -69,23 +60,12 @@ const videos: Video[] = [
     youtubeId: "dQw4w9WgXcQ", // Replace with actual YouTube video ID
     category: "Wedding",
   },
-  {
-    id: "7",
-    title: "Product Launch Event",
-    description: "Premium brand product launch hosting",
-    youtubeId: "dQw4w9WgXcQ", // Replace with actual YouTube video ID
-    category: "Corporate",
-  },
-  {
-    id: "8",
-    title: "Fashion Week Runway",
-    description: "Designer showcase at Jaipur Fashion Week",
-    youtubeId: "dQw4w9WgXcQ", // Replace with actual YouTube video ID
-    category: "Fashion",
-  },
 ];
 
 const categories = ["All", "Highlight", "Wedding", "Corporate", "Fashion"];
+
+// Configurable Google Drive link for raw work access
+const RAW_WORK_DRIVE_LINK = "https://drive.google.com/drive/folders/YOUR_FOLDER_ID";
 
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -108,6 +88,16 @@ export default function Portfolio() {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Event Hosting Portfolio | Anchor Yash – Jaipur</title>
+        <meta 
+          name="description" 
+          content="Watch selected event hosting highlights by Anchor Yash. Private showcases, premium weddings, corporate events, and curated work samples." 
+        />
+        <meta name="keywords" content="anchor yash portfolio, event anchor videos, wedding anchor jaipur, corporate event host, event hosting showcase" />
+        <link rel="canonical" href="https://anchoryash.com/portfolio" />
+      </Helmet>
+
       {/* Hero Section */}
       <section className="pt-28 pb-12 sm:pt-32 sm:pb-16 md:pt-36 md:pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
@@ -127,42 +117,29 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Featured Video */}
+      {/* Featured Video - YouTube Embed */}
       {featuredVideo && (
         <section className="pb-12 sm:pb-16">
           <div className="container-custom">
             <ScrollReveal delay={0.1}>
-              <div 
-                className="relative aspect-video max-w-4xl mx-auto rounded-xl sm:rounded-2xl overflow-hidden border border-border cursor-pointer group"
-                onClick={() => openVideo(featuredVideo)}
-              >
-                <img
-                  src={getYouTubeThumbnail(featuredVideo.youtubeId, "maxres")}
-                  alt={featuredVideo.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  onError={(e) => {
-                    e.currentTarget.src = getYouTubeThumbnail(featuredVideo.youtubeId, "hq");
-                  }}
+              <div className="relative aspect-video max-w-4xl mx-auto rounded-xl sm:rounded-2xl overflow-hidden border border-border">
+                <iframe
+                  src={`https://www.youtube.com/embed/${featuredVideo.youtubeId}?rel=0`}
+                  title={featuredVideo.title}
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                  loading="lazy"
                 />
-                <div className="video-card-overlay" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center px-4">
-                    <motion.div 
-                      className="w-16 h-16 sm:w-20 sm:h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:bg-primary/30 group-hover:scale-110 transition-all duration-300"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Play className="w-8 h-8 sm:w-10 sm:h-10 text-primary fill-primary" />
-                    </motion.div>
-                    <h3 className="text-xl sm:text-2xl font-display font-bold mb-1 sm:mb-2">{featuredVideo.title}</h3>
-                    <p className="text-muted-foreground text-sm sm:text-base">{featuredVideo.description}</p>
-                  </div>
-                </div>
-                <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
+                <div className="absolute top-3 left-3 sm:top-4 sm:left-4 pointer-events-none">
                   <span className="px-2 py-1 sm:px-3 sm:py-1.5 bg-primary text-primary-foreground text-xs font-semibold rounded-full">
                     Featured
                   </span>
                 </div>
+              </div>
+              <div className="text-center mt-4 sm:mt-6">
+                <h2 className="font-display font-bold text-xl sm:text-2xl">{featuredVideo.title}</h2>
+                <p className="text-muted-foreground text-sm sm:text-base mt-1">{featuredVideo.description}</p>
               </div>
             </ScrollReveal>
           </div>
@@ -194,7 +171,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Video Grid */}
+      {/* Video Grid - YouTube Embeds Only */}
       <section className="section-padding bg-card border-y border-border">
         <div className="container-custom">
           <ScrollReveal>
@@ -206,47 +183,79 @@ export default function Portfolio() {
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {otherVideos.map((video) => (
               <StaggerItem key={video.id}>
-                <motion.div
-                  className="group cursor-pointer"
-                  onClick={() => openVideo(video)}
-                  whileHover={{ y: -8 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="relative aspect-video rounded-lg sm:rounded-xl overflow-hidden mb-3 sm:mb-4 border border-border group-hover:border-primary/50 transition-colors duration-300">
-                    <img
-                      src={getYouTubeThumbnail(video.youtubeId, "hq")}
-                      alt={video.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                <div className="h-full flex flex-col bg-background rounded-lg sm:rounded-xl border border-border overflow-hidden hover:border-primary/50 transition-colors duration-300">
+                  {/* YouTube Embed */}
+                  <div className="relative aspect-video">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.youtubeId}?rel=0`}
+                      title={video.title}
+                      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
                       loading="lazy"
                     />
-                    <div className="video-card-overlay" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <motion.div 
-                        className="w-12 h-12 sm:w-14 sm:h-14 bg-primary/20 rounded-full flex items-center justify-center group-hover:bg-primary/40 transition-all duration-300"
-                        whileHover={{ scale: 1.2 }}
-                      >
-                        <Play className="w-5 h-5 sm:w-6 sm:h-6 text-primary fill-primary" />
-                      </motion.div>
-                    </div>
-                    <div className="absolute top-2 left-2 sm:top-3 sm:left-3">
+                    <div className="absolute top-2 left-2 sm:top-3 sm:left-3 pointer-events-none">
                       <span className="px-2 py-0.5 sm:py-1 bg-primary/90 text-primary-foreground text-[10px] sm:text-xs font-medium rounded">
                         {video.category}
                       </span>
                     </div>
                   </div>
-                  <h3 className="font-display font-semibold text-sm sm:text-base group-hover:text-primary transition-colors line-clamp-2">
-                    {video.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground mt-1 line-clamp-2">{video.description}</p>
-                </motion.div>
+                  {/* Video Info */}
+                  <div className="p-4 flex-grow flex flex-col">
+                    <h3 className="font-display font-semibold text-sm sm:text-base line-clamp-2">
+                      {video.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-muted-foreground mt-1 line-clamp-2 flex-grow">
+                      {video.description}
+                    </p>
+                  </div>
+                </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
         </div>
       </section>
 
-      {/* YouTube CTA */}
+      {/* Raw Work Access Section */}
       <section className="section-padding">
+        <div className="container-custom">
+          <ScrollReveal>
+            <div className="max-w-2xl mx-auto text-center">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                <FolderLock className="w-12 h-12 sm:w-16 sm:h-16 text-primary mx-auto mb-4 sm:mb-6" />
+              </motion.div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-3 sm:mb-4">
+                Request Access to <span className="text-gradient-gold">Raw Work</span>
+              </h2>
+              <p className="text-muted-foreground text-sm sm:text-base max-w-xl mx-auto mb-6 sm:mb-8 px-4">
+                Raw videos, behind-the-scenes footage, and unedited event recordings are shared selectively with serious clients and partners only. If you're looking for in-depth portfolio samples or reference material for your upcoming event, request access below.
+              </p>
+              <motion.a
+                href={RAW_WORK_DRIVE_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button variant="gold" size="lg" className="btn-hover">
+                  <FolderLock className="w-5 h-5 mr-2" />
+                  View Raw Files (Google Drive)
+                  <ExternalLink className="w-4 h-4 ml-2" />
+                </Button>
+              </motion.a>
+              <p className="text-xs text-muted-foreground mt-4">
+                Access may require approval. Contact for queries.
+              </p>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* YouTube CTA */}
+      <section className="section-padding bg-card border-t border-border">
         <div className="container-custom text-center">
           <ScrollReveal>
             <motion.div
@@ -278,7 +287,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Video Modal */}
+      {/* Video Modal - Kept for potential future use with direct play */}
       <AnimatePresence>
         {selectedVideo && (
           <motion.div
