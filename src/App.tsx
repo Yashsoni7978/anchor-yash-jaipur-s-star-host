@@ -5,6 +5,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { ScrollToTop } from "./components/ScrollToTop";
+import { StickyMobileContact } from "./components/StickyMobileContact"; 
+
+// Standard Pages
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Anchoring from "./pages/Anchoring";
@@ -12,49 +15,21 @@ import EventManagement from "./pages/EventManagement";
 import EventDesigning from "./pages/EventDesigning";
 import Portfolio from "./pages/Portfolio";
 import Blog from "./pages/Blog";
-import WeddingAnchorJaipur from "@/pages/WeddingAnchorJaipur";
+import Contact from "./pages/Contact";
+import NotFound from "./pages/NotFound";
+
+// SEO Landing Pages
+import WeddingAnchorJaipur from "./pages/WeddingAnchorJaipur";
 import EventManagementJaipur from "./pages/EventManagementJaipur";
 import EventPlanningJaipur from "./pages/EventPlanningJaipur";
 import SangeetAnchorJaipur from "./pages/SangeetAnchorJaipur";
 import CorporateEventAnchorJaipur from "./pages/CorporateEventAnchorJaipur";
 import DestinationWeddingAnchorRajasthan from "./pages/DestinationWeddingAnchorRajasthan";
-import Contact from "./pages/Contact";
-import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <HelmetProvider>
-<<<<<<< HEAD
-      <QueryClientProvider client={queryClient}>
-            <TooltipProvider>
-                    <Toaster />
-                            <Sonner />
-                                    <BrowserRouter>
-                                              <ScrollToTop />
-                                                        <Routes>
-                                                                    <Route path="/" element={<Home />} />
-                                                                                <Route path="/about" element={<About />} />
-                                                                                            <Route path="/anchoring" element={<Anchoring />} />
-                                                                                                        <Route path="/services" element={<Anchoring />} />
-                                                                                                                    <Route path="/event-management" element={<EventManagement />} />
-                                                                                                                                <Route path="/event-designing" element={<EventDesigning />} />
-                                                                                                                                            <Route path="/portfolio" element={<Portfolio />} />
-                                                                                                                                                        <Route path="/videos" element={<Portfolio />} />
-                                                                                                                                                                    <Route path="/blog" element={<Blog />} />
-                                                                                                                                                                                <Route path="/contact" element={<Contact />} />
-                                                                                                                                                                                            <Route path="/wedding-anchor-jaipur" element={<WeddingAnchorJaipur />} />
-                                                                                                                                                                                                        <Route path="/event-management-jaipur" element={<EventManagementJaipur />} />
-                                                                                                                                                                                                                    <Route path="/event-planning-jaipur" element={<EventPlanningJaipur />} />
-                                                                                                                                                                                                                                <Route path="/sangeet-anchor-jaipur" element={<SangeetAnchorJaipur />} />
-                                                                                                                                                                                                                                            <Route path="/corporate-event-anchor-jaipur" element={<CorporateEventAnchorJaipur />} />
-                                                                                                                                                                                                                                                        <Route path="*" element={<NotFound />} />
-                                                                                                                                                                                                                                                                  </Routes>
-                                                                                                                                                                                                                                                                          </BrowserRouter>
-                                                                                                                                                                                                                                                                                </TooltipProvider>
-                                                                                                                                                                                                                                                                                    </QueryClientProvider>
-                                                                                                                                                                                                                                                                                      </HelmetProvider>
-                                                                                                                                                                                                                                                                                      );
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
@@ -62,6 +37,7 @@ const App = () => (
         <BrowserRouter>
           <ScrollToTop />
           <Routes>
+            {/* Core Pages */}
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/anchoring" element={<Anchoring />} />
@@ -72,20 +48,26 @@ const App = () => (
             <Route path="/videos" element={<Portfolio />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
+
+            {/* SEO Landing Pages */}
             <Route path="/wedding-anchor-jaipur" element={<WeddingAnchorJaipur />} />
             <Route path="/event-management-jaipur" element={<EventManagementJaipur />} />
             <Route path="/event-planning-jaipur" element={<EventPlanningJaipur />} />
             <Route path="/sangeet-anchor-jaipur" element={<SangeetAnchorJaipur />} />
             <Route path="/corporate-event-anchor-jaipur" element={<CorporateEventAnchorJaipur />} />
             <Route path="/destination-wedding-anchor-rajasthan" element={<DestinationWeddingAnchorRajasthan />} />
+            
+            {/* 404 Page */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+
+          {/* Fixed Bottom Bar for Calls & WhatsApp */}
+          <StickyMobileContact />
+          
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
   </HelmetProvider>
 );
->>>>>>> d48255c35e620b50a05a6098b000cceac0d1fa1e
 
-                                                                                                                                                                                                                                                                                      export default App;
-                                                                                                                                                                                                                                                                                      
+export default App;
