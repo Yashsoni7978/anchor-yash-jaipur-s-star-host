@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
 import { Phone, MessageCircle, MapPin, CheckCircle, Star, Users, Calendar, Award } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { SEO } from "@/components/SEO"; 
 import {
   Accordion,
   AccordionContent,
@@ -78,52 +78,46 @@ const faqs = [
 ];
 
 export default function WeddingAnchorJaipur() {
+  // Schema for Local SEO
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Wedding Anchor Services in Jaipur",
+    "provider": {
+      "@type": "Person",
+      "name": "Anchor Yash Soni",
+      "url": "https://yashsoni.in",
+      "image": "https://yashsoni.in/assets/hero-anchor.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Jaipur",
+        "addressRegion": "Rajasthan",
+        "addressCountry": "IN",
+      },
+      "telephone": "+917737877978"
+    },
+    "areaServed": {
+      "@type": "State",
+      "name": "Rajasthan",
+    },
+    "serviceType": "Wedding Anchoring",
+    "description": "Professional wedding anchor and event host for weddings, sangeet, haldi, reception and destination weddings in Jaipur and across Rajasthan.",
+  };
+
   return (
     <Layout>
-      <Helmet>
-        <title>Wedding Anchor in Jaipur | Best Wedding Host – Anchor Yash</title>
-        <meta
-          name="description"
-          content="Looking for the best wedding anchor in Jaipur? Anchor Yash brings 1100+ events experience to your sangeet, haldi, reception & destination weddings across Rajasthan."
-        />
-        <meta
-          name="keywords"
-          content="wedding anchor jaipur, best wedding host jaipur, destination wedding anchor rajasthan, sangeet anchor jaipur, wedding emcee jaipur, wedding host rajasthan"
-        />
-        <link rel="canonical" href="https://anchoryash.com/wedding-anchor-jaipur" />
-        <meta property="og:title" content="Wedding Anchor in Jaipur | Best Wedding Host – Anchor Yash" />
-        <meta
-          property="og:description"
-          content="Professional wedding anchor for Jaipur & Rajasthan weddings. Sangeet, haldi, reception & destination wedding hosting with 1100+ events experience."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://anchoryash.com/wedding-anchor-jaipur" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            name: "Wedding Anchor Services in Jaipur",
-            provider: {
-              "@type": "Person",
-              name: "Anchor Yash",
-              url: "https://anchoryash.com",
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Jaipur",
-                addressRegion: "Rajasthan",
-                addressCountry: "IN",
-              },
-            },
-            areaServed: {
-              "@type": "State",
-              name: "Rajasthan",
-            },
-            serviceType: "Wedding Anchoring",
-            description:
-              "Professional wedding anchor and event host for weddings, sangeet, haldi, reception and destination weddings in Jaipur and across Rajasthan.",
-          })}
-        </script>
-      </Helmet>
+      {/* Smart SEO Component */}
+      <SEO 
+        title="Wedding Anchor in Jaipur | Best Wedding Host – Anchor Yash"
+        description="Looking for the best wedding anchor in Jaipur? Anchor Yash brings 1100+ events experience to your sangeet, haldi, reception & destination weddings across Rajasthan."
+        keywords="wedding anchor jaipur, best wedding host jaipur, destination wedding anchor rajasthan, sangeet anchor jaipur, wedding emcee jaipur, wedding host rajasthan"
+        canonical="/wedding-anchor-jaipur"
+      />
+      
+      {/* Schema Injection */}
+      <script type="application/ld+json">
+        {JSON.stringify(schemaData)}
+      </script>
 
       {/* Hero Section */}
       <section className="pt-28 pb-12 sm:pt-32 sm:pb-16 md:pt-36 md:pb-20 bg-gradient-to-b from-primary/5 via-background to-background">
@@ -178,8 +172,10 @@ export default function WeddingAnchorJaipur() {
       {/* Main Content */}
       <section className="section-padding">
         <div className="container-custom grid lg:grid-cols-3 gap-10 lg:gap-14">
+          
           {/* Left: Text Content */}
           <div className="lg:col-span-2 space-y-12">
+            
             {/* Introduction */}
             <ScrollReveal>
               <h2 className="text-xl sm:text-2xl md:text-3xl font-display font-bold mb-4">
@@ -340,7 +336,7 @@ export default function WeddingAnchorJaipur() {
             </ScrollReveal>
           </div>
 
-          {/* Right: Sticky Booking Card */}
+          {/* Right: Sticky Booking Card (This is where your code cut off before) */}
           <ScrollReveal direction="right">
             <div className="bg-card border border-border rounded-2xl p-5 sm:p-6 sticky top-28 space-y-5">
               <h3 className="text-lg sm:text-xl font-display font-semibold">
