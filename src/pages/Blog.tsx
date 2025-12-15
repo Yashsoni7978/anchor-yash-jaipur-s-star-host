@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Calendar, Clock, ArrowRight, User } from "lucide-react";
+import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
+import { SEO } from "@/components/SEO"; // Added Smart SEO
 
 const blogPosts = [
   {
@@ -114,8 +115,42 @@ export default function Blog() {
   const featuredPost = blogPosts.find(post => post.featured);
   const regularPosts = blogPosts.filter(post => !post.featured);
 
+  // Schema for Blog Listing
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Anchor Yash Soni Blog",
+    "url": "https://yashsoni.in/blog",
+    "description": "Insights, tips, and guides on wedding anchoring, corporate events, and destination weddings in Jaipur and Rajasthan.",
+    "author": {
+      "@type": "Person",
+      "name": "Anchor Yash Soni"
+    },
+    "blogPost": blogPosts.map(post => ({
+      "@type": "BlogPosting",
+      "headline": post.title,
+      "description": post.excerpt,
+      "datePublished": post.date,
+      "author": {
+        "@type": "Person",
+        "name": "Anchor Yash Soni"
+      }
+    }))
+  };
+
   return (
     <Layout>
+      {/* Smart SEO Component */}
+      <SEO 
+        title="Event Planning & Anchoring Blog | Anchor Yash Soni Jaipur"
+        description="Read expert tips on wedding planning, corporate anchoring, and event management in Jaipur. Insights from Rajasthan's top event host."
+        keywords="event planning blog, wedding tips jaipur, anchoring tips, corporate event guide, rajasthan wedding blog"
+        canonical="/blog"
+      />
+      <script type="application/ld+json">
+        {JSON.stringify(schemaData)}
+      </script>
+
       {/* Hero Section */}
       <section className="pt-28 pb-12 sm:pt-32 sm:pb-16 md:pt-36 md:pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />

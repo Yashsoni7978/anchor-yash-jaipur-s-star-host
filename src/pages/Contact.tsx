@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
 import { useToast } from "@/hooks/use-toast";
+import { SEO } from "@/components/SEO";
 
 const serviceCategories = [
   {
@@ -110,8 +111,39 @@ export default function Contact() {
     setIsSubmitting(false);
   };
 
+  // Schema for Contact Page
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Anchor Yash Soni",
+    "url": "https://yashsoni.in/contact",
+    "description": "Book Anchor Yash Soni for your event. Contact details, phone number, and booking form for weddings and corporate events in Jaipur.",
+    "mainEntity": {
+      "@type": "LocalBusiness",
+      "name": "Anchor Yash Soni Events",
+      "telephone": "+917737877978",
+      "email": "yashsoni7978@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Jaipur",
+        "addressRegion": "Rajasthan",
+        "addressCountry": "IN"
+      }
+    }
+  };
+
   return (
     <Layout>
+      <SEO 
+        title="Contact Anchor Yash Soni | Book for Weddings & Events"
+        description="Get in touch with Anchor Yash Soni for bookings in Jaipur, Udaipur, and Rajasthan. Call +91-7737877978 or WhatsApp for rates."
+        keywords="contact anchor yash, book anchor jaipur, event anchor booking number"
+        canonical="/contact"
+      />
+      <script type="application/ld+json">
+        {JSON.stringify(schemaData)}
+      </script>
+
       {/* Hero Section */}
       <section className="pt-28 pb-12 sm:pt-32 sm:pb-16 md:pt-36 md:pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
@@ -253,7 +285,7 @@ export default function Contact() {
               {/* Map */}
               <div className="aspect-video bg-card border border-border rounded-lg sm:rounded-xl overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227748.38256716884!2d75.62574894179819!3d26.88514167956319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4adf4c57e281%3A0xce1c63a0cf22e09!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1701234567890!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227748.3825624477!2d75.65046960649675!3d26.88544791796718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4adf4c57e281%3A0xce1c63a0cf22e09!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1703000000000!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

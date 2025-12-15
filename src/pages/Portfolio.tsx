@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "framer-motion";
-import { Play, Youtube, ExternalLink, X, FolderLock } from "lucide-react";
+import { Youtube, ExternalLink, X, FolderLock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
+import { SEO } from "@/components/SEO";
 
 interface Video {
   id: string;
@@ -15,13 +15,14 @@ interface Video {
   featured?: boolean;
 }
 
-// Replace these YouTube IDs with your actual private/unlisted video IDs
+// ⚠️ NOTE: These are currently placeholders. 
+// You will need to replace 'dQw4w9WgXcQ' with your actual YouTube Video IDs.
 const videos: Video[] = [
   {
     id: "1",
     title: "Anchor Yash Highlight Reel 2024",
     description: "A compilation of the best moments from 1100+ events",
-    youtubeId: "dQw4w9WgXcQ", // Replace with actual YouTube video ID
+    youtubeId: "dQw4w9WgXcQ", 
     category: "Highlight",
     featured: true,
   },
@@ -29,43 +30,43 @@ const videos: Video[] = [
     id: "2",
     title: "Royal Jaipur Wedding",
     description: "Hosting at a grand royal wedding ceremony",
-    youtubeId: "dQw4w9WgXcQ", // Replace with actual YouTube video ID
+    youtubeId: "dQw4w9WgXcQ", 
     category: "Wedding",
   },
   {
     id: "3",
     title: "Corporate Annual Meet 2024",
     description: "Fortune 500 company annual gathering",
-    youtubeId: "dQw4w9WgXcQ", // Replace with actual YouTube video ID
+    youtubeId: "dQw4w9WgXcQ", 
     category: "Corporate",
   },
   {
     id: "4",
     title: "India Kids Fashion Week",
     description: "Official anchor at IKFW Jaipur edition",
-    youtubeId: "dQw4w9WgXcQ", // Replace with actual YouTube video ID
+    youtubeId: "dQw4w9WgXcQ", 
     category: "Fashion",
   },
   {
     id: "5",
     title: "Sangeet Night Performance",
     description: "Energetic sangeet ceremony hosting",
-    youtubeId: "dQw4w9WgXcQ", // Replace with actual YouTube video ID
+    youtubeId: "dQw4w9WgXcQ", 
     category: "Wedding",
   },
   {
     id: "6",
     title: "Destination Wedding Udaipur",
     description: "Luxury destination wedding at Lake Palace",
-    youtubeId: "dQw4w9WgXcQ", // Replace with actual YouTube video ID
+    youtubeId: "dQw4w9WgXcQ", 
     category: "Wedding",
   },
 ];
 
 const categories = ["All", "Highlight", "Wedding", "Corporate", "Fashion"];
 
-// Configurable Google Drive link for raw work access
-const RAW_WORK_DRIVE_LINK = "https://drive.google.com/drive/folders/YOUR_FOLDER_ID";
+// ✅ UPDATED: Your Real Google Drive Link
+const RAW_WORK_DRIVE_LINK = "https://drive.google.com/drive/folders/1asPWHK3S1I3KX7lWZQX7eq6y-iLPLDLZ?usp=drive_link";
 
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -78,25 +79,42 @@ export default function Portfolio() {
   const featuredVideo = videos.find(v => v.featured);
   const otherVideos = filteredVideos.filter(v => !v.featured);
 
-  const openVideo = (video: Video) => {
-    setSelectedVideo(video);
-  };
-
   const closeVideo = () => {
     setSelectedVideo(null);
   };
 
+  // Schema for Video Gallery
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Anchor Yash Soni Portfolio",
+    "url": "https://yashsoni.in/portfolio",
+    "description": "Watch highlight videos of Anchor Yash Soni hosting weddings, corporate events, and fashion shows in Jaipur.",
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": videos.map((video, index) => ({
+        "@type": "VideoObject",
+        "position": index + 1,
+        "name": video.title,
+        "description": video.description,
+        "thumbnailUrl": `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`,
+        "uploadDate": "2024-01-01", 
+        "contentUrl": `https://www.youtube.com/watch?v=${video.youtubeId}`
+      }))
+    }
+  };
+
   return (
     <Layout>
-      <Helmet>
-        <title>Event Hosting Portfolio | Anchor Yash – Jaipur</title>
-        <meta 
-          name="description" 
-          content="Watch selected event hosting highlights by Anchor Yash. Private showcases, premium weddings, corporate events, and curated work samples." 
-        />
-        <meta name="keywords" content="anchor yash portfolio, event anchor videos, wedding anchor jaipur, corporate event host, event hosting showcase" />
-        <link rel="canonical" href="https://anchoryash.com/portfolio" />
-      </Helmet>
+      <SEO 
+        title="Event Hosting Portfolio | Anchor Yash Soni – Jaipur"
+        description="Watch selected event hosting highlights by Anchor Yash. Private showcases, premium weddings, corporate events, and curated work samples."
+        keywords="anchor yash portfolio, event anchor videos, wedding anchor jaipur, corporate event host, event hosting showcase"
+        canonical="/portfolio"
+      />
+      <script type="application/ld+json">
+        {JSON.stringify(schemaData)}
+      </script>
 
       {/* Hero Section */}
       <section className="pt-28 pb-12 sm:pt-32 sm:pb-16 md:pt-36 md:pb-20 relative overflow-hidden">
@@ -287,7 +305,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Video Modal - Kept for potential future use with direct play */}
+      {/* Video Modal - Kept for future flexibility */}
       <AnimatePresence>
         {selectedVideo && (
           <motion.div

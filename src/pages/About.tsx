@@ -4,6 +4,7 @@ import { Instagram, Award, Users, Mic, Calendar, MapPin, ChevronRight } from "lu
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
+import { SEO } from "@/components/SEO"; // Added Smart SEO
 import portraitImage from "@/assets/anchor-portrait.jpg";
 import weddingImage from "@/assets/wedding-event.jpg";
 import corporateImage from "@/assets/corporate-event.jpg";
@@ -30,8 +31,44 @@ const eventCategories = [
 ];
 
 export default function About() {
+  // Schema for About Page
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Anchor Yash Soni",
+      "alternateName": "Yash Soni",
+      "identifier": "anchor-yash-jaipur",
+      "jobTitle": "Event Anchor",
+      "image": "https://yashsoni.in/assets/anchor-portrait.jpg",
+      "description": "Professional Event Anchor in Jaipur with 1100+ shows hosted. Specializes in weddings, corporate events, and sangeet nights.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Jaipur",
+        "addressRegion": "Rajasthan",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://instagram.com/anchor_yash_official",
+        "https://youtube.com/@Anchor_Yash"
+      ]
+    }
+  };
+
   return (
     <Layout>
+      {/* Smart SEO Component */}
+      <SEO 
+        title="About Anchor Yash Soni | 4+ Years Experience & 1100+ Events"
+        description="Meet Anchor Yash Soni, Jaipur's leading event host. From humble beginnings to hosting 1100+ events for celebrities and big brands. Read his story."
+        keywords="Anchor Yash biography, event anchor profile, best emcee jaipur profile, anchor yash experience"
+        canonical="/about"
+      />
+      <script type="application/ld+json">
+        {JSON.stringify(schemaData)}
+      </script>
+
       {/* Hero Section */}
       <section className="pt-28 pb-12 sm:pt-32 sm:pb-16 md:pt-36 md:pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
