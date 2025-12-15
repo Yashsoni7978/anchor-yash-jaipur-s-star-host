@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Check, ChevronRight, Sparkles, Palette, Music, Heart, Camera, Star, Flower2 } from "lucide-react";
+import { Check, ChevronRight, Palette, Music, Heart, Camera, Star, Flower2, MessageCircle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
+import { SEO } from "@/components/SEO"; 
 import weddingImage from "@/assets/wedding-event.jpg";
 import sangeetImage from "@/assets/sangeet-event.jpg";
 import corporateImage from "@/assets/corporate-event.jpg";
@@ -114,8 +115,40 @@ const portfolio = [
 ];
 
 export default function EventDesigning() {
+  // Schema for Event Designing
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Event Designing & Decor Services",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Anchor Yash Soni Events",
+      "url": "https://yashsoni.in",
+      "telephone": "+917737877978",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Jaipur",
+        "addressRegion": "Rajasthan",
+        "addressCountry": "IN"
+      },
+    },
+    "serviceType": "Event Designing",
+    "description": "Premium event designing, wedding decor, sangeet choreography, and entry concepts in Jaipur.",
+  };
+
   return (
     <Layout>
+      {/* Smart SEO Component */}
+      <SEO 
+        title="Event Designing & Wedding Decor in Jaipur | Sangeet Choreography"
+        description="Transform your event with expert designing and decor in Jaipur. We offer wedding themes, sangeet choreography, and grand entry concepts. Book now!"
+        keywords="event designing jaipur, wedding decor jaipur, sangeet choreography, bride groom entry ideas, event themes rajasthan"
+        canonical="/event-designing"
+      />
+      <script type="application/ld+json">
+        {JSON.stringify(schemaData)}
+      </script>
+
       {/* Hero Section */}
       <section className="pt-28 pb-12 sm:pt-32 sm:pb-16 md:pt-36 md:pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
@@ -131,6 +164,22 @@ export default function EventDesigning() {
             <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-4">
               From stunning decor to complete wedding planning, we transform your vision into reality with meticulous attention to every detail.
             </p>
+            
+            {/* Added CTA Buttons */}
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <Link to="/contact">
+                <Button variant="hero" size="lg" className="btn-hover">
+                  Design My Event
+                </Button>
+              </Link>
+              <a href="https://wa.me/917737877978" target="_blank" rel="noopener noreferrer">
+                <Button variant="heroOutline" size="lg">
+                  <MessageCircle className="w-5 h-5" />
+                  WhatsApp
+                </Button>
+              </a>
+            </div>
+
           </ScrollReveal>
         </div>
       </section>
@@ -309,45 +358,6 @@ export default function EventDesigning() {
         </div>
       </section>
 
-      {/* Process */}
-      <section className="section-padding">
-        <div className="container-custom">
-          <ScrollReveal>
-            <div className="text-center mb-10 sm:mb-16">
-              <span className="text-primary text-xs sm:text-sm font-medium uppercase tracking-wider">
-                How We Work
-              </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mt-3 sm:mt-4">
-                Our <span className="text-gradient-gold">Process</span>
-              </h2>
-            </div>
-          </ScrollReveal>
-
-          <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-            {[
-              { step: "01", title: "Discovery", desc: "Understanding your vision, style, and requirements" },
-              { step: "02", title: "Design", desc: "Creating detailed concepts and mood boards" },
-              { step: "03", title: "Planning", desc: "Vendor coordination and timeline management" },
-              { step: "04", title: "Execution", desc: "Flawless delivery of your dream event" },
-            ].map((item) => (
-              <StaggerItem key={item.step}>
-                <motion.div 
-                  className="text-center"
-                  whileHover={{ scale: 1.05, y: -4 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-gradient-gold mb-3 sm:mb-4">
-                    {item.step}
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-display font-semibold mb-1 sm:mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground text-xs sm:text-sm">{item.desc}</p>
-                </motion.div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="section-padding bg-card border-t border-border">
         <div className="container-custom text-center">
@@ -364,12 +374,20 @@ export default function EventDesigning() {
             <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-8 sm:mb-10 px-4">
               From concept to celebration, we handle every detail so you can enjoy your special moments.
             </p>
-            <Link to="/contact">
-              <Button variant="hero" size="xl" className="btn-hover">
-                Start Planning
-                <ChevronRight className="w-5 h-5" />
-              </Button>
-            </Link>
+            <div className="flex justify-center gap-4">
+                <Link to="/contact">
+                <Button variant="hero" size="xl" className="btn-hover">
+                    Start Planning
+                    <ChevronRight className="w-5 h-5" />
+                </Button>
+                </Link>
+                <a href="https://wa.me/917737877978" target="_blank" rel="noopener noreferrer">
+                    <Button variant="heroOutline" size="xl">
+                        <MessageCircle className="w-5 h-5" />
+                        WhatsApp
+                    </Button>
+                </a>
+            </div>
           </ScrollReveal>
         </div>
       </section>

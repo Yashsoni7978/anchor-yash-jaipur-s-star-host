@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
 import { Phone, MessageCircle, MapPin, CheckCircle, Users, Briefcase, Heart, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { SEO } from "@/components/SEO"; // Switched to Smart SEO Component
 import {
   Accordion,
   AccordionContent,
@@ -98,52 +98,44 @@ const faqs = [
 ];
 
 export default function EventManagementJaipur() {
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Event Management Services in Jaipur",
+    "provider": {
+      "@type": "Person",
+      "name": "Anchor Yash Soni",
+      "url": "https://yashsoni.in",
+      "telephone": "+917737877978",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Jaipur",
+        "addressRegion": "Rajasthan",
+        "addressCountry": "IN",
+      },
+    },
+    "areaServed": {
+      "@type": "State",
+      "name": "Rajasthan",
+    },
+    "serviceType": "Event Management",
+    "description": "End-to-end event management and planning services with curated vendor coordination for weddings, corporate events, and fashion shows in Jaipur.",
+  };
+
   return (
     <Layout>
-      <Helmet>
-        <title>Event Management in Jaipur | Best Event Planner – Anchor Yash</title>
-        <meta
-          name="description"
-          content="Looking for event management in Jaipur? Anchor Yash offers end-to-end event planning with curated vendors for weddings, corporate events & fashion shows."
-        />
-        <meta
-          name="keywords"
-          content="event management jaipur, best event planner jaipur, wedding event management jaipur, corporate event planner jaipur, event organizer rajasthan"
-        />
-        <link rel="canonical" href="https://anchoryash.com/event-management-jaipur" />
-        <meta property="og:title" content="Event Management in Jaipur | Best Event Planner – Anchor Yash" />
-        <meta
-          property="og:description"
-          content="End-to-end event management with curated vendors and personal coordination. Weddings, corporate events, fashion shows in Jaipur & Rajasthan."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://anchoryash.com/event-management-jaipur" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            name: "Event Management Services in Jaipur",
-            provider: {
-              "@type": "Person",
-              name: "Anchor Yash",
-              url: "https://anchoryash.com",
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Jaipur",
-                addressRegion: "Rajasthan",
-                addressCountry: "IN",
-              },
-            },
-            areaServed: {
-              "@type": "State",
-              name: "Rajasthan",
-            },
-            serviceType: "Event Management",
-            description:
-              "End-to-end event management and planning services with curated vendor coordination for weddings, corporate events, and fashion shows in Jaipur.",
-          })}
-        </script>
-      </Helmet>
+      {/* Smart SEO Component */}
+      <SEO 
+        title="Event Management in Jaipur | Best Event Planner – Anchor Yash"
+        description="Looking for event management in Jaipur? Anchor Yash offers end-to-end event planning with curated vendors for weddings, corporate events & fashion shows."
+        keywords="event management jaipur, best event planner jaipur, wedding event management jaipur, corporate event planner jaipur, event organizer rajasthan"
+        canonical="/event-management-jaipur"
+      />
+      
+      {/* Schema Injection */}
+      <script type="application/ld+json">
+        {JSON.stringify(schemaData)}
+      </script>
 
       {/* Hero Section */}
       <section className="pt-28 pb-12 sm:pt-32 sm:pb-16 md:pt-36 md:pb-20 bg-gradient-to-b from-primary/5 via-background to-background">

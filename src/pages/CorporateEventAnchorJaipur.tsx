@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { ChevronRight, MessageCircle, Briefcase, Award, Users, Target, Phone, Star, MapPin, Mic } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
+import { SEO } from "@/components/SEO"; // Switched to our Smart SEO Component
 
 const corporateServices = [
   {
@@ -85,41 +85,32 @@ const faqs = [
 ];
 
 export default function CorporateEventAnchorJaipur() {
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Corporate Event Anchor in Jaipur",
+    "provider": {
+      "@type": "Person",
+      "name": "Anchor Yash Soni",
+      "url": "https://yashsoni.in",
+      "telephone": "+917737877978",
+      "areaServed": "Jaipur, Rajasthan",
+    },
+    "serviceType": "Corporate Event Anchoring",
+    "description": "Professional corporate event anchoring services for conferences, award ceremonies, product launches, and business events in Jaipur.",
+  };
+
   return (
     <Layout>
-      <Helmet>
-        <title>Corporate Event Anchor in Jaipur | Professional Emcee | Anchor Yash</title>
-        <meta
-          name="description"
-          content="Professional corporate event anchor in Jaipur. Expert hosting for conferences, award ceremonies, product launches, and corporate celebrations. 70+ corporate clients served."
-        />
-        <meta
-          name="keywords"
-          content="corporate event anchor jaipur, corporate emcee jaipur, conference host jaipur, corporate anchor rajasthan, business event host, award ceremony anchor"
-        />
-        <link rel="canonical" href="https://anchoryash.com/corporate-event-anchor-jaipur" />
-        <meta property="og:title" content="Corporate Event Anchor in Jaipur | Anchor Yash" />
-        <meta
-          property="og:description"
-          content="Professional corporate event anchoring for conferences, award ceremonies, and business events in Jaipur."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://anchoryash.com/corporate-event-anchor-jaipur" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            name: "Corporate Event Anchor in Jaipur",
-            provider: {
-              "@type": "Person",
-              name: "Anchor Yash",
-              areaServed: "Jaipur, Rajasthan",
-            },
-            serviceType: "Corporate Event Anchoring",
-            description: "Professional corporate event anchoring services for conferences, award ceremonies, product launches, and business events in Jaipur.",
-          })}
-        </script>
-      </Helmet>
+      <SEO 
+        title="Corporate Event Anchor in Jaipur | Professional Emcee | Anchor Yash"
+        description="Professional corporate event anchor in Jaipur. Expert hosting for conferences, award ceremonies, product launches, and corporate celebrations. 70+ corporate clients served."
+        keywords="corporate event anchor jaipur, corporate emcee jaipur, conference host jaipur, corporate anchor rajasthan, business event host, award ceremony anchor"
+        canonical="/corporate-event-anchor-jaipur"
+      />
+      <script type="application/ld+json">
+        {JSON.stringify(schemaData)}
+      </script>
 
       {/* Hero Section */}
       <section className="pt-28 sm:pt-32 pb-16 sm:pb-20 relative overflow-hidden">
@@ -148,7 +139,7 @@ export default function CorporateEventAnchorJaipur() {
                   <ChevronRight className="w-5 h-5" />
                 </Button>
               </Link>
-              <a href="https://wa.me/919784713889" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/917737877978?text=Hi%20Anchor%20Yash,%20I%20want%20to%20inquire%20about%20corporate%20anchoring." target="_blank" rel="noopener noreferrer">
                 <Button variant="heroOutline" size="lg">
                   <MessageCircle className="w-5 h-5" />
                   WhatsApp
@@ -368,7 +359,7 @@ export default function CorporateEventAnchorJaipur() {
                     <ChevronRight className="w-5 h-5" />
                   </Button>
                 </Link>
-                <a href="tel:+919784713889" className="block">
+                <a href="tel:+917737877978" className="block">
                   <Button variant="heroOutline" size="lg">
                     <Phone className="w-5 h-5" />
                     Call Now

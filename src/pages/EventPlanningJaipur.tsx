@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { ChevronRight, MessageCircle, CheckCircle, Calendar, Users, Lightbulb, Target, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
+import { SEO } from "@/components/SEO"; // Switched to Smart SEO Component
 
 const planningServices = [
   {
@@ -57,41 +57,41 @@ const faqs = [
 ];
 
 export default function EventPlanningJaipur() {
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Event Planning Services in Jaipur",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Anchor Yash Soni Events",
+      "url": "https://yashsoni.in",
+      "telephone": "+917737877978",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Jaipur",
+        "addressRegion": "Rajasthan",
+        "addressCountry": "IN"
+      },
+      "areaServed": "Jaipur, Rajasthan",
+    },
+    "serviceType": "Event Planning",
+    "description": "Professional event planning services including wedding planning, corporate events, and destination celebrations in Jaipur and Rajasthan.",
+  };
+
   return (
     <Layout>
-      <Helmet>
-        <title>Event Planning Services in Jaipur | Wedding & Corporate Event Planner</title>
-        <meta
-          name="description"
-          content="Professional event planning services in Jaipur. Expert wedding planning, corporate event planning, and destination event coordination across Rajasthan. Personal attention, curated vendors."
-        />
-        <meta
-          name="keywords"
-          content="event planning jaipur, wedding planning jaipur, corporate event planning jaipur, event planner rajasthan, destination wedding planner jaipur"
-        />
-        <link rel="canonical" href="https://anchoryash.com/event-planning-jaipur" />
-        <meta property="og:title" content="Event Planning Services in Jaipur | Anchor Yash" />
-        <meta
-          property="og:description"
-          content="Professional event planning services in Jaipur. Expert coordination for weddings, corporate events, and destination celebrations."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://anchoryash.com/event-planning-jaipur" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            name: "Event Planning Services in Jaipur",
-            provider: {
-              "@type": "LocalBusiness",
-              name: "Anchor Yash",
-              areaServed: "Jaipur, Rajasthan",
-            },
-            serviceType: "Event Planning",
-            description: "Professional event planning services including wedding planning, corporate events, and destination celebrations in Jaipur and Rajasthan.",
-          })}
-        </script>
-      </Helmet>
+      {/* Smart SEO Component */}
+      <SEO 
+        title="Event Planning Services in Jaipur | Wedding & Corporate Event Planner"
+        description="Professional event planning services in Jaipur. Expert wedding planning, corporate event planning, and destination event coordination across Rajasthan. Personal attention, curated vendors."
+        keywords="event planning jaipur, wedding planning jaipur, corporate event planning jaipur, event planner rajasthan, destination wedding planner jaipur"
+        canonical="/event-planning-jaipur"
+      />
+      
+      {/* Schema Injection */}
+      <script type="application/ld+json">
+        {JSON.stringify(schemaData)}
+      </script>
 
       {/* Hero Section */}
       <section className="pt-28 sm:pt-32 pb-16 sm:pb-20 relative overflow-hidden">
@@ -120,7 +120,7 @@ export default function EventPlanningJaipur() {
                   <ChevronRight className="w-5 h-5" />
                 </Button>
               </Link>
-              <a href="https://wa.me/919784713aborz" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/917737877978?text=Hi%20Yash,%20I%20want%20to%20discuss%20planning%20an%20event." target="_blank" rel="noopener noreferrer">
                 <Button variant="heroOutline" size="lg">
                   <MessageCircle className="w-5 h-5" />
                   WhatsApp
@@ -343,7 +343,7 @@ export default function EventPlanningJaipur() {
                     <ChevronRight className="w-5 h-5" />
                   </Button>
                 </Link>
-                <a href="tel:+919784713889" className="block">
+                <a href="tel:+917737877978" className="block">
                   <Button variant="heroOutline" size="lg">
                     <Phone className="w-5 h-5" />
                     Call Now

@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { ChevronRight, MessageCircle, Music, Heart, Sparkles, Users, Phone, Star, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
+import { SEO } from "@/components/SEO"; // Added Smart SEO
 
 const sangeetServices = [
   {
@@ -77,41 +77,36 @@ const faqs = [
 ];
 
 export default function SangeetAnchorJaipur() {
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Sangeet Anchor in Jaipur",
+    "provider": {
+      "@type": "Person",
+      "name": "Anchor Yash Soni",
+      "url": "https://yashsoni.in",
+      "telephone": "+917737877978",
+      "areaServed": {
+        "@type": "State",
+        "name": "Rajasthan",
+      },
+    },
+    "serviceType": "Sangeet Anchoring",
+    "description": "Professional sangeet anchoring services for weddings in Jaipur and Rajasthan. High-energy entertainment, performance coordination, and memorable celebrations.",
+  };
+
   return (
     <Layout>
-      <Helmet>
-        <title>Sangeet Anchor in Jaipur | Best Sangeet Host for Weddings | Anchor Yash</title>
-        <meta
-          name="description"
-          content="Looking for the best sangeet anchor in Jaipur? Anchor Yash brings energy, fun, and seamless coordination to your sangeet night. 700+ events hosted across Rajasthan."
-        />
-        <meta
-          name="keywords"
-          content="sangeet anchor jaipur, sangeet host jaipur, wedding sangeet anchor, best sangeet anchor rajasthan, sangeet night host, mehndi sangeet anchor"
-        />
-        <link rel="canonical" href="https://anchoryash.com/sangeet-anchor-jaipur" />
-        <meta property="og:title" content="Sangeet Anchor in Jaipur | Anchor Yash" />
-        <meta
-          property="og:description"
-          content="Professional sangeet anchoring for weddings in Jaipur. High-energy hosting, seamless performance coordination, and memorable entertainment."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://anchoryash.com/sangeet-anchor-jaipur" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            name: "Sangeet Anchor in Jaipur",
-            provider: {
-              "@type": "Person",
-              name: "Anchor Yash",
-              areaServed: "Jaipur, Rajasthan",
-            },
-            serviceType: "Sangeet Anchoring",
-            description: "Professional sangeet anchoring services for weddings in Jaipur and Rajasthan. High-energy entertainment, performance coordination, and memorable celebrations.",
-          })}
-        </script>
-      </Helmet>
+      {/* Smart SEO Component */}
+      <SEO 
+        title="Sangeet Anchor in Jaipur | Best Sangeet Host for Weddings | Anchor Yash"
+        description="Looking for the best sangeet anchor in Jaipur? Anchor Yash brings energy, fun, and seamless coordination to your sangeet night. 700+ events hosted across Rajasthan."
+        keywords="sangeet anchor jaipur, sangeet host jaipur, wedding sangeet anchor, best sangeet anchor rajasthan, sangeet night host, mehndi sangeet anchor"
+        canonical="/sangeet-anchor-jaipur"
+      />
+      <script type="application/ld+json">
+        {JSON.stringify(schemaData)}
+      </script>
 
       {/* Hero Section */}
       <section className="pt-28 sm:pt-32 pb-16 sm:pb-20 relative overflow-hidden">
@@ -140,7 +135,7 @@ export default function SangeetAnchorJaipur() {
                   <ChevronRight className="w-5 h-5" />
                 </Button>
               </Link>
-              <a href="https://wa.me/919784713889" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/917737877978?text=Hi%20Anchor%20Yash,%20I%20am%20looking%20for%20a%20Sangeet%20anchor." target="_blank" rel="noopener noreferrer">
                 <Button variant="heroOutline" size="lg">
                   <MessageCircle className="w-5 h-5" />
                   WhatsApp
@@ -360,7 +355,7 @@ export default function SangeetAnchorJaipur() {
                     <ChevronRight className="w-5 h-5" />
                   </Button>
                 </Link>
-                <a href="tel:+919784713889" className="block">
+                <a href="tel:+917737877978" className="block">
                   <Button variant="heroOutline" size="lg">
                     <Phone className="w-5 h-5" />
                     Call Now

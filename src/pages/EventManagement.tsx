@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Check, ChevronRight, Sparkles, Calendar, Users, Music, Camera, Palette, Star } from "lucide-react";
+import { Check, ChevronRight, Sparkles, Calendar, Users, Music, Camera, Palette, Star, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
+import { SEO } from "@/components/SEO"; // Added Smart SEO
 import weddingImage from "@/assets/wedding-event.jpg";
 import sangeetImage from "@/assets/sangeet-event.jpg";
 import corporateImage from "@/assets/corporate-event.jpg";
@@ -68,8 +69,40 @@ const sampleEvents = [
 ];
 
 export default function EventManagement() {
+  // Schema for Event Planner
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Event Management Services",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Anchor Yash Soni Events",
+      "url": "https://yashsoni.in",
+      "telephone": "+917737877978",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Jaipur",
+        "addressRegion": "Rajasthan",
+        "addressCountry": "IN"
+      },
+    },
+    "serviceType": "Event Management",
+    "description": "Full-service event management, decor, and choreography for weddings and corporate events in Jaipur.",
+  };
+
   return (
     <Layout>
+      {/* Smart SEO Component */}
+      <SEO 
+        title="Event Management Company in Jaipur | Best Event Planner - Yash Soni"
+        description="Complete event management services in Jaipur. Wedding planning, decor, choreography, and corporate event production. 1100+ events experience."
+        keywords="event management jaipur, event planner jaipur, wedding planner rajasthan, corporate event management, sangeet choreography jaipur"
+        canonical="/event-management"
+      />
+      <script type="application/ld+json">
+        {JSON.stringify(schemaData)}
+      </script>
+
       {/* Hero Section */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
@@ -89,6 +122,23 @@ export default function EventManagement() {
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Beyond anchoring, we offer full-service event management, stunning decor, sangeet choreography, and entertainment coordination to make your celebration truly spectacular.
             </p>
+            
+            {/* Added CTA Buttons Here */}
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <Link to="/contact">
+                <Button variant="hero" size="lg" className="btn-hover">
+                  Start Planning
+                  <ChevronRight className="w-5 h-5" />
+                </Button>
+              </Link>
+              <a href="https://wa.me/917737877978" target="_blank" rel="noopener noreferrer">
+                <Button variant="heroOutline" size="lg">
+                  <MessageCircle className="w-5 h-5" />
+                  WhatsApp
+                </Button>
+              </a>
+            </div>
+
           </motion.div>
         </div>
       </section>
@@ -251,12 +301,20 @@ export default function EventManagement() {
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-10">
               From concept to execution, let us handle everything while you enjoy your celebration.
             </p>
-            <Link to="/contact">
-              <Button variant="hero" size="xl">
-                Get Started
-                <ChevronRight className="w-5 h-5" />
-              </Button>
-            </Link>
+            <div className="flex justify-center gap-4">
+                <Link to="/contact">
+                <Button variant="hero" size="xl">
+                    Get Started
+                    <ChevronRight className="w-5 h-5" />
+                </Button>
+                </Link>
+                <a href="https://wa.me/917737877978" target="_blank" rel="noopener noreferrer">
+                    <Button variant="heroOutline" size="xl">
+                        <MessageCircle className="w-5 h-5" />
+                        WhatsApp
+                    </Button>
+                </a>
+            </div>
           </motion.div>
         </div>
       </section>

@@ -1,10 +1,10 @@
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { MapPin, Crown, Star, Users, Phone, MessageCircle, Sparkles, Building, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
+import { SEO } from "@/components/SEO"; // Added Smart SEO
 
 const destinationVenues = [
   {
@@ -66,42 +66,45 @@ export default function DestinationWeddingAnchorRajasthan() {
     "Hi Anchor Yash, I'm planning a destination wedding in Rajasthan and would like to discuss hosting services."
   );
 
+  // Schema for Destination Wedding Service
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Destination Wedding Anchor Services Rajasthan",
+    "provider": {
+      "@type": "Person",
+      "name": "Anchor Yash Soni",
+      "url": "https://yashsoni.in",
+      "telephone": "+917737877978",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Jaipur",
+        "addressRegion": "Rajasthan",
+        "addressCountry": "IN"
+      }
+    },
+    "areaServed": {
+      "@type": "State",
+      "name": "Rajasthan",
+    },
+    "description": "Professional destination wedding anchor and palace wedding host services across Rajasthan including Jaipur, Udaipur, and Jodhpur.",
+    "serviceType": "Destination Wedding Anchoring",
+  };
+
   return (
     <Layout>
-      <Helmet>
-        <title>Destination Wedding Anchor Rajasthan | Palace Wedding Host Jaipur – Anchor Yash</title>
-        <meta
-          name="description"
-          content="Book Anchor Yash for destination weddings in Rajasthan. Experienced palace wedding host in Jaipur, Udaipur, and Jodhpur. 200+ heritage venue weddings hosted."
-        />
-        <meta
-          name="keywords"
-          content="destination wedding anchor rajasthan, palace wedding host jaipur, destination wedding emcee udaipur, heritage wedding anchor, royal wedding host rajasthan, wedding anchor jodhpur"
-        />
-        <link rel="canonical" href="https://anchoryash.com/destination-wedding-anchor-rajasthan" />
-        <meta property="og:title" content="Destination Wedding Anchor Rajasthan | Palace Wedding Host – Anchor Yash" />
-        <meta property="og:description" content="Experienced destination wedding anchor for Rajasthan's finest palace venues. Book Anchor Yash for heritage weddings in Jaipur, Udaipur, and Jodhpur." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://anchoryash.com/destination-wedding-anchor-rajasthan" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Service",
-            "name": "Destination Wedding Anchor Services Rajasthan",
-            "provider": {
-              "@type": "Person",
-              "name": "Anchor Yash",
-              "url": "https://anchoryash.com",
-            },
-            "areaServed": {
-              "@type": "State",
-              "name": "Rajasthan",
-            },
-            "description": "Professional destination wedding anchor and palace wedding host services across Rajasthan including Jaipur, Udaipur, and Jodhpur.",
-            "serviceType": "Destination Wedding Anchoring",
-          })}
-        </script>
-      </Helmet>
+      {/* Smart SEO Component */}
+      <SEO 
+        title="Destination Wedding Anchor Rajasthan | Palace Wedding Host Jaipur – Anchor Yash"
+        description="Book Anchor Yash for destination weddings in Rajasthan. Experienced palace wedding host in Jaipur, Udaipur, and Jodhpur. 200+ heritage venue weddings hosted."
+        keywords="destination wedding anchor rajasthan, palace wedding host jaipur, destination wedding emcee udaipur, heritage wedding anchor, royal wedding host rajasthan, wedding anchor jodhpur"
+        canonical="/destination-wedding-anchor-rajasthan"
+      />
+      
+      {/* Schema Injection */}
+      <script type="application/ld+json">
+        {JSON.stringify(schemaData)}
+      </script>
 
       {/* Hero Section */}
       <section className="pt-28 pb-12 sm:pt-32 sm:pb-16 md:pt-36 md:pb-20 relative overflow-hidden">
@@ -120,7 +123,7 @@ export default function DestinationWeddingAnchorRajasthan() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
               <motion.a
-                href={`https://wa.me/919509899913?text=${whatsappMessage}`}
+                href={`https://wa.me/917737877978?text=${whatsappMessage}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
@@ -309,7 +312,7 @@ export default function DestinationWeddingAnchorRajasthan() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
               <motion.a
-                href={`https://wa.me/919509899913?text=${whatsappMessage}`}
+                href={`https://wa.me/917737877978?text=${whatsappMessage}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
