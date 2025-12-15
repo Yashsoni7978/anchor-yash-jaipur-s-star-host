@@ -25,6 +25,36 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <HelmetProvider>
+<<<<<<< HEAD
+      <QueryClientProvider client={queryClient}>
+            <TooltipProvider>
+                    <Toaster />
+                            <Sonner />
+                                    <BrowserRouter>
+                                              <ScrollToTop />
+                                                        <Routes>
+                                                                    <Route path="/" element={<Home />} />
+                                                                                <Route path="/about" element={<About />} />
+                                                                                            <Route path="/anchoring" element={<Anchoring />} />
+                                                                                                        <Route path="/services" element={<Anchoring />} />
+                                                                                                                    <Route path="/event-management" element={<EventManagement />} />
+                                                                                                                                <Route path="/event-designing" element={<EventDesigning />} />
+                                                                                                                                            <Route path="/portfolio" element={<Portfolio />} />
+                                                                                                                                                        <Route path="/videos" element={<Portfolio />} />
+                                                                                                                                                                    <Route path="/blog" element={<Blog />} />
+                                                                                                                                                                                <Route path="/contact" element={<Contact />} />
+                                                                                                                                                                                            <Route path="/wedding-anchor-jaipur" element={<WeddingAnchorJaipur />} />
+                                                                                                                                                                                                        <Route path="/event-management-jaipur" element={<EventManagementJaipur />} />
+                                                                                                                                                                                                                    <Route path="/event-planning-jaipur" element={<EventPlanningJaipur />} />
+                                                                                                                                                                                                                                <Route path="/sangeet-anchor-jaipur" element={<SangeetAnchorJaipur />} />
+                                                                                                                                                                                                                                            <Route path="/corporate-event-anchor-jaipur" element={<CorporateEventAnchorJaipur />} />
+                                                                                                                                                                                                                                                        <Route path="*" element={<NotFound />} />
+                                                                                                                                                                                                                                                                  </Routes>
+                                                                                                                                                                                                                                                                          </BrowserRouter>
+                                                                                                                                                                                                                                                                                </TooltipProvider>
+                                                                                                                                                                                                                                                                                    </QueryClientProvider>
+                                                                                                                                                                                                                                                                                      </HelmetProvider>
+                                                                                                                                                                                                                                                                                      );
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
@@ -55,5 +85,7 @@ const App = () => (
     </QueryClientProvider>
   </HelmetProvider>
 );
+>>>>>>> d48255c35e620b50a05a6098b000cceac0d1fa1e
 
-export default App;
+                                                                                                                                                                                                                                                                                      export default App;
+                                                                                                                                                                                                                                                                                      
