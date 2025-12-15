@@ -2,31 +2,33 @@ import { Phone, MessageCircle } from 'lucide-react';
 
 export const StickyMobileContact = () => {
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 flex h-16 w-full border-t border-gray-200 bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] md:hidden">
-      {/* Call Button */}
-      <a 
-        href="tel:+917737877978" 
-        className="flex flex-1 flex-col items-center justify-center gap-1 bg-white text-gray-800 transition-colors active:bg-gray-100"
-        aria-label="Call Anchor Yash"
-      >
-        <Phone className="h-5 w-5 text-blue-600" />
-        <span className="text-xs font-semibold">Call Now</span>
-      </a>
+    <div className="fixed bottom-6 left-1/2 z-50 w-[90%] -translate-x-1/2 transform md:hidden">
+      <div className="flex items-center justify-between rounded-full border border-white/20 bg-black/80 p-1.5 shadow-2xl backdrop-blur-md">
+        
+        {/* Call Button - Premium White Circle */}
+        <a 
+          href="tel:+917737877978" 
+          className="group flex flex-1 items-center justify-center gap-2 rounded-full bg-white py-3 text-sm font-bold text-black transition-all active:scale-95"
+        >
+          <Phone className="h-4 w-4 fill-black" />
+          <span>Call</span>
+        </a>
 
-      {/* Divider */}
-      <div className="h-full w-[1px] bg-gray-200"></div>
+        {/* Spacer */}
+        <div className="w-2"></div>
 
-      {/* WhatsApp Button */}
-      <a 
-        href="https://wa.me/917737877978?text=Hi%20Anchor%20Yash,%20I%20want%20to%20enquire%20about%20an%20event." 
-        target="_blank" 
-        rel="noopener noreferrer"
-        className="flex flex-1 flex-col items-center justify-center gap-1 bg-[#25D366] text-white transition-colors hover:bg-[#20bd5a]"
-        aria-label="WhatsApp Anchor Yash"
-      >
-        <MessageCircle className="h-5 w-5 fill-current" />
-        <span className="text-xs font-bold">WhatsApp</span>
-      </a>
+        {/* WhatsApp Button - Transparent with Text */}
+        <a 
+          href="https://wa.me/917737877978?text=Hi%20Anchor%20Yash,%20I%20want%20to%20enquire%20about%20an%20event." 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="group flex flex-1 items-center justify-center gap-2 rounded-full bg-green-600/90 py-3 text-sm font-bold text-white transition-all active:scale-95 active:bg-green-700"
+        >
+          <MessageCircle className="h-4 w-4 fill-white" />
+          <span>WhatsApp</span>
+        </a>
+
+      </div>
     </div>
   );
 };
