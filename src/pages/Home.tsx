@@ -4,6 +4,7 @@ import { Play, Instagram, Star, Users, Award, Mic, ChevronRight, Quote, Calendar
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
+import { SEO } from "@/components/SEO"; // Added SEO Component
 import heroImage from "@/assets/hero-anchor.jpg";
 import weddingImage from "@/assets/wedding-event.jpg";
 import corporateImage from "@/assets/corporate-event.jpg";
@@ -27,33 +28,35 @@ const trustBadges = [
   "National-Level Sports Events",
 ];
 
+// UPDATED LINKS TO POINT TO SEO PAGES
 const anchoringServices = [
   {
     title: "Wedding Anchor",
     description: "Professional hosting for your special day with seamless ceremony management",
     image: weddingImage,
-    link: "/anchoring",
+    link: "/wedding-anchor-jaipur", // CHANGED from /anchoring to specific SEO page
   },
   {
     title: "Corporate Anchor",
     description: "Polished and engaging hosting for business events and conferences",
     image: corporateImage,
-    link: "/anchoring",
+    link: "/corporate-event-anchor-jaipur", // CHANGED to specific SEO page
   },
   {
     title: "Fashion Show Host",
     description: "Bringing glamour and energy to runway events and fashion weeks",
     image: fashionImage,
-    link: "/anchoring",
+    link: "/anchoring", // Kept generic for now
   },
 ];
 
+// UPDATED LINKS TO POINT TO SEO PAGES
 const eventManagementServices = [
   {
     icon: Calendar,
     title: "Event Planning",
     description: "End-to-end event planning from concept to flawless execution",
-    link: "/event-management",
+    link: "/event-planning-jaipur", // CHANGED to specific SEO page
   },
   {
     icon: Palette,
@@ -65,7 +68,7 @@ const eventManagementServices = [
     icon: PartyPopper,
     title: "Wedding Planning",
     description: "Complete wedding management including choreography and entertainment",
-    link: "/event-designing",
+    link: "/event-management-jaipur", // CHANGED to specific SEO page
   },
 ];
 
@@ -110,8 +113,36 @@ const whyChooseUs = [
 ];
 
 export default function Home() {
+  // Schema for Google Knowledge Graph
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Anchor Yash Soni",
+    "url": "https://yashsoni.in",
+    "jobTitle": "Event Anchor & Emcee",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Yash Soni Events"
+    },
+    "sameAs": [
+      "https://instagram.com/anchor_yash_official",
+      "https://youtube.com/@anchoryashsoni"
+    ]
+  };
+
   return (
     <Layout>
+      {/* INJECTED SEO COMPONENT */}
+      <SEO 
+        title="Anchor Yash Soni | Best Wedding Anchor in Jaipur & Rajasthan"
+        description="Book Anchor Yash Soni for Weddings, Corporate Events & Sangeet in Jaipur. 1100+ shows, celebrity events, and high-energy hosting. Call now!"
+        keywords="Anchor Yash Soni, Anchor in Jaipur, Event Host Jaipur, Wedding Anchor Rajasthan, Corporate Emcee"
+        canonical="/"
+      />
+      <script type="application/ld+json">
+        {JSON.stringify(schemaData)}
+      </script>
+
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}
