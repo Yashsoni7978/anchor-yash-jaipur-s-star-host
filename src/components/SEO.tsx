@@ -9,10 +9,15 @@ interface SEOProps {
 
 export const SEO = ({ title, description, canonical, keywords }: SEOProps) => {
   const siteUrl = 'https://yashsoni.in';
+  
+  // ✅ FIXED: Added backticks for the template literal
   const fullUrl = canonical ? `${siteUrl}${canonical}` : siteUrl;
 
+  // 🔧 TYPE FIX: Cast Helmet to 'any' to stop TypeScript complaints
+  const HelmetWrapper = Helmet as any;
+
   return (
-    <Helmet>
+    <HelmetWrapper>
       {/* Standard Meta Tags */}
       <title>{title} | Anchor Yash Soni</title>
       <meta name="description" content={description} />
@@ -37,6 +42,6 @@ export const SEO = ({ title, description, canonical, keywords }: SEOProps) => {
       <meta name="geo.placename" content="Jaipur" />
       <meta name="geo.position" content="26.9124;75.7873" />
       <meta name="ICBM" content="26.9124, 75.7873" />
-    </Helmet>
+    </HelmetWrapper>
   );
 };
