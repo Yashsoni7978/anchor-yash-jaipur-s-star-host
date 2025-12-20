@@ -12,8 +12,14 @@ const quickLinks = [
 const anchoringServices = [
   { name: "Wedding Anchor Jaipur", path: "/wedding-anchor-jaipur" },
   { name: "Sangeet Anchor Jaipur", path: "/sangeet-anchor-jaipur" },
+  
+  // --- NEW SEO PAGES ADDED HERE ---
+  { name: "Haldi & Mehndi Anchor", path: "/haldi-mehndi-anchor" },
   { name: "Corporate Event Anchor", path: "/corporate-event-anchor-jaipur" },
+  { name: "Team Building Game Host", path: "/game-show-host" },
+  { name: "Mall Activation Anchor", path: "/mall-activation-anchor" },
   { name: "Destination Wedding Anchor", path: "/destination-wedding-anchor-rajasthan" },
+  
   { name: "All Anchoring Services", path: "/anchoring" },
 ];
 
