@@ -62,51 +62,47 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    try {
-      // Formspree submission
-      const response = await fetch("https://formspree.io/f/xyzgkqvw", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          service: formData.service,
-          eventDate: formData.eventDate,
-          location: formData.location,
-          budget: formData.budget,
-          message: formData.message,
-        }),
-      });
+    // --- 1. SIMULATE A SMALL DELAY FOR USER EXPERIENCE ---
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      if (response.ok) {
-        toast({
-          title: "Inquiry Sent Successfully!",
-          description: "Thank you for reaching out. We'll get back to you within 24 hours.",
-        });
-        
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          service: "",
-          eventDate: "",
-          location: "",
-          budget: "",
-          message: "",
-        });
-      } else {
-        throw new Error("Form submission failed");
-      }
-    } catch (error) {
-      toast({
-        title: "Submission Failed",
-        description: "Please try again or contact us directly via WhatsApp.",
-        variant: "destructive",
-      });
-    }
+    // --- 2. FORMAT THE WHATSAPP MESSAGE ---
+    // This creates a clean, readable text block for your phone
+    const messageText = `*New Event Inquiry* 🎤
+----------------
+👤 *Name:* ${formData.name}
+📞 *Phone:* ${formData.phone}
+📧 *Email:* ${formData.email}
+📅 *Date:* ${formData.eventDate}
+📍 *Location:* ${formData.location}
+💰 *Budget:* ${formData.budget}
+✨ *Service:* ${formData.service}
+📝 *Note:* ${formData.message}`;
+
+    // --- 3. CREATE THE WHATSAPP LINK ---
+    const phoneNumber = "917737877978"; // Your Number
+    const encodedMessage = encodeURIComponent(messageText);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    // --- 4. OPEN WHATSAPP ---
+    window.open(whatsappUrl, '_blank');
+
+    toast({
+      title: "Redirecting to WhatsApp...",
+      description: "Please hit the 'Send' button in WhatsApp to complete your inquiry!",
+      duration: 5000,
+    });
+    
+    // Reset Form
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      service: "",
+      eventDate: "",
+      location: "",
+      budget: "",
+      message: "",
+    });
     
     setIsSubmitting(false);
   };
@@ -157,7 +153,7 @@ export default function Contact() {
               Book <span className="text-gradient-gold">Your Event</span>
             </h1>
             <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-4">
-              Ready to create an unforgettable event? Fill out the form below and we'll get back to you within 24 hours.
+              Ready to create an unforgettable event? Fill out the form below and connect with me directly on WhatsApp.
             </p>
           </ScrollReveal>
         </div>
@@ -285,7 +281,7 @@ export default function Contact() {
               {/* Map */}
               <div className="aspect-video bg-card border border-border rounded-lg sm:rounded-xl overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227748.3825624477!2d75.65046960649675!3d26.88544791796718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4adf4c57e281%3A0xce1c63a0cf22e09!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1703000000000!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.0683058866386!2d75.7663473761706!3d26.933088659220963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db3e2327609c5%3A0x86bf91c39ce4aee!2sJaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1709823456789!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -464,12 +460,12 @@ export default function Contact() {
                       {isSubmitting ? (
                         <>
                           <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
-                          Sending...
+                          Processing...
                         </>
                       ) : (
                         <>
                           <Send className="w-4 h-4 sm:w-5 sm:h-5" />
-                          Send Inquiry
+                          Send Inquiry via WhatsApp
                         </>
                       )}
                     </Button>
