@@ -8,7 +8,18 @@ import { HelmetProvider } from "react-helmet-async";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { StickyMobileContact } from "./components/StickyMobileContact"; 
 
-// SEO Landing Pages
+// --- FIX: IMPORT CORE PAGES HERE ---
+import Index from "./pages/Index"; // "Index" is your Home page
+import About from "./pages/About";
+import Anchoring from "./pages/Anchoring";
+import EventManagement from "./pages/EventManagement";
+import EventDesigning from "./pages/EventDesigning";
+import Portfolio from "./pages/Portfolio";
+import Blog from "./pages/Blog";
+import Contact from "./pages/Contact";
+import NotFound from "./pages/NotFound";
+
+// SEO Landing Pages (Lazy Loaded)
 const WeddingAnchorJaipur = lazy(() => import("./pages/WeddingAnchorJaipur"));
 const EventManagementJaipur = lazy(() => import("./pages/EventManagementJaipur"));
 const EventPlanningJaipur = lazy(() => import("./pages/EventPlanningJaipur"));
@@ -40,7 +51,8 @@ const App = () => {
             <Suspense fallback={<PageLoader />}>
               <Routes>
                 {/* Core Pages */}
-                <Route path="/" element={<Home />} />
+                {/* FIX: Changed <Home /> to <Index /> because the file is likely named Index.tsx */}
+                <Route path="/" element={<Index />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/anchoring" element={<Anchoring />} />
                 <Route path="/services" element={<Anchoring />} />
@@ -74,4 +86,3 @@ const App = () => {
 };
 
 export default App;
-
