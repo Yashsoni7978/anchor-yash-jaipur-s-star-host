@@ -8,17 +8,6 @@ import { HelmetProvider } from "react-helmet-async";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { StickyMobileContact } from "./components/StickyMobileContact"; 
 
-// ✅ LAZY LOADING
-const Home = lazy(() => import("./pages/Home"));
-const About = lazy(() => import("./pages/About"));
-const Anchoring = lazy(() => import("./pages/Anchoring"));
-const EventManagement = lazy(() => import("./pages/EventManagement"));
-const EventDesigning = lazy(() => import("./pages/EventDesigning"));
-const Portfolio = lazy(() => import("./pages/Portfolio"));
-const Blog = lazy(() => import("./pages/Blog"));
-const Contact = lazy(() => import("./pages/Contact"));
-const NotFound = lazy(() => import("./pages/NotFound"));
-
 // SEO Landing Pages
 const WeddingAnchorJaipur = lazy(() => import("./pages/WeddingAnchorJaipur"));
 const EventManagementJaipur = lazy(() => import("./pages/EventManagementJaipur"));
