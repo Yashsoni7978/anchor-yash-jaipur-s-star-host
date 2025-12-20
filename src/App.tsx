@@ -8,8 +8,8 @@ import { HelmetProvider } from "react-helmet-async";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { StickyMobileContact } from "./components/StickyMobileContact"; 
 
-// --- FIX: IMPORT CORE PAGES HERE ---
-import Index from "./pages/Index"; // "Index" is your Home page
+// --- FIX: IMPORT HOME ---
+import Home from "./pages/Home"; 
 import About from "./pages/About";
 import Anchoring from "./pages/Anchoring";
 import EventManagement from "./pages/EventManagement";
@@ -36,7 +36,6 @@ const PageLoader = () => (
 );
 
 const App = () => {
-  // 🔧 FIX: Cast HelmetProvider to 'any' to satisfy TypeScript
   const HelmetProviderWrapper = HelmetProvider as any;
 
   return (
@@ -51,8 +50,10 @@ const App = () => {
             <Suspense fallback={<PageLoader />}>
               <Routes>
                 {/* Core Pages */}
-                {/* FIX: Changed <Home /> to <Index /> because the file is likely named Index.tsx */}
-                <Route path="/" element={<Index />} />
+                
+                {/* --- FIX: CHANGED <Index /> TO <Home /> TO MATCH IMPORT --- */}
+                <Route path="/" element={<Home />} />
+                
                 <Route path="/about" element={<About />} />
                 <Route path="/anchoring" element={<Anchoring />} />
                 <Route path="/services" element={<Anchoring />} />
