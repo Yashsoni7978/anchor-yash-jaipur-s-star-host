@@ -28,15 +28,15 @@ const eventServices = [
   { name: "All Event Services", path: "/event-management" },
 ];
 
-// --- DROPDOWN COMPONENT (Works on Desktop & Mobile) ---
-const FooterDropdown = ({ title, links, defaultOpen = false }: { title: string; links: { name: string; path: string }[], defaultOpen?: boolean }) => {
-  const [isOpen, setIsOpen] = useState(defaultOpen);
+// --- DROPDOWN COMPONENT (For Services Only) ---
+const FooterDropdown = ({ title, links }: { title: string; links: { name: string; path: string }[] }) => {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="border-b border-white/10 lg:border-none pb-4 lg:pb-0">
       <button 
         onClick={() => setIsOpen(!isOpen)} 
-        className="flex items-center justify-between w-full group py-2"
+        className="flex items-center justify-between w-full group py-1"
       >
         <h4 className="text-lg font-display font-semibold text-foreground group-hover:text-primary transition-colors">
           {title}
@@ -46,8 +46,8 @@ const FooterDropdown = ({ title, links, defaultOpen = false }: { title: string; 
         />
       </button>
 
-      {/* This list toggles on BOTH Desktop and Mobile */}
-      <ul className={`space-y-3 overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-96 opacity-100 mt-4" : "max-h-0 opacity-0"}`}>
+      {/* List toggles on Click */}
+      <ul className={`space-y-2 overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-96 opacity-100 mt-2" : "max-h-0 opacity-0"}`}>
         {links.map((link) => (
           <li key={link.name}>
             <Link
@@ -67,10 +67,11 @@ export const Footer = () => {
   return (
     <footer className="bg-card border-t border-border">
       <div className="container-custom section-padding">
+        {/* Adjusted Grid: 5 Columns Total */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
           
-          {/* 1. Brand Info (Always Visible) */}
-          <div className="lg:col-span-2 space-y-6 mb-8 lg:mb-0">
+          {/* COLUMN 1 & 2: Brand Info (Takes up 2 slots) */}
+          <div className="lg:col-span-2 space-y-6 mb-4 lg:mb-0">
             <Link to="/" className="inline-block">
               <span className="text-3xl font-display font-bold">
                 <span className="text-gradient-gold">Anchor</span>
@@ -91,39 +92,59 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* 2. Quick Links (I kept this open by default on desktop for better UX, but you can click to close) */}
+          {/* COLUMN 3: Quick Links (STATIC - No Dropdown) */}
           <div>
-             <FooterDropdown title="Quick Links" links={quickLinks} defaultOpen={true} />
+            <h4 className="text-lg font-display font-semibold text-foreground mb-6">
+              Quick Links
+            </h4>
+            <ul className="space-y-3">
+              {quickLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    to={link.path}
+                    className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* 3. Anchoring Services (Closed by default, click to open) */}
-          <div>
+          {/* COLUMN 4: Services Stack (Anchoring TOP, Events BOTTOM) */}
+          <div className="space-y-8">
+            {/* Top: Anchoring */}
             <FooterDropdown title="Anchoring Services" links={anchoringServices} />
+            
+            {/* Bottom: Events (Stacked Under) */}
+            <FooterDropdown title="Event Services" links={eventServices} />
           </div>
 
-          {/* 4. Event Services (Closed by default, click to open) */}
+          {/* COLUMN 5: Contact Info */}
           <div>
-             {/* I combined Events and Contact into this column if on desktop, or separate dropdowns */}
-            <FooterDropdown title="Event Services" links={eventServices} />
-            
-            {/* Contact Details - Static */}
-            <div className="mt-8 pt-4 border-t border-white/10">
-              <h4 className="text-lg font-display font-semibold mb-4 text-foreground">Get In Touch</h4>
-              <ul className="space-y-4">
-                <li>
-                  <a href="tel:+917737877978" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
-                    <Phone className="w-5 h-5 text-primary shrink-0" />
-                    +91 77378 77978
-                  </a>
-                </li>
-                <li>
-                  <a href="mailto:yashsoni7978@gmail.com" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
-                    <Mail className="w-5 h-5 text-primary shrink-0" />
-                    yashsoni7978@gmail.com
-                  </a>
-                </li>
-              </ul>
-            </div>
+            <h4 className="text-lg font-display font-semibold mb-6 text-foreground">
+              Get In Touch
+            </h4>
+            <ul className="space-y-4">
+              <li>
+                <a href="tel:+917737877978" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
+                  <Phone className="w-5 h-5 text-primary shrink-0" />
+                  +91 77378 77978
+                </a>
+              </li>
+              <li>
+                <a href="mailto:yashsoni7978@gmail.com" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
+                  <Mail className="w-5 h-5 text-primary shrink-0" />
+                  yashsoni7978@gmail.com
+                </a>
+              </li>
+              <li>
+                <div className="flex items-start gap-3 text-muted-foreground">
+                  <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                  <span>Jaipur, Rajasthan, India</span>
+                </div>
+              </li>
+            </ul>
           </div>
 
         </div>
