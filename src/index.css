@@ -250,3 +250,12 @@
     padding-right: max(1rem, env(safe-area-inset-right));
   }
 }
+
+/* --- ADDED: Remove Lovable Badge --- */
+#lovable-badge, 
+a[href*="lovable.dev"] {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
