@@ -4,12 +4,67 @@ import { Play, Instagram, Star, Users, Award, Mic, ChevronRight, Quote, Calendar
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
-import { SEO } from "@/components/SEO"; // Added SEO Component
+import { SEO } from "@/components/SEO";
+import { FAQSection } from "@/components/FAQSection"; // Import the Aesthetic FAQ Component
+
+// --- Asset Imports ---
 import heroImage from "@/assets/hero-anchor.jpg";
 import weddingImage from "@/assets/wedding-event.jpg";
 import corporateImage from "@/assets/corporate-event.jpg";
 import fashionImage from "@/assets/fashion-show.jpg";
 import sangeetImage from "@/assets/sangeet-event.jpg";
+
+// --- DATA: 12 SEO-RICH FAQs ---
+const homeFAQs = [
+  {
+    question: "Who is the Best Anchor in Jaipur for events?",
+    answer: "Anchor Yash Soni is widely rated as the Best Anchor in Jaipur and a top-tier Male Anchor in Rajasthan. With over 5+ years of experience and 1100+ successful events, he is known for his high energy, wit, and professional stage presence."
+  },
+  {
+    question: "What types of events do you specialize in?",
+    answer: "I specialize in a complete range of events: Grand Indian Weddings (Sangeet, Haldi, Varmala), Corporate Events (Awards, Summits), Mall Activations, Celebrity Shows, and Government Events."
+  },
+  {
+    question: "Do you travel for Destination Weddings outside Jaipur?",
+    answer: "Yes, I am a specialist Destination Wedding Anchor. I frequently travel to Udaipur, Jodhpur, Jaisalmer, Pushkar, Goa, and other major Indian cities. Travel and stay are arranged by the client."
+  },
+  {
+    question: "Which languages are you fluent in?",
+    answer: "I am a multilingual anchor fluent in Hindi, English, and Marwari (Rajasthani). I can also engage audiences in Gujarati, Bhojpuri, and Bengali, making me perfect for cross-cultural weddings."
+  },
+  {
+    question: "Do you also provide Event Management services?",
+    answer: "Yes! Beyond anchoring, I offer full Event Management Services in Jaipur including venue planning, artist management, decor, and entertainment solutions."
+  },
+  {
+    question: "Can you provide a Female Anchor or Co-Host?",
+    answer: "Absolutely. If your event requires a Male-Female Anchor duo for better chemistry, I can team up with the best female anchors in Jaipur and Rajasthan."
+  },
+  {
+    question: "How far in advance should we book you?",
+    answer: "To ensure availability, especially during the wedding season (Nov-Feb), it is best to book 2-3 months in advance. However, you can always check for last-minute dates."
+  },
+  {
+    question: "What are your charges for an event?",
+    answer: "My charges depend on the event scope, duration, and location. I offer customized packages for 1-day or 3-day wedding events. Contact me on WhatsApp for a quick quote."
+  },
+  {
+    question: "Do you bring your own team?",
+    answer: "Yes, I work with a professional team including DJ coordination, scriptwriters, and event managers to ensure your show runs seamlessly."
+  },
+  {
+    question: "Why should we hire Anchor Yash over others?",
+    answer: "My USP is 'Connection.' I don't just speak; I connect with every guest from age 6 to 60. Plus, I don't rely on scripts—I improvise to keep the energy fresh and spontaneous."
+  },
+  {
+    question: "How do I confirm a booking with you?",
+    answer: "Booking is simple. Call +91-7737877978 to check availability. Once the date is finalized, a token advance confirms your slot."
+  },
+  {
+    question: "Can we see videos of your past work?",
+    answer: "Yes, you can visit the Portfolio page on this website or check my Instagram/YouTube (@Anchor_Yash) to see live performance videos."
+  }
+];
 
 const stats = [
   { number: "1100+", label: "Events Hosted", icon: Mic },
@@ -28,35 +83,33 @@ const trustBadges = [
   "National-Level Sports Events",
 ];
 
-// UPDATED LINKS TO POINT TO SEO PAGES
 const anchoringServices = [
   {
     title: "Wedding Anchor",
     description: "Professional hosting for your special day with seamless ceremony management",
     image: weddingImage,
-    link: "/wedding-anchor-jaipur", // CHANGED from /anchoring to specific SEO page
+    link: "/wedding-anchor-jaipur",
   },
   {
     title: "Corporate Anchor",
     description: "Polished and engaging hosting for business events and conferences",
     image: corporateImage,
-    link: "/corporate-event-anchor-jaipur", // CHANGED to specific SEO page
+    link: "/corporate-event-anchor-jaipur",
   },
   {
     title: "Fashion Show Host",
     description: "Bringing glamour and energy to runway events and fashion weeks",
     image: fashionImage,
-    link: "/anchoring", // Kept generic for now
+    link: "/anchoring",
   },
 ];
 
-// UPDATED LINKS TO POINT TO SEO PAGES
 const eventManagementServices = [
   {
     icon: Calendar,
     title: "Event Planning",
     description: "End-to-end event planning from concept to flawless execution",
-    link: "/event-planning-jaipur", // CHANGED to specific SEO page
+    link: "/event-planning-jaipur",
   },
   {
     icon: Palette,
@@ -68,7 +121,7 @@ const eventManagementServices = [
     icon: PartyPopper,
     title: "Wedding Planning",
     description: "Complete wedding management including choreography and entertainment",
-    link: "/event-management-jaipur", // CHANGED to specific SEO page
+    link: "/event-management-jaipur",
   },
 ];
 
@@ -113,7 +166,6 @@ const whyChooseUs = [
 ];
 
 export default function Home() {
-  // Schema for Google Knowledge Graph
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -132,7 +184,6 @@ export default function Home() {
 
   return (
     <Layout>
-      {/* INJECTED SEO COMPONENT */}
       <SEO 
         title="Anchor Yash Soni | Best Wedding Anchor in Jaipur & Rajasthan"
         description="Book Anchor Yash Soni for Weddings, Corporate Events & Sangeet in Jaipur. 1100+ shows, celebrity events, and high-energy hosting. Call now!"
@@ -145,7 +196,6 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
         <div className="absolute inset-0">
           <img
             src={heroImage}
@@ -156,7 +206,6 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50" />
         </div>
 
-        {/* Hero Content */}
         <div className="relative container-custom pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20">
           <div className="max-w-3xl">
             <motion.div
@@ -232,7 +281,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Scroll Indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -480,6 +528,9 @@ export default function Home() {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* --- FAQ SECTION ADDED HERE --- */}
+      <FAQSection data={homeFAQs} title="Frequently Asked Questions" />
 
       {/* Final CTA */}
       <section className="section-padding">
