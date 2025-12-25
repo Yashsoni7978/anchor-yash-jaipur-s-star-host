@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
 import { SEO } from "@/components/SEO";
+import { FAQSection } from "@/components/FAQSection"; // IMPORT FAQ COMPONENT
 
 const ceremonyServices = [
   {
@@ -56,23 +57,56 @@ const activityTypes = [
   },
 ];
 
-const faqs = [
+// --- 12 HALDI & MEHNDI FAQs ---
+const haldiMehndiFAQs = [
   {
     question: "How is a Haldi anchor different from a main Wedding anchor?",
-    answer: "Haldi and Mehndi events are more informal, intimate, and chaotic (in a good way!). My role is less about formal announcements and more about being a 'Family Friend'—cracking jokes, managing the dholwala, getting shy uncles to dance, and keeping the energy high during rituals.",
+    answer: "Haldi and Mehndi events are informal, intimate, and chaotic (in a good way!). My role is less about formal announcements and more about being a 'Family Friend'—cracking jokes, managing the dholwala, getting shy uncles to dance, and keeping the energy high."
   },
   {
     question: "Can you host in Marwari or local dialects?",
-    answer: "Yes! Being from Jaipur, I add Marwari touches and Desi humor to connect with the elders, while keeping the vibe cool enough for the youngsters. It's a perfect blend of tradition and modern fun.",
+    answer: "Yes! Being from Jaipur, I add Marwari touches and Desi humor to connect with the elders, while keeping the vibe cool enough for the youngsters. It's a perfect blend of tradition and modern fun."
   },
   {
     question: "Do you organize games for the Mehndi function?",
-    answer: "Absolutely. Mehndi can be long for the bride. I organize engaging games like 'Paper Dance', 'Find the Groom', and 'Saree Draping Challenge' to keep the guests entertained while the henna is being applied.",
+    answer: "Absolutely. Mehndi can be long for the bride. I organize engaging games like 'Paper Dance', 'Find the Groom', and 'Saree Draping Challenge' to keep the guests entertained while the henna is being applied."
   },
   {
-    question: "How do you handle Ladies Sangeet?",
-    answer: "I take charge of the mic to organize the Antakshari, introduce dance performances with high energy, and ensure there are no awkward silences between tracks. I essentially become the hype-man for your family performers.",
+    question: "How do you handle Ladies Sangeet Antakshari?",
+    answer: "I take full charge of the mic to organize the Antakshari (Boys vs Girls), introduce dance performances with high energy, and ensure there are no awkward silences between tracks."
   },
+  {
+    question: "Do you bring your own props for games?",
+    answer: "Yes, I bring quirky props for games (like placards, ribbons, fun glasses) to make the photos look colorful and the activities more engaging."
+  },
+  {
+    question: "Can you manage the 'Bhaat' or 'Mayra' ceremony?",
+    answer: "Yes, I understand the cultural significance of the Bhaat ceremony in Rajasthan. I host it with a mix of respect for the ritual and celebratory joy for the maternal family's arrival."
+  },
+  {
+    question: "How long do you stay for a Haldi/Mehndi event?",
+    answer: "I typically stay for the entire duration of the main rituals and entertainment, usually 3-4 hours, ensuring the energy never drops until the food is served or the DJ takes over."
+  },
+  {
+    question: "Do you help with music selection for Sangeet?",
+    answer: "Yes! I can suggest a playlist of trending Bollywood and Folk songs for dance performances and background music to keep the vibe lively."
+  },
+  {
+    question: "What if the bride/groom is shy?",
+    answer: "I specialize in making shy couples feel comfortable. I use low-pressure games like the 'Shoe Game' where they just have to lift props, rather than speaking on the mic, to get them involved."
+  },
+  {
+    question: "Do you host 'Pool Parties' for weddings?",
+    answer: "Yes! For modern weddings with a Pool Party, I switch to a 'Club MC' avatar with rain dance games, water balloon fights, and high-octane commentary."
+  },
+  {
+    question: "Can you engage both kids and elderly guests?",
+    answer: "My hosting style is inclusive. I have specific games for kids to keep them busy, and respectful interactions/banter for the elders so everyone feels part of the celebration."
+  },
+  {
+    question: "How far in advance should we book you?",
+    answer: "Since auspicious dates are limited, it is best to book 2-3 months in advance. However, feel free to check for last-minute availability."
+  }
 ];
 
 export default function HaldiMehndiAnchor() {
@@ -262,32 +296,8 @@ export default function HaldiMehndiAnchor() {
         </div>
       </section>
 
-      {/* FAQs */}
-      <section className="section-padding bg-card border-y border-border">
-        <div className="container-custom">
-          <ScrollReveal>
-            <div className="text-center mb-12 sm:mb-16">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mt-4">
-                Haldi & Mehndi <span className="text-gradient-gold">FAQs</span>
-              </h2>
-            </div>
-          </ScrollReveal>
-
-          <StaggerContainer className="max-w-3xl mx-auto space-y-4">
-            {faqs.map((faq, index) => (
-              <StaggerItem key={index}>
-                <motion.div
-                  className="p-6 bg-background border border-border rounded-xl hover:border-primary/50 transition-all duration-300"
-                  whileHover={{ scale: 1.01 }}
-                >
-                  <h3 className="text-base sm:text-lg font-display font-semibold mb-3">{faq.question}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{faq.answer}</p>
-                </motion.div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
+      {/* --- ADDED FAQ SECTION HERE --- */}
+      <FAQSection data={haldiMehndiFAQs} title="Haldi & Mehndi FAQs" />
 
       {/* CTA */}
       <section className="section-padding">
