@@ -3,13 +3,8 @@ import { Button } from "@/components/ui/button";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
 import { Phone, MessageCircle, MapPin, CheckCircle, Users, Briefcase, Heart, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
-import { SEO } from "@/components/SEO"; // Switched to Smart SEO Component
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { SEO } from "@/components/SEO"; 
+import { FAQSection } from "@/components/FAQSection"; // IMPORT NEW COMPONENT
 
 const eventsCovered = [
   {
@@ -74,27 +69,56 @@ const whyTrustUs = [
   },
 ];
 
-const faqs = [
+// --- 12 EVENT MANAGEMENT JAIPUR FAQs ---
+const eventManagementFAQs = [
   {
     question: "How is this different from a traditional event management company?",
-    answer: "Unlike large agencies, I work as your personal event coordinator. You get direct access to me throughout the planning process, curated vendor recommendations based on your budget, and my personal presence at every event. It's a more hands-on, personalized approach without the overhead of a big company.",
+    answer: "Unlike large agencies where you are just another file number, I work as your personal event coordinator. You get direct access to me, curated vendor recommendations based on your specific budget, and my personal presence at every event to ensure perfection."
   },
   {
     question: "What types of events do you manage in Jaipur?",
-    answer: "I manage weddings (all functions from engagement to reception), corporate events (launches, conferences, team events), fashion shows, social gatherings (birthdays, anniversaries), and private celebrations. Each event is approached with the same level of dedication and attention to detail.",
+    answer: "I manage a wide spectrum of events: Full Wedding Planning (all functions), Corporate Events (Conferences, Launches), Fashion Shows, Social Gatherings (Birthdays, Anniversaries), and Private Celebrations."
   },
   {
     question: "Do you work with a fixed set of vendors?",
-    answer: "I have a trusted network of vendors I've worked with across 1100+ events, but I'm flexible. If you have preferred vendors or specific requirements, I'm happy to coordinate with them. My goal is to get you the best quality within your budget, whether through my network or yours.",
+    answer: "I have a trusted network of premium vendors (Decor, Catering, Sound) vetted over 1100+ events. However, I am flexible and happy to coordinate with your preferred vendors if you have already booked them."
   },
   {
     question: "Can you manage destination events outside Jaipur?",
-    answer: "Absolutely! I regularly manage destination weddings and events across Rajasthan including Udaipur, Jodhpur, Jaisalmer, and Pushkar. I either work with local vendors at the destination or bring my trusted Jaipur team depending on your requirements and budget.",
+    answer: "Absolutely! I regularly manage destination weddings and events across Rajasthan including Udaipur, Jodhpur, Jaisalmer, and Pushkar. I handle the logistics of moving teams and setting up experiences in heritage venues."
   },
   {
-    question: "How do I get started with event planning?",
-    answer: "Simply reach out via WhatsApp or the contact form with your event date, type, and approximate guest count. We'll schedule a call to discuss your vision, budget, and requirements. From there, I'll share a proposal with vendor options and a detailed plan for your event.",
+    question: "How do you handle the event budget?",
+    answer: "I believe in transparency. We discuss your budget upfront, and I recommend vendors that fit within that range without compromising quality. I help you allocate funds smartly to get the maximum impact."
   },
+  {
+    question: "Do you handle Guest Hospitality and Logistics?",
+    answer: "Yes, for weddings and large corporate meets, my team handles Hotel RSVPs, Airport Pickups, Room Hamper placements, and local transport coordination to ensure guests feel VIP."
+  },
+  {
+    question: "What is your role on the day of the event?",
+    answer: "On the event day, I am the 'Captain of the Ship'. I supervise the setup, coordinate sound/light checks, manage the timeline, handle artist entries, and troubleshoot any issues instantly so you can enjoy the party."
+  },
+  {
+    question: "Can you help with venue selection in Jaipur?",
+    answer: "Yes, having worked in almost every major venue in Jaipur (from palaces to hotels), I can suggest the perfect venue based on your guest count, occasion, and budget."
+  },
+  {
+    question: "Do you provide decor design services?",
+    answer: "Yes, we conceptualize unique themes and mood boards for your event. I then work with expert decorators to bring those designs to life exactly as visualized."
+  },
+  {
+    question: "How far in advance should we hire an Event Planner?",
+    answer: "For Weddings, ideally 4-6 months in advance. For Corporate events, 1-2 months is sufficient. However, we are capable of executing 'Express Events' on short notice if dates are available."
+  },
+  {
+    question: "Do you charge a fixed fee or a percentage?",
+    answer: "We offer customizable packages. Depending on the scale of work, it can be a fixed management fee or a comprehensive package cost. We ensure you get value for every rupee spent."
+  },
+  {
+    question: "How do I get started with planning my event?",
+    answer: "It's simple. Click the 'WhatsApp Now' button or fill the contact form. We will schedule a free initial consultation to understand your vision and provide a roadmap."
+  }
 ];
 
 export default function EventManagementJaipur() {
@@ -124,7 +148,6 @@ export default function EventManagementJaipur() {
 
   return (
     <Layout>
-      {/* Smart SEO Component */}
       <SEO 
         title="Event Management in Jaipur | Best Event Planner – Anchor Yash"
         description="Looking for event management in Jaipur? Anchor Yash offers end-to-end event planning with curated vendors for weddings, corporate events & fashion shows."
@@ -132,7 +155,6 @@ export default function EventManagementJaipur() {
         canonical="/event-management-jaipur"
       />
       
-      {/* Schema Injection */}
       <script type="application/ld+json">
         {JSON.stringify(schemaData)}
       </script>
@@ -320,24 +342,9 @@ export default function EventManagementJaipur() {
               </ul>
             </ScrollReveal>
 
-            {/* FAQs */}
-            <ScrollReveal>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-display font-bold mb-4">
-                Frequently Asked Questions
-              </h2>
-              <Accordion type="single" collapsible className="w-full">
-                {faqs.map((faq, index) => (
-                  <AccordionItem key={index} value={`faq-${index}`} className="border-border">
-                    <AccordionTrigger className="text-left text-sm sm:text-base font-medium hover:text-primary">
-                      {faq.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-sm text-muted-foreground leading-relaxed">
-                      {faq.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </ScrollReveal>
+            {/* --- REPLACED FAQ SECTION --- */}
+            {/* Removed Accordion, Added FAQSection */}
+            <FAQSection data={eventManagementFAQs} title="Frequently Asked Questions" />
 
             {/* Internal Links */}
             <ScrollReveal>
