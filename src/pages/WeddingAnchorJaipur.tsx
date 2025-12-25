@@ -4,13 +4,9 @@ import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animat
 import { Phone, MessageCircle, MapPin, CheckCircle, Star, Users, Calendar, Award } from "lucide-react";
 import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO"; 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { FAQSection } from "@/components/FAQSection"; // IMPORTING THE NEW COMPONENT
 
+// --- 1. EVENT TYPES DATA ---
 const eventTypes = [
   {
     title: "Sangeet Night Hosting",
@@ -34,6 +30,7 @@ const eventTypes = [
   },
 ];
 
+// --- 2. HIGHLIGHTS DATA ---
 const experienceHighlights = [
   { icon: Calendar, label: "1100+ Events", desc: "Weddings, corporates & more" },
   { icon: Star, label: "5+ Years", desc: "Professional experience" },
@@ -42,43 +39,63 @@ const experienceHighlights = [
 ];
 
 const citiesServed = [
-  "Jaipur",
-  "Udaipur",
-  "Jodhpur",
-  "Jaisalmer",
-  "Pushkar",
-  "Ajmer",
-  "Bikaner",
-  "Mount Abu",
-  "Neemrana",
-  "Ranthambore",
+  "Jaipur", "Udaipur", "Jodhpur", "Jaisalmer", "Pushkar",
+  "Ajmer", "Bikaner", "Mount Abu", "Neemrana", "Ranthambore",
 ];
 
-const faqs = [
+// --- 3. THE 12 SEO-RICH FAQs (AESTHETIC UPGRADE) ---
+const weddingFAQs = [
   {
     question: "What makes Anchor Yash the best wedding anchor in Jaipur?",
-    answer: "With over 1100 events hosted and 5+ years of experience, Anchor Yash brings unmatched energy, crowd engagement skills, and a deep understanding of Rajasthani wedding traditions. His bilingual hosting in Hindi and English, combined with customized scripts for each couple, ensures your wedding feels personal and memorable.",
+    answer: "With over 1100 events hosted and 5+ years of experience, Anchor Yash brings unmatched energy, crowd engagement skills, and a deep understanding of Rajasthani wedding traditions. His bilingual hosting in Hindi and English ensures your wedding feels personal and memorable."
+  },
+  {
+    question: "Do you write the Sangeet Script and family intros?",
+    answer: "Yes! I provide complete support with Sangeet Scripts. I write personalized 'Sher-o-Shayari' and witty introductions for every family performance to make them feel special."
   },
   {
     question: "Do you host destination weddings in Rajasthan?",
-    answer: "Absolutely! I specialize in destination wedding anchoring across Rajasthan including Udaipur, Jodhpur, Jaisalmer, Pushkar, and luxury heritage venues. I understand the unique requirements of destination celebrations and work seamlessly with event planners and venue teams.",
+    answer: "Absolutely! I specialize in destination wedding anchoring across Rajasthan including Udaipur, Jodhpur, Jaisalmer, Pushkar, and luxury heritage venues. I work seamlessly with event planners and venue teams."
   },
   {
-    question: "What wedding events can you host?",
-    answer: "I host all wedding functions including sangeet nights, haldi ceremonies, mehendi events, varmala/jaimala rituals, reception parties, cocktail evenings, pool parties, and after-parties. Each event is approached with the appropriate energy and tone.",
+    question: "What is your style for Haldi and Mehndi events?",
+    answer: "My Haldi anchoring is NOT traditional or boring. I bring a 'Crazy Fun' vibe with high-energy commentary, dhol interactions, and spontaneous crowd dancing."
   },
   {
-    question: "How do you keep wedding guests engaged throughout the event?",
-    answer: "I use a combination of interactive games, family involvement segments, couple stories, dance introductions, and spontaneous crowd interactions. My goal is to ensure there are no awkward silences or boring gaps – every moment is planned for engagement, emotion, and entertainment.",
+    question: "Do you organize games for couples and guests?",
+    answer: "Definitely. I have a library of 100+ interactive games (Couple Shoe Game, Ring Hunt, Musical Chairs, Saree Challenge) categorized by age group to keep guests entertained."
   },
   {
-    question: "How far in advance should I book you for my wedding?",
-    answer: "For peak wedding season dates (October to February), I recommend booking at least 2-3 months in advance to secure your preferred dates. For destination weddings and multi-day celebrations, earlier booking is advisable. Contact me with your dates to check availability.",
+    question: "Do you bring your own props for games?",
+    answer: "Yes, I bring my own unique props for games and activities. You don't need to worry about arranging anything for the entertainment segment."
   },
+  {
+    question: "How long do you stay for a Sangeet night?",
+    answer: "I stay until the very end! I arrive 2 hours early for sound checks and keep the energy high until the DJ takes over or the party ends."
+  },
+  {
+    question: "Can you handle the Varmala concepts?",
+    answer: "Yes, I host royal Varmala ceremonies with themes like 'Voice of God', Ganga Aarti, or Flower Shower, ensuring the moment is emotional and grand."
+  },
+  {
+    question: "What if there is a delay in the bride/groom entry?",
+    answer: "Delays are common in weddings. I am an expert at 'Filler Engagement'—I keep the audience busy with stories, jokes, and interactions so they don't feel bored while waiting."
+  },
+  {
+    question: "Do you coordinate with the DJ and console?",
+    answer: "Yes, I coordinate directly with the DJ and Technician for entry songs, fanfare music, and mic cues so the family can relax and enjoy."
+  },
+  {
+    question: "Can you host a formal Wedding Reception?",
+    answer: "Absolutely. For Receptions, I switch to a sophisticated, formal tone, managing the stage flow, guest welcomes, and photo-op management smoothly."
+  },
+  {
+    question: "How far in advance should I book you?",
+    answer: "For peak wedding season dates (October to February), I recommend booking at least 2-3 months in advance. Contact me with your dates to check availability."
+  }
 ];
 
 export default function WeddingAnchorJaipur() {
-  // Schema for Local SEO
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -106,7 +123,6 @@ export default function WeddingAnchorJaipur() {
 
   return (
     <Layout>
-      {/* Smart SEO Component */}
       <SEO 
         title="Wedding Anchor in Jaipur | Best Wedding Host – Anchor Yash"
         description="Looking for the best wedding anchor in Jaipur? Anchor Yash brings 1100+ events experience to your sangeet, haldi, reception & destination weddings across Rajasthan."
@@ -114,7 +130,6 @@ export default function WeddingAnchorJaipur() {
         canonical="/wedding-anchor-jaipur"
       />
       
-      {/* Schema Injection */}
       <script type="application/ld+json">
         {JSON.stringify(schemaData)}
       </script>
@@ -287,56 +302,11 @@ export default function WeddingAnchorJaipur() {
               </p>
             </ScrollReveal>
 
-            {/* FAQs */}
-            <ScrollReveal>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-display font-bold mb-4">
-                Frequently Asked Questions
-              </h2>
-              <Accordion type="single" collapsible className="w-full">
-                {faqs.map((faq, index) => (
-                  <AccordionItem key={index} value={`faq-${index}`} className="border-border">
-                    <AccordionTrigger className="text-left text-sm sm:text-base font-medium hover:text-primary">
-                      {faq.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-sm text-muted-foreground leading-relaxed">
-                      {faq.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </ScrollReveal>
-
-            {/* Internal Links */}
-            <ScrollReveal>
-              <div className="bg-card/50 border border-border rounded-xl p-5 sm:p-6">
-                <h3 className="font-display font-semibold text-base sm:text-lg mb-3">
-                  Explore More
-                </h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Learn more about my services and get in touch to discuss your wedding:
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  <Link to="/">
-                    <Button variant="outline" size="sm" className="btn-hover">
-                      Back to Home
-                    </Button>
-                  </Link>
-                  <Link to="/anchoring">
-                    <Button variant="outline" size="sm" className="btn-hover">
-                      All Anchoring Services
-                    </Button>
-                  </Link>
-                  <Link to="/contact">
-                    <Button variant="gold" size="sm" className="btn-hover">
-                      Contact Me
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            </ScrollReveal>
+            {/* --- REPLACED OLD FAQ SECTION WITH NEW AESTHETIC COMPONENT --- */}
+            {/* The Accordion is removed, replaced with FAQSection */}
           </div>
 
-          {/* Right: Sticky Booking Card (This is where your code cut off before) */}
+          {/* Right: Sticky Booking Card */}
           <ScrollReveal direction="right">
             <div className="bg-card border border-border rounded-2xl p-5 sm:p-6 sticky top-28 space-y-5">
               <h3 className="text-lg sm:text-xl font-display font-semibold">
@@ -396,6 +366,9 @@ export default function WeddingAnchorJaipur() {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* --- ADDED AESTHETIC FAQ SECTION HERE --- */}
+      <FAQSection data={weddingFAQs} title="Frequently Asked Questions" />
 
       {/* Final CTA */}
       <section className="section-padding bg-gradient-to-b from-background to-primary/5">
