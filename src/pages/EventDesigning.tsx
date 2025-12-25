@@ -5,6 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
 import { SEO } from "@/components/SEO"; 
+import { FAQSection } from "@/components/FAQSection"; 
+
+// Images
 import weddingImage from "@/assets/wedding-event.jpg";
 import sangeetImage from "@/assets/sangeet-event.jpg";
 import corporateImage from "@/assets/corporate-event.jpg";
@@ -48,11 +51,12 @@ const services = [
   },
 ];
 
+// --- UPDATED PACKAGES (Removed Amounts) ---
 const packages = [
   {
     name: "Decor Only",
-    price: "₹1,50,000+",
-    description: "Complete event decoration and designing",
+    price: "Custom Quote",
+    description: "Book a free consultation to get an exact estimate based on your venue and theme.",
     features: [
       "Theme conceptualization",
       "Stage & backdrop design",
@@ -64,8 +68,8 @@ const packages = [
   },
   {
     name: "Wedding Planning",
-    price: "₹3,50,000+",
-    description: "Full wedding planning & coordination",
+    price: "Custom Quote",
+    description: "Book a free consultation to discuss your vision and get a personalized package.",
     features: [
       "Everything in Decor Only",
       "Vendor management",
@@ -78,8 +82,8 @@ const packages = [
   },
   {
     name: "Destination Wedding",
-    price: "₹8,00,000+",
-    description: "Complete destination wedding solution",
+    price: "Custom Quote",
+    description: "Book a free consultation for a comprehensive destination wedding proposal.",
     features: [
       "Everything in Wedding Planning",
       "Location scouting & booking",
@@ -114,8 +118,58 @@ const portfolio = [
   },
 ];
 
+const eventPlanningFAQs = [
+  {
+    question: "Do you handle full Wedding Planning or just Decor?",
+    answer: "We offer both! You can hire us solely for Event Decor & Designing, or choose our Full Wedding Planning service where we manage everything from venue booking to guest hospitality."
+  },
+  {
+    question: "How do we get a price estimate for Wedding Decor?",
+    answer: "Since every wedding is unique, we don't have fixed rates. We offer a Free Consultation where we discuss your venue and vision, after which we provide a detailed custom quote."
+  },
+  {
+    question: "Do you plan Destination Weddings in Rajasthan?",
+    answer: "Yes, we specialize in Destination Weddings in Udaipur, Jodhpur, Jaisalmer, Pushkar, and Sawai Madhopur. We handle logistics, travel, and local vendor management."
+  },
+  {
+    question: "Can you customize the wedding theme?",
+    answer: "Absolutely. We don't believe in cookie-cutter weddings. Whether you want a Royal Rajasthani theme, a Bohemian vibe, or a modern Pastel setup, we design it from scratch."
+  },
+  {
+    question: "Do you provide Sangeet Choreographers?",
+    answer: "Yes, we have an in-house team of professional choreographers who teach easy-to-learn steps for the family and create spectacular couples' dance sequences."
+  },
+  {
+    question: "How do you handle guest management and RSVP?",
+    answer: "For full planning clients, we provide a dedicated Hospitality Desk team that manages RSVP calls, airport pickups, hotel check-ins, and welcome hampers."
+  },
+  {
+    question: "Can you suggest unique Bride & Groom entry ideas?",
+    answer: "Yes! We design grand entries ranging from vintage cars and ATV bikes to royal Palkis, cold pyro pathways, and flower showers tailored to your personality."
+  },
+  {
+    question: "Do you take care of light and sound requirements?",
+    answer: "Yes, we provide professional Sound & Light setups (Truss, LED Walls, Line Array Speakers) suitable for live bands, DJ nights, and sangeet performances."
+  },
+  {
+    question: "How soon should we book you for wedding planning?",
+    answer: "Planning a wedding involves many moving parts. We recommend booking us 4-6 months in advance to secure the best venues and rates."
+  },
+  {
+    question: "Do you provide Corporate Event Management?",
+    answer: "Yes, we manage corporate offsites, award nights, and product launches, focusing on branding, stage fabrication, and seamless technical execution."
+  },
+  {
+    question: "Will Anchor Yash be hosting if we book planning services?",
+    answer: "Anchor Yash is available as an add-on or part of the premium package. If he is booked, we can provide other top-tier anchors from our network."
+  },
+  {
+    question: "Do you handle vendor payments and negotiations?",
+    answer: "Yes, we act as your single point of contact. We negotiate the best rates with vendors (caterers, photographers, makeup artists) and manage their payment schedules."
+  }
+];
+
 export default function EventDesigning() {
-  // Schema for Event Designing
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -138,7 +192,6 @@ export default function EventDesigning() {
 
   return (
     <Layout>
-      {/* Smart SEO Component */}
       <SEO 
         title="Event Designing & Wedding Decor in Jaipur | Sangeet Choreography"
         description="Transform your event with expert designing and decor in Jaipur. We offer wedding themes, sangeet choreography, and grand entry concepts. Book now!"
@@ -165,7 +218,6 @@ export default function EventDesigning() {
               From stunning decor to complete wedding planning, we transform your vision into reality with meticulous attention to every detail.
             </p>
             
-            {/* Added CTA Buttons */}
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Link to="/contact">
                 <Button variant="hero" size="lg" className="btn-hover">
@@ -323,7 +375,9 @@ export default function EventDesigning() {
                   
                   <h3 className="text-xl sm:text-2xl font-display font-bold mb-2">{pkg.name}</h3>
                   <div className="flex items-baseline gap-1 mb-2">
-                    <span className="text-2xl sm:text-3xl font-display font-bold text-gradient-gold">{pkg.price}</span>
+                    <span className="text-xl sm:text-2xl font-display font-bold text-gradient-gold">
+                      {pkg.price}
+                    </span>
                   </div>
                   <p className="text-muted-foreground text-xs sm:text-sm mb-4 sm:mb-6">{pkg.description}</p>
                   
@@ -341,7 +395,7 @@ export default function EventDesigning() {
                       variant={pkg.popular ? "gold" : "outline"}
                       className="w-full btn-hover text-sm"
                     >
-                      Get Quote
+                      Book Free Consultation
                       <ChevronRight className="w-4 h-4" />
                     </Button>
                   </Link>
@@ -352,11 +406,14 @@ export default function EventDesigning() {
 
           <ScrollReveal delay={0.3}>
             <p className="text-center text-muted-foreground text-xs sm:text-sm mt-6 sm:mt-8 px-4">
-              * All packages are customizable. Prices vary based on venue, scale, and specific requirements.
+              * All packages are customizable. Book a free consultation to get a detailed quote.
             </p>
           </ScrollReveal>
         </div>
       </section>
+
+      {/* --- ADDED FAQ SECTION HERE --- */}
+      <FAQSection data={eventPlanningFAQs} title="Event Planning FAQs" />
 
       {/* CTA */}
       <section className="section-padding bg-card border-t border-border">
@@ -377,7 +434,7 @@ export default function EventDesigning() {
             <div className="flex justify-center gap-4">
                 <Link to="/contact">
                 <Button variant="hero" size="xl" className="btn-hover">
-                    Start Planning
+                    Book Free Consultation
                     <ChevronRight className="w-5 h-5" />
                 </Button>
                 </Link>
