@@ -3,7 +3,10 @@ import { motion } from "framer-motion";
 import { Check, ChevronRight, Sparkles, Calendar, Users, Music, Camera, Palette, Star, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
-import { SEO } from "@/components/SEO"; // Added Smart SEO
+import { SEO } from "@/components/SEO"; 
+import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
+import { FAQSection } from "@/components/FAQSection"; // IMPORT FAQ COMPONENT
+
 import weddingImage from "@/assets/wedding-event.jpg";
 import sangeetImage from "@/assets/sangeet-event.jpg";
 import corporateImage from "@/assets/corporate-event.jpg";
@@ -68,8 +71,59 @@ const sampleEvents = [
   },
 ];
 
+// --- 12 EVENT MANAGEMENT FAQs ---
+const eventManagementFAQs = [
+  {
+    question: "What does your Event Management service include?",
+    answer: "We offer end-to-end solutions including Venue Booking, Vendor Management (Decor, Catering, Photo/Video), Logistics, Artist Management, and On-day Coordination."
+  },
+  {
+    question: "Do you handle Corporate Event Production?",
+    answer: "Yes, we specialize in technical production for corporate events, including Stage Fabrication, LED Walls, Sound & Light (Line Array), and Live Streaming setups."
+  },
+  {
+    question: "Can you book Celebrity Artists or Live Bands?",
+    answer: "Absolutely. We have direct contacts with top Bollywood singers, Live Bands, Stand-up Comedians, and International Performers to elevate your event entertainment."
+  },
+  {
+    question: "Do you work with a specific budget range?",
+    answer: "We are flexible. We customize our services based on your budget. Whether it's an intimate gathering or a large-scale festival, we optimize resources to give you the best value."
+  },
+  {
+    question: "How do you handle destination event logistics?",
+    answer: "We have a dedicated logistics team that manages travel bookings, hotel room allocation (RSVP), airport transfers, and local transport for all your guests."
+  },
+  {
+    question: "Do you provide decor and designing in-house?",
+    answer: "We work with a curated set of premium decor partners under our creative supervision to ensure the theme and vision are executed perfectly."
+  },
+  {
+    question: "Can you manage last-minute events?",
+    answer: "While we recommend planning in advance, our experienced team is capable of pulling off 'Express Events' with a turnaround time of just 7-10 days depending on the scale."
+  },
+  {
+    question: "Do you take care of permissions and licenses?",
+    answer: "Yes, we assist in procuring necessary permissions like PPL/IPRS (Music license), Loudspeaker permits, and other local authority clearances."
+  },
+  {
+    question: "Why should we hire an Event Planner instead of doing it ourselves?",
+    answer: "Hiring us saves you stress, time, and money. We get better rates from vendors due to our volume of work and ensure flawless execution so you can enjoy the party."
+  },
+  {
+    question: "Do you handle social events like Birthdays and Anniversaries?",
+    answer: "Yes, we curate milestone celebrations like 25th Anniversaries, 50th Birthdays, and Theme Parties with the same attention to detail as weddings."
+  },
+  {
+    question: "How big is your team?",
+    answer: "We have a core team of senior planners and a large network of on-ground crew, shadows, and hospitality staff to manage events of up to 2000+ guests."
+  },
+  {
+    question: "What is your payment structure?",
+    answer: "We generally work on a flexible schedule: a booking advance to block dates, interim payments for vendor advances, and final settlement before the event."
+  }
+];
+
 export default function EventManagement() {
-  // Schema for Event Planner
   const schemaData = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -92,7 +146,6 @@ export default function EventManagement() {
 
   return (
     <Layout>
-      {/* Smart SEO Component */}
       <SEO 
         title="Event Management Company in Jaipur | Best Event Planner - Yash Soni"
         description="Complete event management services in Jaipur. Wedding planning, decor, choreography, and corporate event production. 1100+ events experience."
@@ -123,7 +176,6 @@ export default function EventManagement() {
               Beyond anchoring, we offer full-service event management, stunning decor, sangeet choreography, and entertainment coordination to make your celebration truly spectacular.
             </p>
             
-            {/* Added CTA Buttons Here */}
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Link to="/contact">
                 <Button variant="hero" size="lg" className="btn-hover">
@@ -284,6 +336,9 @@ export default function EventManagement() {
           </div>
         </div>
       </section>
+
+      {/* --- ADDED FAQ SECTION HERE --- */}
+      <FAQSection data={eventManagementFAQs} title="Event Management FAQs" />
 
       {/* CTA */}
       <section className="section-padding">
