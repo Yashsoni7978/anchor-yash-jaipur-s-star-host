@@ -4,7 +4,8 @@ import { ChevronRight, MessageCircle, Music, Heart, Sparkles, Users, Phone, Star
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
-import { SEO } from "@/components/SEO"; // Added Smart SEO
+import { SEO } from "@/components/SEO"; 
+import { FAQSection } from "@/components/FAQSection"; // IMPORT FAQ COMPONENT
 
 const sangeetServices = [
   {
@@ -53,27 +54,56 @@ const cities = [
   "Ajmer", "Bikaner", "Mount Abu", "Neemrana", "Alwar"
 ];
 
-const faqs = [
+// --- 12 SANGEET ANCHOR FAQs ---
+const sangeetFAQs = [
   {
     question: "What makes a sangeet anchor different from a wedding anchor?",
-    answer: "A sangeet anchor specializes in creating a fun, high-energy atmosphere focused on dance, music, and entertainment. Unlike formal wedding ceremonies, sangeet requires an anchor who can keep the energy high, coordinate multiple performances, engage diverse age groups, and handle spontaneous moments with humor and grace.",
+    answer: "A sangeet anchor specializes in high-energy entertainment. Unlike the formal wedding ceremony, the Sangeet is about dance, music, and comedy. My role is to be the 'Hype Man', ensuring the energy never drops between performances."
   },
   {
-    question: "How do you handle family performances during sangeet?",
-    answer: "I coordinate with families before the event to understand the performance lineup, timing, and any special requirements. During the sangeet, I introduce each performance with context and enthusiasm, manage transitions smoothly, and ensure performers feel comfortable and celebrated on stage.",
+    question: "Do you write the script for family performances?",
+    answer: "Yes! I don't just announce names. I write personalized scripts, Shayaris, and witty one-liners for every Chacha, Bua, and Cousin performing, making them feel like celebrities on stage."
+  },
+  {
+    question: "How do you handle delays between dance performances?",
+    answer: "Delays are common (wardrobe changes, missing tracks). I fill these gaps with interactive crowd games, rapid-fire questions for the couple, or spontaneous dance-offs so the audience never feels bored."
   },
   {
     question: "Can you anchor sangeet in both Hindi and English?",
-    answer: "Yes, I'm fluent in both Hindi and English and can seamlessly switch between languages based on your guest demographics. Many Jaipur sangeets have mixed audiences, and bilingual anchoring ensures everyone stays engaged and entertained.",
+    answer: "Yes, I am fluent in both. For Jaipur weddings, I often use a mix of Hindi, English, and a touch of Marwari humor to connect with guests of all generations."
   },
   {
-    question: "Do you include games and activities in sangeet anchoring?",
-    answer: "Absolutely. Interactive games, couple challenges, family face-offs, and audience participation segments are integral to a memorable sangeet. I curate activities based on your preferences and guest demographics to ensure maximum participation and fun.",
+    question: "Do you coordinate with the DJ and Choreographer?",
+    answer: "Absolutely. I arrive early to do a sound check, sync the performance list with the DJ console, and ensure the Choreographer's sequence is followed perfectly."
   },
   {
-    question: "How early should I book a sangeet anchor in Jaipur?",
-    answer: "For peak wedding season (October to February), I recommend booking 3-6 months in advance. Popular dates get booked quickly, and early booking ensures proper coordination with your choreographer and event planner for a seamless sangeet experience.",
+    question: "What kind of games do you play with the Couple?",
+    answer: "I host trending games like the 'Shoe Game', 'Who is most likely to', and 'Ring Hunt'. These are lighthearted, photo-friendly, and great for breaking the ice."
   },
+  {
+    question: "Do you host the Ring Ceremony (Engagement) as well?",
+    answer: "Yes, often the Ring Ceremony happens during the Sangeet. I switch to a formal, romantic tone for the ring exchange and cake cutting, before bringing the party vibe back for the dance floor."
+  },
+  {
+    question: "How do you handle shy family members?",
+    answer: "I never force anyone. I use group activities or 'Seat-based games' (like Antakshari) to get shy guests involved without making them feel self-conscious on stage."
+  },
+  {
+    question: "Can you execute a specific theme (e.g., Retro or 90s)?",
+    answer: "Yes! If you have a theme like 'Retro Bollywood' or 'Fairytale', I adapt my attire, script, and music choices to match that vibe completely."
+  },
+  {
+    question: "How long do you stay for a Sangeet night?",
+    answer: "I stay until the very end of the planned itinerary. Usually, this means from the start of the event until the DJ takes over for the open dance floor (approx 4-5 hours)."
+  },
+  {
+    question: "Do you provide your own mic?",
+    answer: "I can, but usually, the venue sound vendor provides the technical setup. I always carry a backup mic and my own run-sheet to ensure reliability."
+  },
+  {
+    question: "How early should I book a sangeet anchor?",
+    answer: "Sangeet dates (especially weekends in Nov-Feb) get booked 3-6 months in advance. It is best to secure your date as soon as the venue is finalized."
+  }
 ];
 
 export default function SangeetAnchorJaipur() {
@@ -97,7 +127,6 @@ export default function SangeetAnchorJaipur() {
 
   return (
     <Layout>
-      {/* Smart SEO Component */}
       <SEO 
         title="Sangeet Anchor in Jaipur | Best Sangeet Host for Weddings | Anchor Yash"
         description="Looking for the best sangeet anchor in Jaipur? Anchor Yash brings energy, fun, and seamless coordination to your sangeet night. 700+ events hosted across Rajasthan."
@@ -160,9 +189,6 @@ export default function SangeetAnchorJaipur() {
                 </p>
                 <p>
                   As a sangeet anchor in Jaipur, I bring the perfect blend of energy, warmth, and entertainment coordination that transforms your sangeet from a series of performances into a cohesive celebration. With experience hosting over 700 events, including countless sangeet nights at palace venues, luxury hotels, and heritage properties across Rajasthan, I understand what makes these evenings truly special.
-                </p>
-                <p>
-                  Whether you're planning an intimate mehndi-sangeet at home or a grand celebration at a five-star venue, the right anchor makes all the difference in keeping guests engaged, performances flowing smoothly, and the couple feeling celebrated throughout the night.
                 </p>
               </div>
             </div>
@@ -306,36 +332,8 @@ export default function SangeetAnchorJaipur() {
         </div>
       </section>
 
-      {/* FAQs */}
-      <section className="section-padding">
-        <div className="container-custom">
-          <ScrollReveal>
-            <div className="text-center mb-12 sm:mb-16">
-              <span className="text-primary text-xs sm:text-sm font-medium uppercase tracking-wider">
-                FAQs
-              </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mt-4">
-                Frequently Asked <span className="text-gradient-gold">Questions</span>
-              </h2>
-            </div>
-          </ScrollReveal>
-
-          <StaggerContainer className="max-w-3xl mx-auto space-y-4">
-            {faqs.map((faq, index) => (
-              <StaggerItem key={index}>
-                <motion.div
-                  className="p-6 bg-card border border-border rounded-xl hover:border-primary/50 transition-all duration-300"
-                  whileHover={{ scale: 1.01 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <h3 className="text-base sm:text-lg font-display font-semibold mb-3">{faq.question}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{faq.answer}</p>
-                </motion.div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
+      {/* --- REPLACED FAQ SECTION HERE --- */}
+      <FAQSection data={sangeetFAQs} title="Sangeet Hosting FAQs" />
 
       {/* CTA */}
       <section className="section-padding bg-card border-y border-border">
