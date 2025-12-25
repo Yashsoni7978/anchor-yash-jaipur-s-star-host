@@ -5,13 +5,15 @@ interface SEOProps {
   description: string;
   canonical?: string;
   keywords?: string;
+  image?: string; // Added support for custom images per page
 }
 
-export const SEO = ({ title, description, canonical, keywords }: SEOProps) => {
+export const SEO = ({ title, description, canonical, keywords, image }: SEOProps) => {
   const siteUrl = 'https://yashsoni.in';
-  
-  // ✅ FIXED: Added backticks for the template literal
   const fullUrl = canonical ? `${siteUrl}${canonical}` : siteUrl;
+  
+  // Default to a main image if a specific page doesn't provide one
+  const metaImage = image ? `${siteUrl}${image}` : `${siteUrl}/og-image.jpg`;
 
   // 🔧 TYPE FIX: Cast Helmet to 'any' to stop TypeScript complaints
   const HelmetWrapper = Helmet as any;
@@ -29,6 +31,7 @@ export const SEO = ({ title, description, canonical, keywords }: SEOProps) => {
       <meta property="og:url" content={fullUrl} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
+      <meta property="og:image" content={metaImage} /> {/* This enables the WhatsApp preview */}
       <meta property="og:site_name" content="Anchor Yash Soni" />
       <meta property="og:locale" content="en_IN" />
 
@@ -36,6 +39,7 @@ export const SEO = ({ title, description, canonical, keywords }: SEOProps) => {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={metaImage} />
       
       {/* Geo-Targeting for Jaipur/Rajasthan (CRITICAL FOR LOCAL SEO) */}
       <meta name="geo.region" content="IN-RJ" />
