@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
 import { SEO } from "@/components/SEO";
+import { FAQSection } from "@/components/FAQSection"; // IMPORT FAQ COMPONENT
 
 const gameServices = [
   {
@@ -56,23 +57,56 @@ const gameTypes = [
   },
 ];
 
-const faqs = [
+// --- 12 GAME SHOW HOST FAQs ---
+const gameShowFAQs = [
+  {
+    question: "What makes Anchor Yash the best Game Show Host in Jaipur?",
+    answer: "It's all about Energy and Connection. I don't just read questions; I turn every activity into a TV-style spectacle. With 1100+ events, I know exactly how to read a room and keep excitement levels peaking."
+  },
+  {
+    question: "What types of Team Building activities do you conduct?",
+    answer: "I specialize in a mix of physical, mental, and creative games. This includes 'Minute to Win It' challenges, Office Olympics, Scavenger Hunts, and collaborative puzzles designed to improve team communication."
+  },
   {
     question: "Do you bring the props and music for the games?",
-    answer: "I usually coordinate with the event planner for major setups. However, for simple team-building games, I can provide the concept and list of requirements. I always carry my own collection of high-energy music tracks for the DJ.",
+    answer: "Yes! I bring my own curated playlist of high-energy music. For props, I can either bring my own standard kit or provide a list of simple requirements for your team to arrange, depending on the scale."
   },
   {
     question: "Can you handle a crowd that is shy or hesitant?",
-    answer: "That is my specialty! I never force anyone. I start with low-pressure 'Ice Breakers' that get people smiling. Once the comfort level rises, even the most reserved employees end up volunteering for the stage.",
+    answer: "That is my specialty! I never force anyone. I start with low-pressure 'Ice Breakers' that get people smiling. Once the comfort level rises, even the most reserved employees end up volunteering for the stage."
   },
   {
     question: "Is this suitable for senior management and CEOs?",
-    answer: "Absolutely. I design activities that are respectful and 'rank-neutral'. I ensure the humor is clean, professional, and inclusive, so everyone from interns to the CEO can participate comfortably.",
+    answer: "Absolutely. I design activities that are respectful and 'rank-neutral'. I ensure the humor is clean, professional, and inclusive, so everyone from interns to the CEO can participate comfortably."
   },
   {
     question: "How long is a typical game show session?",
-    answer: "A standard energetic session lasts between 45 minutes to 90 minutes. This is the sweet spot to keep energy high without exhausting the attendees.",
+    answer: "A standard energetic session lasts between 45 minutes to 90 minutes. This is the sweet spot to keep energy high without exhausting the attendees before their next session."
   },
+  {
+    question: "Can you customize games based on our company brand?",
+    answer: "Yes! We can weave your brand values, product names, or company trivia into the quizzes and games to make the event feel personalized and relevant."
+  },
+  {
+    question: "Do you host 'Family Day' events for corporates?",
+    answer: "Yes, I love Family Days! I conduct games that involve employees, their spouses, and children, ensuring a wholesome and fun family atmosphere."
+  },
+  {
+    question: "Can you handle large groups of 500+ employees?",
+    answer: "Easily. For large crowds, I use 'Mass Participation' games where everyone plays from their seats (like Tambola, Simon Says, or Crowd Trivia) so nobody feels left out."
+  },
+  {
+    question: "Do you offer indoor and outdoor team building options?",
+    answer: "Yes, I am flexible. I can run desk-friendly games inside a conference room or full-scale physical activities in a resort lawn or outdoor arena."
+  },
+  {
+    question: "What languages do you host in?",
+    answer: "I am fluent in English and Hindi. I switch dialects seamlessly to match the crowd's vibe, ensuring clear communication and maximum humor."
+  },
+  {
+    question: "Do you help with prize ideas for winners?",
+    answer: "Definitely. I can suggest creative and budget-friendly prize ideas that employees actually want, adding an extra layer of motivation to the games."
+  }
 ];
 
 export default function GameShowHost() {
@@ -246,34 +280,11 @@ export default function GameShowHost() {
         </div>
       </section>
 
-      {/* FAQs */}
-      <section className="section-padding bg-card border-y border-border">
-        <div className="container-custom">
-          <ScrollReveal>
-            <div className="text-center mb-12 sm:mb-16">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mt-4">
-                Host <span className="text-gradient-gold">FAQs</span>
-              </h2>
-            </div>
-          </ScrollReveal>
-
-          <StaggerContainer className="max-w-3xl mx-auto space-y-4">
-            {faqs.map((faq, index) => (
-              <StaggerItem key={index}>
-                <motion.div
-                  className="p-6 bg-background border border-border rounded-xl hover:border-primary/50 transition-all duration-300"
-                >
-                  <h3 className="text-base sm:text-lg font-display font-semibold mb-3">{faq.question}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{faq.answer}</p>
-                </motion.div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
+      {/* --- REPLACED FAQ SECTION HERE --- */}
+      <FAQSection data={gameShowFAQs} title="Game Show Host FAQs" />
 
       {/* CTA */}
-      <section className="section-padding">
+      <section className="section-padding bg-card border-y border-border">
         <div className="container-custom">
           <ScrollReveal>
             <div className="max-w-3xl mx-auto text-center">
@@ -287,6 +298,12 @@ export default function GameShowHost() {
                     <ChevronRight className="w-5 h-5" />
                   </Button>
                 </Link>
+                <a href="https://wa.me/917737877978" target="_blank" rel="noopener noreferrer">
+                    <Button variant="heroOutline" size="lg">
+                        <MessageCircle className="w-5 h-5" />
+                        WhatsApp
+                    </Button>
+                </a>
               </div>
             </div>
           </ScrollReveal>
