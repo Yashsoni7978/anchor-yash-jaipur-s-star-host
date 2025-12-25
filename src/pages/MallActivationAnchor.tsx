@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
 import { SEO } from "@/components/SEO";
+import { FAQSection } from "@/components/FAQSection"; // IMPORT FAQ COMPONENT
 
 const mallServices = [
   {
@@ -56,23 +57,56 @@ const activationTypes = [
   },
 ];
 
-const faqs = [
+// --- 12 MALL ACTIVATION FAQs ---
+const mallActivationFAQs = [
   {
     question: "How do you stop people walking by in a busy mall?",
-    answer: "Voice modulation and energy are key. I use catchy hooks, direct interaction ('Sir in the blue shirt!'), and instant gratification (small gifts/chocolates) to build an initial crowd circle. Once a crowd forms, the 'FOMO' effect attracts even more people.",
+    answer: "Voice modulation and energy are key. I use catchy hooks, direct interaction ('Sir in the blue shirt!'), and instant gratification (small gifts/chocolates) to build an initial crowd circle. Once a crowd forms, the 'FOMO' effect attracts even more people."
   },
   {
     question: "Can you memorize brand USPs for the pitch?",
-    answer: "Yes, that is essential. Before the event, I study the product's key selling points. I weave these USPs into the games and announcements so the audience learns about the product without feeling like they are watching a boring ad.",
+    answer: "Yes, that is essential. Before the event, I study the product's key selling points. I weave these USPs into the games and announcements so the audience learns about the product without feeling like they are watching a boring ad."
   },
   {
     question: "Do you have experience with Jaipur crowds?",
-    answer: "I have anchored at World Trade Park (WTP), GT, Triton, and Pink Square. I understand the Jaipur audience—what jokes work, what language they prefer (Hindi/English mix), and what prizes excite them.",
+    answer: "I have anchored at World Trade Park (WTP), GT Central, Triton, and Pink Square. I understand the Jaipur audience—what jokes work, what language they prefer (Hindi/English mix), and what prizes excite them."
   },
   {
     question: "How long can you anchor continuously?",
-    answer: "Mall activations are marathons. I have the stamina to host multiple 45-minute sets throughout the day with consistent high energy, ensuring the evening peak hours get the best performance.",
+    answer: "Mall activations are marathons. I have the stamina to host multiple 45-minute sets throughout the day with consistent high energy, ensuring the evening peak hours get the best performance."
   },
+  {
+    question: "Do you host outdoor Roadshows and Canter activities?",
+    answer: "Yes! I am experienced in hosting roadshows on mobile vans (canters). I know how to grab attention in residential colonies and markets using high-volume interaction and music."
+  },
+  {
+    question: "Can you handle Celebrity Management during launches?",
+    answer: "Absolutely. I specialize in 'Warm-up' sessions to hype the crowd before the celebrity arrives and manage the stage flow during the celebrity interaction to ensure safety and excitement."
+  },
+  {
+    question: "Do you bring your own mic or sound system?",
+    answer: "Usually, the event production team provides the sound setup. However, for small roadshows, I can connect you with vendors who provide portable PA systems and mics."
+  },
+  {
+    question: "What kind of games do you play for crowd engagement?",
+    answer: "I play quick, high-energy games like 'Tongue Twisters', 'Biggest Fan Quiz', 'Dance Freeze', and 'Price is Right' to keep the crowd engaged without taking too much time."
+  },
+  {
+    question: "Can you execute a Flash Mob event?",
+    answer: "Yes, I can coordinate with dance troops to execute a surprise Flash Mob, stepping in immediately after the performance to convert the gathered crowd into potential customers."
+  },
+  {
+    question: "Do you work on weekdays or just weekends?",
+    answer: "I am available for both. While weekends see higher footfall, weekday activations are great for targeted interactions. I adjust my energy and strategy based on the crowd density."
+  },
+  {
+    question: "How do you handle unruly crowds?",
+    answer: "Safety is priority. I use humor and authoritative stage presence to manage enthusiastic crowds politely. I work closely with security to ensure giveaways happen in an orderly queue."
+  },
+  {
+    question: "Do you help with scriptwriting for the promotion?",
+    answer: "Yes, I can help refine your brand script to make it sound more conversational and punchy for a live audience, ensuring your call-to-action (CTA) gets results."
+  }
 ];
 
 export default function MallActivationAnchor() {
@@ -246,31 +280,8 @@ export default function MallActivationAnchor() {
         </div>
       </section>
 
-      {/* FAQs */}
-      <section className="section-padding bg-card border-y border-border">
-        <div className="container-custom">
-          <ScrollReveal>
-            <div className="text-center mb-12 sm:mb-16">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mt-4">
-                Promotion <span className="text-gradient-gold">FAQs</span>
-              </h2>
-            </div>
-          </ScrollReveal>
-
-          <StaggerContainer className="max-w-3xl mx-auto space-y-4">
-            {faqs.map((faq, index) => (
-              <StaggerItem key={index}>
-                <motion.div
-                  className="p-6 bg-background border border-border rounded-xl hover:border-primary/50 transition-all duration-300"
-                >
-                  <h3 className="text-base sm:text-lg font-display font-semibold mb-3">{faq.question}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{faq.answer}</p>
-                </motion.div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
+      {/* --- ADDED FAQ SECTION HERE --- */}
+      <FAQSection data={mallActivationFAQs} title="Promotional FAQs" />
 
       {/* CTA */}
       <section className="section-padding">
