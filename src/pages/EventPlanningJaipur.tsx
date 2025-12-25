@@ -4,7 +4,8 @@ import { ChevronRight, MessageCircle, CheckCircle, Calendar, Users, Lightbulb, T
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
-import { SEO } from "@/components/SEO"; // Switched to Smart SEO Component
+import { SEO } from "@/components/SEO"; 
+import { FAQSection } from "@/components/FAQSection"; // IMPORT FAQ COMPONENT
 
 const planningServices = [
   {
@@ -29,7 +30,8 @@ const planningServices = [
   },
 ];
 
-const faqs = [
+// --- 12 EVENT PLANNING FAQs ---
+const planningFAQs = [
   {
     question: "What event planning services do you offer in Jaipur?",
     answer: "We offer comprehensive event planning services including wedding planning, corporate event planning, social gatherings, and destination events. Our services cover everything from initial concept development to vendor coordination and timeline management.",
@@ -44,7 +46,7 @@ const faqs = [
   },
   {
     question: "What is the difference between event planning and event management?",
-    answer: "Event planning focuses on the pre-event phase including concept development, budgeting, vendor selection, and logistics coordination. Event management covers the actual execution and on-ground coordination during the event itself.",
+    answer: "Event planning focuses on the pre-event phase including concept development, budgeting, vendor selection, and logistics coordination. Event management covers the actual execution and on-ground coordination during the event itself. We provide both.",
   },
   {
     question: "Can you work within my budget for event planning?",
@@ -54,6 +56,30 @@ const faqs = [
     question: "What makes your event planning approach unique?",
     answer: "We combine personal attention with professional execution. Unlike large agencies, you work directly with the lead coordinator who understands your vision. Our local Jaipur expertise and curated vendor relationships ensure quality at every touchpoint.",
   },
+  {
+    question: "Do you help with venue selection and booking?",
+    answer: "Yes, venue sourcing is a key part of our service. We recommend venues based on your capacity, style, and budget, negotiate the best rates, and handle the booking contracts on your behalf."
+  },
+  {
+    question: "Do you offer 'Partial Planning' services?",
+    answer: "Yes! If you have already booked a venue and some vendors but need help pulling it all together, we offer Partial Planning and 'Month-of Coordination' packages to ensure a smooth finish."
+  },
+  {
+    question: "How do you handle guest hospitality?",
+    answer: "For out-of-town guests, we manage the entire RSVP process, hotel room block bookings, airport transfers, and welcome hamper distribution to ensure they feel like royalty."
+  },
+  {
+    question: "Do you charge a consultation fee?",
+    answer: "Our initial consultation is completely free. We discuss your vision and requirements to see if we are a good fit before you commit to any payments."
+  },
+  {
+    question: "Can you provide a specific theme for my event?",
+    answer: "Yes, we love creative challenges! Whether it's a Bollywood Sangeet, a Vintage Garden Party, or a Corporate Tech Summit, we create mood boards and designs tailored to your specific theme."
+  },
+  {
+    question: "How do we secure your services?",
+    answer: "Simply contact us via WhatsApp or the booking form. We will set up a meeting, provide a customized proposal, and once the contract is signed and a retainer is paid, we start planning immediately."
+  }
 ];
 
 export default function EventPlanningJaipur() {
@@ -80,7 +106,6 @@ export default function EventPlanningJaipur() {
 
   return (
     <Layout>
-      {/* Smart SEO Component */}
       <SEO 
         title="Event Planning Services in Jaipur | Wedding & Corporate Event Planner"
         description="Professional event planning services in Jaipur. Expert wedding planning, corporate event planning, and destination event coordination across Rajasthan. Personal attention, curated vendors."
@@ -88,7 +113,6 @@ export default function EventPlanningJaipur() {
         canonical="/event-planning-jaipur"
       />
       
-      {/* Schema Injection */}
       <script type="application/ld+json">
         {JSON.stringify(schemaData)}
       </script>
@@ -294,39 +318,11 @@ export default function EventPlanningJaipur() {
         </div>
       </section>
 
-      {/* FAQs */}
-      <section className="section-padding bg-card border-y border-border">
-        <div className="container-custom">
-          <ScrollReveal>
-            <div className="text-center mb-12 sm:mb-16">
-              <span className="text-primary text-xs sm:text-sm font-medium uppercase tracking-wider">
-                FAQs
-              </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mt-4">
-                Frequently Asked <span className="text-gradient-gold">Questions</span>
-              </h2>
-            </div>
-          </ScrollReveal>
-
-          <StaggerContainer className="max-w-3xl mx-auto space-y-4">
-            {faqs.map((faq, index) => (
-              <StaggerItem key={index}>
-                <motion.div
-                  className="p-6 bg-background border border-border rounded-xl hover:border-primary/50 transition-all duration-300"
-                  whileHover={{ scale: 1.01 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <h3 className="text-base sm:text-lg font-display font-semibold mb-3">{faq.question}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{faq.answer}</p>
-                </motion.div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
+      {/* --- REPLACED FAQ SECTION HERE --- */}
+      <FAQSection data={planningFAQs} title="Event Planning FAQs" />
 
       {/* CTA */}
-      <section className="section-padding">
+      <section className="section-padding bg-card border-y border-border">
         <div className="container-custom">
           <ScrollReveal>
             <div className="max-w-3xl mx-auto text-center">
