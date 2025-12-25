@@ -4,7 +4,8 @@ import { ChevronRight, MessageCircle, Briefcase, Award, Users, Target, Phone, St
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
-import { SEO } from "@/components/SEO"; // Switched to our Smart SEO Component
+import { SEO } from "@/components/SEO";
+import { FAQSection } from "@/components/FAQSection"; // IMPORT THE NEW COMPONENT
 
 const corporateServices = [
   {
@@ -61,27 +62,56 @@ const clients = [
   "Real Estate", "Education", "Retail", "Pharmaceuticals", "Startups"
 ];
 
-const faqs = [
+// --- 12 CORPORATE SEO FAQs ---
+const corporateFAQs = [
   {
-    question: "What makes corporate event anchoring different from wedding anchoring?",
-    answer: "Corporate anchoring requires a more formal approach with precise timing, professional vocabulary, and understanding of business etiquette. The energy is controlled and purposeful, focusing on brand messaging, agenda adherence, and audience engagement within professional boundaries. I adapt my style based on the corporate culture and event objectives.",
+    question: "Have you hosted formal Corporate Award Nights?",
+    answer: "Yes, I have hosted over 100+ formal events including R&R Awards, CEO Summits, and Government conclaves. I maintain strict professional decorum and stage etiquette."
   },
   {
-    question: "Can you anchor technical conferences and industry-specific events?",
-    answer: "Yes, I prepare thoroughly for industry-specific events by understanding the sector terminology, key topics, and audience expectations. For technical conferences, I work closely with organizers to ensure accurate pronunciation, context-appropriate introductions, and smooth coordination with technical presentations.",
+    question: "Can you conduct Team Building activities?",
+    answer: "I am a specialist Game Show Host. I conduct energy-boosting ice-breakers and team-building challenges that improve employee morale and collaboration."
   },
   {
-    question: "Do you handle both formal and informal corporate events?",
-    answer: "Absolutely. My anchoring style adapts from boardroom-formal AGMs to energetic team outings. For R&R events and corporate celebrations, I bring entertainment elements while maintaining professionalism. For serious business events, the approach is polished and precise.",
+    question: "Do you require a script from the company?",
+    answer: "I am flexible. I can strictly follow your corporate script for compliance, or I can provide professional improvisation if you want a more natural flow."
   },
   {
-    question: "What languages do you anchor corporate events in?",
-    answer: "I anchor primarily in English and Hindi, with the ability to seamlessly switch between both based on audience composition. For Jaipur-based corporates with diverse teams, bilingual anchoring ensures maximum engagement across all attendees.",
+    question: "How do you handle VIPs and Dignitaries on stage?",
+    answer: "I have extensive experience managing VIP protocol, ensuring correct names, titles, and order of precedence are followed during lamp lighting and speeches."
   },
   {
-    question: "How do you handle last-minute changes during corporate events?",
-    answer: "Corporate events often have dynamic agendas. I maintain constant communication with event managers, stay prepared with backup talking points, and can smoothly handle speaker changes, timing adjustments, or agenda modifications without disrupting the event flow.",
+    question: "Can you host Product Launches in Jaipur?",
+    answer: "Yes, I host Product Launches for automobiles, tech, and FMCG brands, ensuring the product reveal is high-energy and impactful."
   },
+  {
+    question: "Do you host Mall Activations and Roadshows?",
+    answer: "Yes, I am known for my high energy in Mall Activations (Malls in Jaipur/Delhi) to gather crowds and drive customer engagement for brands."
+  },
+  {
+    question: "What attire do you wear for corporate events?",
+    answer: "I adhere to strict grooming standards. I wear formal Tuxedos or Suits for galas, and smart casuals for team-building offsites, matching your brand image."
+  },
+  {
+    question: "Can you anchor in fluent English for international delegates?",
+    answer: "Yes, I am fluent in global-standard English and can easily host events with international delegates and expats."
+  },
+  {
+    question: "Do you raise a GST invoice for corporate billing?",
+    answer: "Yes, we provide proper GST invoices for all corporate bookings to ensure smooth vendor registration and payment processing."
+  },
+  {
+    question: "Can you manage the 'Fun' part after the formal conference?",
+    answer: "Absolutely. I can seamlessly switch roles from a 'Formal Emcee' during the day to a 'Gala Night Host' in the evening to make the party unforgettable."
+  },
+  {
+    question: "Do you host Dealer Meets and distributor conferences?",
+    answer: "Yes, I connect well with dealer networks, mixing business talk with engaging entertainment to keep the partners motivated."
+  },
+  {
+    question: "How much experience do you have with Corporate Events?",
+    answer: "I have worked with top brands like Tata, Reliance, and government bodies, delivering over 300+ successful corporate shows."
+  }
 ];
 
 export default function CorporateEventAnchorJaipur() {
@@ -164,9 +194,6 @@ export default function CorporateEventAnchorJaipur() {
                 </p>
                 <p>
                   With experience hosting over 70 corporate clients across industries—from IT giants to manufacturing leaders, hospitality brands to financial institutions—I bring a refined approach to business event hosting. Whether it's a high-stakes product launch, an annual conference for 500+ attendees, or an intimate leadership summit, the anchoring adapts to reflect your brand's values and event objectives.
-                </p>
-                <p>
-                  Jaipur has become a preferred destination for corporate offsites, conferences, and R&R events. The city's heritage venues, luxury resorts, and modern conference facilities require anchors who can match the setting with appropriate sophistication while ensuring every moment serves the event's purpose.
                 </p>
               </div>
             </div>
@@ -310,36 +337,8 @@ export default function CorporateEventAnchorJaipur() {
         </div>
       </section>
 
-      {/* FAQs */}
-      <section className="section-padding">
-        <div className="container-custom">
-          <ScrollReveal>
-            <div className="text-center mb-12 sm:mb-16">
-              <span className="text-primary text-xs sm:text-sm font-medium uppercase tracking-wider">
-                FAQs
-              </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mt-4">
-                Frequently Asked <span className="text-gradient-gold">Questions</span>
-              </h2>
-            </div>
-          </ScrollReveal>
-
-          <StaggerContainer className="max-w-3xl mx-auto space-y-4">
-            {faqs.map((faq, index) => (
-              <StaggerItem key={index}>
-                <motion.div
-                  className="p-6 bg-card border border-border rounded-xl hover:border-primary/50 transition-all duration-300"
-                  whileHover={{ scale: 1.01 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <h3 className="text-base sm:text-lg font-display font-semibold mb-3">{faq.question}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{faq.answer}</p>
-                </motion.div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
+      {/* --- REPLACED FAQ SECTION --- */}
+      <FAQSection data={corporateFAQs} title="Corporate Event FAQs" />
 
       {/* CTA */}
       <section className="section-padding bg-card border-y border-border">
