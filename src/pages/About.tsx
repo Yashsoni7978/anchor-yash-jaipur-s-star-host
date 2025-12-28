@@ -41,7 +41,7 @@ export default function About() {
       "alternateName": "Yash Soni",
       "identifier": "anchor-yash-jaipur",
       "jobTitle": "Event Anchor",
-      "image": "https://yashsoni.in/assets/anchor-portrait.jpg",
+      "image": "https://yashsoni.in/assets/anchor-portrait.webp",
       "description": "Professional Event Anchor in Jaipur with 1100+ shows hosted. Specializes in weddings, corporate events, and sangeet nights.",
       "address": {
         "@type": "PostalAddress",
