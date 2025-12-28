@@ -48,6 +48,7 @@ const FooterSection = ({ title, links }: { title: string; links: { name: string;
       <button 
         onClick={() => isMobile && setIsOpen(!isOpen)} 
         className={`flex items-center justify-between w-full group ${isMobile ? 'cursor-pointer' : 'cursor-default'}`}
+        aria-expanded={isOpen} // Accessibility Tip: Tells screen readers if menu is open
       >
         <h4 className="text-lg font-display font-semibold text-foreground lg:mb-6">
           {title}
@@ -59,7 +60,7 @@ const FooterSection = ({ title, links }: { title: string; links: { name: string;
       </button>
 
       {/* LIST: Collapsible on Mobile, Always Visible on Desktop */}
-      <ul className={`space-y-3 overflow-hidden transition-all duration-300 ease-in-out 
+      <ul className={`space-y-2 overflow-hidden transition-all duration-300 ease-in-out 
         ${isMobile 
           ? (isOpen ? "max-h-96 opacity-100 mt-4" : "max-h-0 opacity-0") 
           : "max-h-full opacity-100 block" // Always show on desktop
@@ -69,7 +70,7 @@ const FooterSection = ({ title, links }: { title: string; links: { name: string;
           <li key={link.name}>
             <Link
               to={link.path}
-              className="block text-muted-foreground hover:text-primary transition-colors duration-300 text-sm"
+              className="block py-1.5 text-muted-foreground hover:text-primary transition-colors duration-300 text-sm" // Added py-1.5 for touch targets
             >
               {link.name}
             </Link>
@@ -90,7 +91,7 @@ export const Footer = () => {
           
           {/* COLUMN 1: BRAND INFO (Takes 4 columns width) */}
           <div className="lg:col-span-4 space-y-6">
-            <Link to="/" className="inline-block">
+            <Link to="/" className="inline-block" aria-label="Go to Homepage">
               <span className="text-3xl font-display font-bold">
                 <span className="text-gradient-gold">Anchor</span>
                 <span className="text-foreground ml-2">Yash</span>
@@ -101,10 +102,22 @@ export const Footer = () => {
               1100+ successful events and counting.
             </p>
             <div className="flex gap-4">
-              <a href="https://instagram.com/anchor_yash_official" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-all duration-300">
+              <a 
+                href="https://instagram.com/anchor_yash_official" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="Follow Anchor Yash on Instagram" // FIXED: Critical for Accessibility
+                className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-all duration-300"
+              >
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="https://www.youtube.com/@Anchor_Yash" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-all duration-300">
+              <a 
+                href="https://www.youtube.com/@Anchor_Yash" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="Subscribe to Anchor Yash on YouTube" // FIXED: Critical for Accessibility
+                className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:border-primary hover:text-primary transition-all duration-300"
+              >
                 <Youtube className="w-5 h-5" />
               </a>
             </div>
@@ -119,10 +132,10 @@ export const Footer = () => {
             <div className="lg:hidden">
                <FooterSection title="Quick Links" links={quickLinks} />
             </div>
-            <ul className="space-y-3 hidden lg:block">
+            <ul className="space-y-2 hidden lg:block">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.path} className="text-muted-foreground hover:text-primary text-sm transition-colors">
+                  <Link to={link.path} className="text-muted-foreground hover:text-primary text-sm transition-colors block py-1.5">
                     {link.name}
                   </Link>
                 </li>
@@ -146,19 +159,19 @@ export const Footer = () => {
             </h4>
             <ul className="space-y-4">
               <li>
-                <a href="tel:+917737877978" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
+                <a href="tel:+917737877978" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors py-1">
                   <Phone className="w-5 h-5 text-primary shrink-0" />
                   +91 77378 77978
                 </a>
               </li>
               <li>
-                <a href="mailto:yashsoni7978@gmail.com" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
+                <a href="mailto:yashsoni7978@gmail.com" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors py-1">
                   <Mail className="w-5 h-5 text-primary shrink-0" />
                   yashsoni7978@gmail.com
                 </a>
               </li>
               <li>
-                <div className="flex items-start gap-3 text-muted-foreground">
+                <div className="flex items-start gap-3 text-muted-foreground py-1">
                   <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                   <span>Jaipur, Rajasthan, India</span>
                 </div>
@@ -177,8 +190,8 @@ export const Footer = () => {
               © {new Date().getFullYear()} Anchor Yash. All rights reserved.
             </p>
             <div className="flex justify-center gap-6 text-sm">
-              <Link to="/privacy" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</Link>
-              <Link to="/terms" className="text-muted-foreground hover:text-primary transition-colors">Terms of Service</Link>
+              <Link to="/privacy" className="text-muted-foreground hover:text-primary transition-colors py-2">Privacy Policy</Link>
+              <Link to="/terms" className="text-muted-foreground hover:text-primary transition-colors py-2">Terms of Service</Link>
             </div>
           </div>
         </div>
