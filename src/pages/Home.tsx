@@ -8,7 +8,7 @@ import { SEO } from "@/components/SEO";
 import { FAQSection } from "@/components/FAQSection"; // Import the Aesthetic FAQ Component
 
 // --- Asset Imports ---
-import heroImage from "@/assets/hero-anchor.jpg";
+import heroImage from "@/assets/hero-anchor.webp";
 import weddingImage from "@/assets/wedding-event.jpg";
 import corporateImage from "@/assets/corporate-event.jpg";
 import fashionImage from "@/assets/fashion-show.jpg";
