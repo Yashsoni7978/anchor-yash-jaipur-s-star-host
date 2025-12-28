@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal, StaggerContainer, StaggerItem } from "@/components/animations/ScrollReveal";
 import { SEO } from "@/components/SEO"; // Added Smart SEO
-import portraitImage from "@/assets/anchor-portrait.jpg";
+import portraitImage from "@/assets/anchor-portrait.webp";
 import weddingImage from "@/assets/wedding-event.jpg";
 import corporateImage from "@/assets/corporate-event.jpg";
 
